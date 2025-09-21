@@ -279,5 +279,38 @@
     </div>
 
     <script src="script.js"></script>
+    <!-- Это будет твоя "админка" -->
+<div id="simple-admin" style="display: none; position: fixed; top: 10px; right: 10px; background: #222; padding: 15px; z-index: 9999; border: 2px solid red;">
+    <h3 style="margin-top: 0; color: white;">👑 Быстрое редактирование</h3>
+    <button onclick="location.reload()">Обновить страницу</button>
+    <button onclick="showTools()">Показать инструменты</button>
+    <button onclick="editTranslations()">Править переводы</button>
+    <div id="admin-content"></div>
+</div>
+
+<script>
+// Показываем админку только если зажать клавишу 'A'
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'a' && e.altKey) { // Alt + A
+        document.getElementById('simple-admin').style.display = 'block';
+    }
+});
+
+// Функции для редактирования
+function showTools() {
+    const content = document.getElementById('admin-content');
+    content.innerHTML = '<h4>Инструменты:</h4>' + 
+        JSON.stringify(tools, null, 2)
+            .replace(/\n/g, '<br>')
+            .replace(/ /g, '&nbsp;');
+}
+
+function editTranslations() {
+    const content = document.getElementById('admin-content');
+    content.innerHTML = '<h4>Переводы:</h4>' +
+        '<p>Просто правишь их в script.js и обновляешь страницу</p>' +
+        '<button onclick="location.reload()">Обновить сейчас</button>';
+}
+</script>
 </body>
 </html>
