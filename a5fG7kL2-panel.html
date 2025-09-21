@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow"> <!-- 🚫 Не индексировать! -->
+    <meta name="robots" content="noindex, nofollow">
     <title>Access Denied</title>
     <style>
         body {
@@ -59,9 +59,7 @@
     </div>
 
     <script>
-        // ⚠️ ЗАМЕНИ ЭТОТ ХЕШ НА СВОЙ ПАРОЛЬ!
-        // Сгенерируй здесь: https://www.md5online.org/
-        const ADMIN_PASSWORD_HASH = "7fc9d56d4db15400f668a916bc4c27de"; // md5 от "admin123"
+        const ADMIN_PASSWORD_HASH = "7fc9d56d4db15400f668a916bc4c27de";
 
         function simpleHash(str) {
             let hash = 0;
@@ -103,7 +101,6 @@
                     </ul>
                 </div>
             `;
-            // Здесь будет логика редактирования — по вашему запросу
         }
 
         function logout() {
@@ -111,7 +108,6 @@
             location.reload();
         }
 
-        // Проверка сессии каждую минуту
         setInterval(() => {
             const session = localStorage.getItem('adminSession');
             if (session && (Date.now() - session) > 30 * 60 * 1000) {
