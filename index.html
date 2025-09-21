@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Лучшие инструменты для Minecraft: калькуляторы, генераторы, конвертеры. Помогут в строительстве, фарме, исследовании мира и не только!">
+    <meta name="keywords" content="minecraft, инструменты, калькулятор, генератор, seed, координаты, опыт, броня, криперы, редстоун, ферма, строительство">
+    <meta name="author" content="Minecraft Tools Hub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.com/">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="icon/icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/icon.png">
+    <link rel="shortcut icon" href="icon/icon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Minecraft Tools Hub — Инструменты для строителей и исследователей">
+    <meta property="og:description" content="Генераторы, калькуляторы и конвертеры для Minecraft. Помогут в любом приключении!">
+    <meta property="og:image" content="https://yourdomain.com/icon/icon.png">
+    <meta property="og:site_name" content="Minecraft Tools Hub">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://yourdomain.com/">
+    <meta name="twitter:title" content="Minecraft Tools Hub — Инструменты для строителей и исследователей">
+    <meta name="twitter:description" content="Генераторы, калькуляторы и конвертеры для Minecraft. Помогут в любом приключении!">
+    <meta name="twitter:image" content="https://yourdomain.com/icon/icon.png">
+    <meta name="twitter:site" content="@YourMinecraftHub">
+
+    <!-- Schema.org (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Minecraft Tools Hub",
+      "url": "https://yourdomain.com/",
+      "description": "Набор полезных инструментов для игроков Minecraft: калькуляторы, генераторы, планировщики.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://yourdomain.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <title>Minecraft Tools Hub — Инструменты для строителей и исследователей</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛠️ Minecraft Tools Hub</h1>
+            <p>Все необходимые инструменты для твоего приключения в Minecraft</p>
+        </header>
+
+        <div class="tools-grid">
+
+            <!-- Инструмент 1: Калькулятор блоков для дома -->
+            <div class="tool-card">
+                <h3>🏠 Калькулятор блоков для дома</h3>
+                <p>Рассчитай, сколько блоков нужно для постройки дома.</p>
+                <input type="number" id="length" placeholder="Длина (блоков)">
+                <input type="number" id="width" placeholder="Ширина (блоков)">
+                <input type="number" id="height" placeholder="Высота (блоков)">
+                <button onclick="calculateBlocks()">Рассчитать</button>
+                <div id="result-blocks" class="result" style="display:none;"></div>
+            </div>
+
+            <!-- Инструмент 2: Генератор координат -->
+            <div class="tool-card">
+                <h3>🌍 Генератор случайных координат</h3>
+                <p>Получи случайные координаты для телепортации.</p>
+                <button onclick="generateCoords()">Сгенерировать</button>
+                <div id="result-coords" class="result" style="display:none;"></div>
+            </div>
+
+            <!-- Инструмент 3: Конвертер игрового времени -->
+            <div class="tool-card">
+                <h3>⏳ Конвертер игрового времени</h3>
+                <p>Конвертируй минуты в игровые дни и обратно.</p>
+                <input type="number" id="game-minutes" placeholder="Минут (игровых)">
+                <button onclick="convertGameTime()">Конвертировать</button>
+                <div id="result-time" class="result" style="display:none;"></div>
+            </div>
+
+            <!-- Инструмент 4: Калькулятор опыта -->
+            <div class="tool-card">
+                <h3>✨ Калькулятор опыта</h3>
+                <p>Сколько уровней даст тебе N опыта?</p>
+                <input type="number" id="xp-amount" placeholder="Количество опыта">
+                <button onclick="calculateXP()">Рассчитать</button>
+                <div id="result-xp" class="result" style="display:none;"></div>
+            </div>
+
+            <!-- Инструмент 5: Генератор названий для предметов -->
+            <div class="tool-card">
+                <h3>🏷️ Генератор названий предметов</h3>
+                <p>Создай крутые названия для своих предметов!</p>
+                <button onclick="generateItemName()">Сгенерировать</button>
+                <div id="result-itemname" class="result" style="display:none;"></div>
+            </div>
+
+            <!-- Инструмент 6: Калькулятор фермы криперов -->
+            <div class="tool-card">
+                <h3>💥 Калькулятор фермы криперов</h3>
+                <p>Сколько криперов нужно убить для N пороха?</p>
+                <input type="number" id="gunpowder-needed" placeholder="Нужно пороха">
+                <button onclick="calculateCreepers()">Рассчитать</button>
+                <div id="result-creepers" class="result" style="display:none;"></div>
+            </div>
+
+            <!-- Инструмент 7: Генератор seed -->
+            <div class="tool-card">
+                <h3>🌱 Генератор случайного seed</h3>
+                <p>Получи случайный seed для нового мира.</p>
+                <button onclick="generateSeed()">Сгенерировать</button>
+                <div id="result-seed" class="result" style="display:none;"></div>
+            </div>
+
+            <!-- Инструмент 8: Калькулятор брони -->
+            <div class="tool-card">
+                <h3>🛡️ Калькулятор прочности брони</h3>
+                <p>Сколько ударов выдержит броня?</p>
+                <select id="armor-type">
+                    <option value="leather">Кожаная (55)</option>
+                    <option value="iron">Железная (165)</option>
+                    <option value="diamond">Алмазная (363)</option>
+                    <option value="netherite">Незеритовая (407)</option>
+                </select>
+                <input type="number" id="damage-per-hit" placeholder="Урон за удар (например, 2)">
+                <button onclick="calculateArmorDurability()">Рассчитать</button>
+                <div id="result-armor" class="result" style="display:none;"></div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>
+                <a href="index.html">Главная</a> |
+                <a href="faq.html">F.A.Q.</a> |
+                <a href="bot.html">Бот-помощник</a> |
+                <a href="tos.html">Условия использования</a> |
+                <a href="privacy.html">Политика конфиденциальности</a>
+            </p>
+            <p>© 2025 Minecraft Tools Hub — Все инструменты для настоящих строителей и исследователей!</p>
+            <p>Создано с ❤️ для игроков Minecraft</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
