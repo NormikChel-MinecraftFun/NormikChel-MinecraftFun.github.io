@@ -1,0 +1,11 @@
+# robots.txt for Minecraft Tools Hub
+# Date: 21.09.2025
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /tmp/
+
+Sitemap: https://normikchel-minecraftfun.github.io/sitemap.xml
+
+# Crawl-delay: 10 (если хочешь замедлить ботов — раскомментируй)
