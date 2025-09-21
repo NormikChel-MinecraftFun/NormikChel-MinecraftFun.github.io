@@ -81,6 +81,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <title>Minecraft Tools Hub — Инструменты для строителей и исследователей</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+    .language-switcher {
+        position: relative;
+        display: inline-block;
+    }
+
+    #lang-toggle {
+        background: #2c3e50;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #lang-toggle:hover {
+        background: #3d566e;
+    }
+
+    #lang-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #34495e;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        z-index: 100;
+        min-width: 140px;
+        overflow: hidden;
+    }
+
+    #lang-dropdown div {
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.2s;
+        user-select: none;
+    }
+
+    #lang-dropdown div:hover {
+        background: #3d566e;
+    }
+
+    #lang-dropdown div:not(:first-child) {
+        border-top: 1px solid #2c3e50;
+    }
+</style>
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->
