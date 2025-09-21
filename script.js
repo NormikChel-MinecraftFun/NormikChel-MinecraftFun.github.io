@@ -501,31 +501,63 @@ function calculateArmorDurability() {
     }
 }
 
-// 🌐 Функция смены языка через селект
-function changeLanguage(lang) {
+// 🌐 Функция установки языка БЕЗ перезагрузки
+function setLanguage(lang) {
+    if (!['en', 'ru'].includes(lang)) return;
+
+    // Сохраняем в localStorage
     localStorage.setItem('language', lang);
 
+    // Обновляем URL без перезагрузки
     const newUrl = new URL(window.location);
     newUrl.searchParams.set('lang', lang);
-    window.location.href = newUrl.toString();
-}
+    window.history.pushState({ lang }, '', newUrl);
 
-// 🌐 Устанавливаем выбранный язык в селекте при загрузке
-function initLanguageSelector() {
-    const lang = getLanguage();
-    const select = document.getElementById('language-select');
-    if (select) {
-        select.value = lang;
-    }
-}
-
-// 🚀 Обновим инициализацию
-document.addEventListener('DOMContentLoaded', () => {
-    const lang = getLanguage();
+    // Применяем переводы
     applyTranslations(lang);
-    initLanguageSelector(); // <-- инициализируем селект
 
-    // Если страница — bot.html, обновим плейсхолдер
+    // Скрываем дропдаун
+    document.getElementById('lang-dropdown').style.display = 'none';
+
+    // Обновляем кнопку
+    const flagSpan = document.getElementById('current-flag');
+    const langSpan = document.getElementById('current-lang');
+    if (flagSpan) flagSpan.textContent = lang === 'en' ? '🇺🇸' : '🇷🇺';
+    if (langSpan) langSpan.textContent = lang === 'en' ? 'English' : 'Русский';
+}
+
+// 🌐 Переключение видимости дропдауна
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('lang-toggle');
+    const dropdown = document.getElementById('lang-dropdown');
+
+    if (toggleBtn && dropdown) {
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Закрыть дропдаун при клике вне его
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && e.target !== toggleBtn) {
+                dropdown.style.display = 'none';
+            }
+        });
+    }
+
+    // Инициализация языка
+    const urlParams = new URLSearchParams(window.location.search);
+    const langFromURL = urlParams.get('lang');
+    const langFromStorage = localStorage.getItem('language');
+    const browserLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
+
+    let lang = langFromURL || langFromStorage || browserLang;
+    if (!['en', 'ru'].includes(lang)) lang = 'ru';
+
+    localStorage.setItem('language', lang);
+    setLanguage(lang); // <-- применяем язык без перезагрузки
+
+    // Для страницы бота — обновляем плейсхолдер
     if (window.location.pathname.includes('bot.html')) {
         const input = document.getElementById('user-question');
         if (input) {
