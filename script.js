@@ -500,3 +500,40 @@ function calculateArmorDurability() {
         alert('Enter damage per hit.' + (getLanguage() === 'ru' ? ' Введите урон за удар.' : ''));
     }
 }
+
+// 🌐 Функция смены языка через селект
+function changeLanguage(lang) {
+    localStorage.setItem('language', lang);
+
+    const newUrl = new URL(window.location);
+    newUrl.searchParams.set('lang', lang);
+    window.location.href = newUrl.toString();
+}
+
+// 🌐 Устанавливаем выбранный язык в селекте при загрузке
+function initLanguageSelector() {
+    const lang = getLanguage();
+    const select = document.getElementById('language-select');
+    if (select) {
+        select.value = lang;
+    }
+}
+
+// 🚀 Обновим инициализацию
+document.addEventListener('DOMContentLoaded', () => {
+    const lang = getLanguage();
+    applyTranslations(lang);
+    initLanguageSelector(); // <-- инициализируем селект
+
+    // Если страница — bot.html, обновим плейсхолдер
+    if (window.location.pathname.includes('bot.html')) {
+        const input = document.getElementById('user-question');
+        if (input) {
+            input.placeholder = translations[lang].bot_placeholder;
+        }
+        const btn = document.querySelector('button[onclick="askBot()"]');
+        if (btn) {
+            btn.textContent = translations[lang].bot_send;
+        }
+    }
+});
