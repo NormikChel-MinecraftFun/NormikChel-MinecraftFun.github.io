@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Admin Panel — Access Denied">
+    <title>Admin Panel — Access Denied</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="icon" type="image/svg+xml" href="icon/icon.svg">
+</head>
+<body>
+    <!-- Страница входа -->
+    <div id="login-screen" class="screen active">
+        <div class="card">
+            <h2>🔐 Admin Access</h2>
+            <p>Enter password to continue</p>
+            <input type="password" id="password-input" placeholder="Password" autocomplete="off">
+            <button onclick="attemptLogin()">Login</button>
+            <div id="login-error" class="error"></div>
+        </div>
+    </div>
+
+    <!-- Главная панель -->
+    <div id="admin-screen" class="screen">
+        <header>
+            <h1>🛠️ Minecraft Tools Admin Panel</h1>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </header>
+        <div class="container">
+            <div class="sidebar">
+                <button onclick="showSection('tools')">Tools</button>
+                <button onclick="showSection('translations')">Translations</button>
+                <button onclick="showSection('content')">Pages (FAQ, ToS)</button>
+                <button onclick="showSection('stats')">Statistics</button>
+                <button onclick="showSection('export')">Export/Import</button>
+            </div>
+            <div class="main-content">
+                <!-- Tools Section -->
+                <div id="tools-section" class="section active">
+                    <h2>🔧 Manage Tools</h2>
+                    <div id="tools-list"></div>
+                    <button onclick="addNewTool()" class="add-btn">+ Add New Tool</button>
+                </div>
+
+                <!-- Translations Section -->
+                <div id="translations-section" class="section">
+                    <h2>🌐 Manage Translations</h2>
+                    <div class="tabs">
+                        <button onclick="switchLangTab('ru')" id="tab-ru">Русский</button>
+                        <button onclick="switchLangTab('en')" id="tab-en">English</button>
+                    </div>
+                    <div id="translations-container"></div>
+                </div>
+
+                <!-- Content Section -->
+                <div id="content-section" class="section">
+                    <h2>📄 Manage Pages</h2>
+                    <select id="page-selector" onchange="loadPageContent()">
+                        <option value="faq">F.A.Q.</option>
+                        <option value="tos">Terms of Service</option>
+                        <option value="privacy">Privacy Policy</option>
+                    </select>
+                    <textarea id="page-content" rows="15"></textarea>
+                    <button onclick="savePageContent()">Save Changes</button>
+                </div>
+
+                <!-- Stats Section -->
+                <div id="stats-section" class="section">
+                    <h2>📊 Statistics</h2>
+                    <div id="stats-display"></div>
+                    <button onclick="clearStats()">Clear Statistics</button>
+                </div>
+
+                <!-- Export/Import Section -->
+                <div id="export-section" class="section">
+                    <h2>💾 Export/Import Configuration</h2>
+                    <button onclick="exportConfig()">Export Config</button>
+                    <input type="file" id="import-file" accept=".json">
+                    <button onclick="importConfig()">Import Config</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
