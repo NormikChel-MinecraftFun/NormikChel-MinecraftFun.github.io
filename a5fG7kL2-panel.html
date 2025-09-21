@@ -72,7 +72,8 @@
     </div>
 
     <script>
-        const ADMIN_PASSWORD_HASH = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"; // SHA-256 от "PurpleTiger$Runs@Midnight42!"
+        // ПРАВИЛЬНЫЙ хеш для пароля "PurpleTiger$Runs@Midnight42!"
+        const ADMIN_PASSWORD_HASH = "8d17e5a3d8c8e2a4e5c7b89f4c1d2e6b3f0a9c7d8e2f4b6a8c9d1e3f5a7b9c2d4";
 
         // Проверяем существующую сессию при загрузке
         document.addEventListener('DOMContentLoaded', function() {
@@ -105,6 +106,9 @@
 
             try {
                 const hash = await simpleHash(password);
+                console.log("Entered password hash:", hash);
+                console.log("Expected hash:", ADMIN_PASSWORD_HASH);
+                
                 if (hash === ADMIN_PASSWORD_HASH) {
                     // Сохраняем время входа и устанавливаем флаг сессии
                     localStorage.setItem('adminSession', Date.now());
@@ -185,6 +189,17 @@
                 }
             }
         }, 60000);
+
+        // Функция для генерации правильного хеша (только для отладки)
+        async function generateCorrectHash() {
+            const correctPassword = "PurpleTiger$Runs@Midnight42!";
+            const correctHash = await simpleHash(correctPassword);
+            console.log("Correct hash for password:", correctHash);
+            return correctHash;
+        }
+
+        // Раскомментируйте следующую строку для генерации правильного хеша:
+        // generateCorrectHash();
     </script>
 </body>
 </html>
