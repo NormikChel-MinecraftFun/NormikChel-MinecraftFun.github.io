@@ -91,10 +91,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <header>
             <h1>🛠️ Minecraft Tools Hub</h1>
             <p>Все необходимые инструменты для твоего приключения в Minecraft</p>
-            <select id="language-select" onchange="changeLanguage(this.value)" style="padding: 8px; border-radius: 5px; background: #2c3e50; color: white; border: none; margin-top: 10px; font-weight: bold;">
-    <option value="ru">Русский</option>
-    <option value="en">English</option>
-</select>
+            <div class="language-switcher" style="position: relative; display: inline-block; margin-top: 10px;">
+    <button id="lang-toggle" style="background: #2c3e50; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+        <span id="current-flag">🇷🇺</span>
+        <span id="current-lang">Русский</span>
+    </button>
+    <div id="lang-dropdown" style="display: none; position: absolute; top: 100%; left: 0; background: #34495e; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); z-index: 100; min-width: 140px; overflow: hidden;">
+        <div onclick="setLanguage('ru')" style="padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background 0.2s; user-select: none;" onmouseenter="this.style.background='#3d566e'" onmouseleave="this.style.background='transparent'">
+            🇷🇺 Русский
+        </div>
+        <div onclick="setLanguage('en')" style="padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background 0.2s; user-select: none; border-top: 1px solid #2c3e50;" onmouseenter="this.style.background='#3d566e'" onmouseleave="this.style.background='transparent'">
+            🇺🇸 English
+        </div>
+    </div>
+</div>
         </header>
 
         <div class="tools-grid">
