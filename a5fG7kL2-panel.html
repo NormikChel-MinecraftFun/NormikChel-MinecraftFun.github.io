@@ -59,30 +59,28 @@
     </div>
 
     <script>
-        const ADMIN_PASSWORD_HASH = "7fc9d56d4db15400f668a916bc4c27de";
 
-        function simpleHash(str) {
-            let hash = 0;
-            for (let i = 0; i < str.length; i++) {
-                const char = str.charCodeAt(i);
-                hash = ((hash << 5) - hash) + char;
-                hash = hash & hash;
-            }
-            return Math.abs(hash).toString(16);
-        }
+const ADMIN_PASSWORD_HASH = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"; // SHA-256 от "PurpleTiger$Runs@Midnight42!"
 
-        function attemptLogin() {
-            const password = document.getElementById('password-input').value;
-            const hash = simpleHash(password);
-            if (hash === ADMIN_PASSWORD_HASH) {
-                localStorage.setItem('adminSession', Date.now());
-                window.location.href = '#admin'; // или перейти на панель управления
-                loadAdminPanel();
-            } else {
-                document.getElementById('login-error').textContent = "Invalid password.";
-                console.log("[ADMIN] Failed login attempt at", new Date().toLocaleString());
-            }
-        }
+async function simpleHash(str) {
+    const buffer = new TextEncoder().encode(str);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function attemptLogin() {
+    const password = document.getElementById('password-input').value;
+    const hash = await simpleHash(password);
+    if (hash === ADMIN_PASSWORD_HASH) {
+        localStorage.setItem('adminSession', Date.now());
+        window.location.href = '#admin';
+        loadAdminPanel();
+    } else {
+        document.getElementById('login-error').textContent = "Invalid password.";
+        console.log("[ADMIN] Failed login attempt at", new Date().toLocaleString());
+    }
+}
 
         function loadAdminPanel() {
             document.querySelector('.login-card').innerHTML = `
