@@ -1,8 +1,9 @@
-// 🌐 Система мультиязычности
+// 🌐 Система мультиязычности с анимацией, SVG-флагами и SEO
 const translations = {
     en: {
         // Главная страница
         title: "Minecraft Tools Hub — Tools for Builders & Explorers",
+        metaDescription: "Best Minecraft tools: calculators, generators, converters. Helps with building, farming, exploring and more!",
         headerSubtitle: "All the tools you need for your Minecraft adventure",
         footerText: "© 2025 Minecraft Tools Hub — All tools for true builders and explorers! Made with ❤️ for Minecraft players",
 
@@ -67,54 +68,14 @@ const translations = {
             default: "Hmm... I’m still learning. Try rephrasing or check F.A.Q. 😊"
         },
 
-        // FAQ
-        faq_title: "❓ Frequently Asked Questions",
-        faq_intro: "Here you'll find answers to the most popular questions",
-        faq_q1: "🔹 What is this site?",
-        faq_a1: "It’s a set of free tools for Minecraft players: calculators, generators, converters — everything to make gameplay easier.",
-        faq_q2: "🔹 Is it safe to use?",
-        faq_a2: "Absolutely! All calculations happen in your browser. We don’t collect or store your data.",
-        faq_q3: "🔹 How do I bookmark the site?",
-        faq_a3: "Press Ctrl+D (Cmd+D on Mac) or use browser menu → “Bookmark this page”.",
-        faq_q4: "🔹 Is there a mobile version?",
-        faq_a4: "Yes! The site is fully responsive — open it on your phone or tablet.",
-        faq_q5: "🔹 Can I suggest a new tool?",
-        faq_a5: "Of course! Write to us via the <a href=\"bot.html\" style=\"color:#1abc9c;\">Helper Bot</a> or email (if we add it later).",
-        faq_q6: "🔹 Why are results sometimes rounded?",
-        faq_a6: "To avoid fractional blocks or creepers 😉 All values are rounded up for safety margin.",
-
-        // ToS
-        tos_title: "📜 Terms of Service",
-        tos_intro: "Please read carefully before using",
-        tos_1_title: "1. General Terms",
-        tos_1_text: "By using this site, you agree to these terms. Service is provided “as is”.",
-        tos_2_title: "2. Liability",
-        tos_2_text: "We are not responsible for damage caused by use or misuse of tools.",
-        tos_3_title: "3. Privacy",
-        tos_3_text: "We do not collect personal data. All calculations occur locally in your browser.",
-        tos_4_title: "4. Copyright",
-        tos_4_text: "Minecraft is a trademark of Mojang Studios. We are not affiliated with Mojang or Microsoft. This is a fan site.",
-        tos_5_title: "5. Changes",
-        tos_5_text: "We may update these terms at any time. Please review periodically.",
-
-        // Privacy
-        privacy_title: "🔒 Privacy Policy",
-        privacy_intro: "Your data is yours. We don’t touch it.",
-        privacy_1_title: "🔸 No Data",
-        privacy_1_text: "We don’t use cookies, analytics, or trackers. Nothing is sent to server — everything runs in your browser.",
-        privacy_2_title: "🔸 Local Calculations",
-        privacy_2_text: "All calculators and generators work locally. Your numbers, coordinates, seeds — no one sees them but you.",
-        privacy_3_title: "🔸 Security",
-        privacy_3_text: "Site requires no registration, stores no history, requests no access to your account or Minecraft world.",
-        privacy_4_title: "🔸 Updates",
-        privacy_4_text: "We may add new features, but will never collect your data without explicit consent (and we won’t ask for it 😉).",
-
-        // Кнопка языка
-        langToggle: "🌐 RU"
+        // Язык
+        langName: "English",
+        flag: "🇺🇸"
     },
     ru: {
         // Главная страница
         title: "Minecraft Tools Hub — Инструменты для строителей и исследователей",
+        metaDescription: "Лучшие инструменты для Minecraft: калькуляторы, генераторы, конвертеры. Помогут в строительстве, фарме, исследовании мира и не только!",
         headerSubtitle: "Все необходимые инструменты для твоего приключения в Minecraft",
         footerText: "© 2025 Minecraft Tools Hub — Все инструменты для настоящих строителей и исследователей! Создано с ❤️ для игроков Minecraft",
 
@@ -179,89 +140,99 @@ const translations = {
             default: "Хм... Я ещё учусь. Попробуй переформулировать или посмотри F.A.Q. 😊"
         },
 
-        // FAQ
-        faq_title: "❓ Часто задаваемые вопросы",
-        faq_intro: "Здесь ты найдёшь ответы на самые популярные вопросы",
-        faq_q1: "🔹 Что это за сайт?",
-        faq_a1: "Это набор бесплатных инструментов для игроков Minecraft: калькуляторы, генераторы, конвертеры — всё, что упростит игру.",
-        faq_q2: "🔹 Безопасно ли пользоваться?",
-        faq_a2: "Абсолютно! Все расчёты происходят в твоём браузере. Мы не собираем и не храним твои данные.",
-        faq_q3: "🔹 Как добавить сайт в закладки?",
-        faq_a3: "Нажми Ctrl+D (Cmd+D на Mac) или используй меню браузера → «Добавить в закладки».",
-        faq_q4: "🔹 Есть ли мобильная версия?",
-        faq_a4: "Да! Сайт полностью адаптивный — открой его на телефоне или планшете.",
-        faq_q5: "🔹 Можно ли предложить новый инструмент?",
-        faq_a5: "Конечно! Напиши нам через <a href=\"bot.html\" style=\"color:#1abc9c;\">бота-помощника</a> или на почту (если добавим позже).",
-        faq_q6: "🔹 Почему результаты иногда округляются?",
-        faq_a6: "Чтобы избежать дробных блоков или криперов 😉 Все значения округляются в большую сторону для запаса.",
-
-        // ToS
-        tos_title: "📜 Условия использования",
-        tos_intro: "Пожалуйста, внимательно ознакомься с правилами",
-        tos_1_title: "1. Общие положения",
-        tos_1_text: "Используя этот сайт, ты соглашаешься с данными условиями. Сервис предоставляется «как есть».",
-        tos_2_title: "2. Ответственность",
-        tos_2_text: "Мы не несём ответственности за ущерб, вызванный использованием или неправильным применением инструментов.",
-        tos_3_title: "3. Конфиденциальность",
-        tos_3_text: "Мы не собираем личные данные. Все вычисления происходят локально в твоём браузере.",
-        tos_4_title: "4. Авторские права",
-        tos_4_text: "Minecraft — торговая марка Mojang Studios. Мы не связаны с Mojang или Microsoft. Это фан-сайт.",
-        tos_5_title: "5. Изменения",
-        tos_5_text: "Мы можем обновлять эти условия в любое время. Рекомендуем периодически перечитывать.",
-
-        // Privacy
-        privacy_title: "🔒 Политика конфиденциальности",
-        privacy_intro: "Твои данные — только твои. Мы их не трогаем.",
-        privacy_1_title: "🔸 Никаких данных",
-        privacy_1_text: "Мы не используем cookies, аналитику, трекеры. Ничего не отправляется на сервер — всё работает в твоём браузере.",
-        privacy_2_title: "🔸 Локальные вычисления",
-        privacy_2_text: "Все калькуляторы и генераторы работают локально. Твои цифры, координаты, seeds — никто не видит, кроме тебя.",
-        privacy_3_title: "🔸 Безопасность",
-        privacy_3_text: "Сайт не требует регистрации, не хранит историю, не запрашивает доступ к твоему аккаунту или миру Minecraft.",
-        privacy_4_title: "🔸 Обновления",
-        privacy_4_text: "Мы можем добавлять новые функции, но никогда не будем собирать твои данные без явного согласия (а его и не будет запрашивать 😉).",
-
-        // Кнопка языка
-        langToggle: "🌐 EN"
+        // Язык
+        langName: "Русский",
+        flag: "🇷🇺"
     }
 };
 
-// 🌐 Определяем текущий язык
-function getLanguage() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const langFromURL = urlParams.get('lang');
-    const langFromStorage = localStorage.getItem('language');
-    const browserLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
+// 🌐 Функция установки языка БЕЗ перезагрузки + анимация + SEO
+function setLanguage(lang) {
+    if (!['en', 'ru'].includes(lang)) return;
 
-    let lang = langFromURL || langFromStorage || browserLang;
-    if (!['en', 'ru'].includes(lang)) lang = 'ru';
-
+    // Сохраняем в localStorage
     localStorage.setItem('language', lang);
-    if (langFromURL !== lang) {
-        const newUrl = new URL(window.location);
-        newUrl.searchParams.set('lang', lang);
-        window.history.replaceState({}, '', newUrl);
+
+    // Обновляем URL без перезагрузки
+    const newUrl = new URL(window.location);
+    newUrl.searchParams.set('lang', lang);
+    window.history.pushState({ lang }, '', newUrl);
+
+    // Анимация fade-out
+    document.body.classList.add('language-fade');
+    setTimeout(() => {
+        applyTranslations(lang);
+        updateSEOTags(lang);
+        updateLanguageUI(lang);
+        document.body.classList.remove('language-fade');
+    }, 300);
+
+    // Скрываем дропдаун
+    const dropdown = document.getElementById('lang-dropdown');
+    if (dropdown) dropdown.style.display = 'none';
+}
+
+// 🌐 Обновление SEO-тегов
+function updateSEOTags(lang) {
+    const t = translations[lang];
+
+    // Title
+    document.title = t.title;
+
+    // Meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = 'description';
+        document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = t.metaDescription;
+
+    // Open Graph
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = t.title;
+
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.content = t.metaDescription;
+
+    // Twitter
+    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.content = t.title;
+
+    let twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc) twitterDesc.content = t.metaDescription;
+}
+
+// 🌐 Обновление UI языка
+function updateLanguageUI(lang) {
+    const t = translations[lang];
+    const flagSpan = document.getElementById('current-flag');
+    const langSpan = document.getElementById('current-lang');
+
+    if (flagSpan) {
+        if (lang === 'en') {
+            flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="a"><rect width="20" height="15"/></clipPath></defs><g clip-path="url(#a)"><rect width="20" height="15" fill="#00247D"/><path d="M0 0h20v15H0z" fill="#00247D"/><path d="M0 0v15l8-6.5L0 2z" fill="#CF142B"/><path d="M20 0v15l-8-6.5L20 2z" fill="#CF142B"/><path d="M0 0h20v2H0z" fill="#fff"/><path d="M0 13h20v2H0z" fill="#fff"/><path d="M0 6h20v3H0z" fill="#fff"/><path d="M8 0h2v15H8z" fill="#fff"/><path d="M10 0l-8 6.5V2L10 8z" fill="#CF142B"/><path d="M10 15l8-6.5V13L10 7z" fill="#CF142B"/></g></svg>';
+        } else {
+            flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="5" y="0" fill="#fff"/><rect width="20" height="5" y="5" fill="#0033A0"/><rect width="20" height="5" y="10" fill="#D52B1E"/></svg>';
+        }
     }
 
-    return lang;
+    if (langSpan) langSpan.textContent = t.langName;
 }
 
 // 🌐 Применяем переводы
 function applyTranslations(lang) {
     const t = translations[lang];
 
-    // Обновляем title
-    document.title = t.title;
-
-    // Обновляем header
+    // Header
     const headerP = document.querySelector('header p');
     if (headerP) headerP.textContent = t.headerSubtitle;
 
-    // Обновляем footer
+    // Footer
     const footerP = document.querySelectorAll('footer p');
     if (footerP[1]) footerP[1].innerHTML = t.footerText;
 
-    // Обновляем навигацию
+    // Navigation
     const navLinks = document.querySelectorAll('footer a');
     if (navLinks[0]) navLinks[0].textContent = t.navHome;
     if (navLinks[1]) navLinks[1].textContent = t.navFAQ;
@@ -269,7 +240,7 @@ function applyTranslations(lang) {
     if (navLinks[3]) navLinks[3].textContent = t.navTOS;
     if (navLinks[4]) navLinks[4].textContent = t.navPrivacy;
 
-    // Обновляем инструменты
+    // Tools
     const toolCards = document.querySelectorAll('.tool-card');
     if (toolCards[0]) {
         toolCards[0].querySelector('h3').textContent = t.tool1_title;
@@ -312,48 +283,83 @@ function applyTranslations(lang) {
         toolCards[7].querySelector('button').textContent = t.tool8_btn;
     }
 
-    // Обновляем кнопку языка
-    const langBtn = document.getElementById('language-toggle');
-    if (langBtn) langBtn.textContent = t.langToggle;
+    // Results (если уже есть)
+    const results = [
+        { id: 'result-blocks', key: 'tool1_result', args: [0] },
+        { id: 'result-coords', key: 'tool2_result', args: [0,0,0] },
+        { id: 'result-time', key: 'tool3_result', args: [0] },
+        { id: 'result-xp', key: 'tool4_result', args: [0,0] },
+        { id: 'result-itemname', key: 'tool5_result', args: [''] },
+        { id: 'result-creepers', key: 'tool6_result', args: [0] },
+        { id: 'result-seed', key: 'tool7_result', args: [0] },
+        { id: 'result-armor', key: 'tool8_result', args: [0,0] }
+    ];
 
-    // Для страниц FAQ, Bot, ToS, Privacy — можно добавить аналогично
-    // (если нужно — расширим)
-}
+    results.forEach(r => {
+        const el = document.getElementById(r.id);
+        if (el && el.style.display !== 'none') {
+            el.textContent = '';
+        }
+    });
 
-// 🌐 Переключение языка
-function toggleLanguage() {
-    const currentLang = getLanguage();
-    const newLang = currentLang === 'en' ? 'ru' : 'en';
-    localStorage.setItem('language', newLang);
-
-    const newUrl = new URL(window.location);
-    newUrl.searchParams.set('lang', newLang);
-    window.location.href = newUrl.toString();
-}
-
-// 🚀 Инициализация при загрузке
-document.addEventListener('DOMContentLoaded', () => {
-    const lang = getLanguage();
-    applyTranslations(lang);
-
-    // Если страница — bot.html, обновим плейсхолдер
+    // Для страницы бота
     if (window.location.pathname.includes('bot.html')) {
         const input = document.getElementById('user-question');
-        if (input) {
-            input.placeholder = translations[lang].bot_placeholder;
-        }
+        if (input) input.placeholder = t.bot_placeholder;
         const btn = document.querySelector('button[onclick="askBot()"]');
-        if (btn) {
-            btn.textContent = translations[lang].bot_send;
+        if (btn) btn.textContent = t.bot_send;
+        const examplesTitle = document.querySelector('.tool-card h3');
+        if (examplesTitle && examplesTitle.textContent.includes('💡')) {
+            examplesTitle.textContent = t.bot_examples;
         }
     }
+}
 
-    // Для FAQ, ToS, Privacy — можно добавить аналогично
+// 🌐 Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+    // Обработчики дропдауна
+    const toggleBtn = document.getElementById('lang-toggle');
+    const dropdown = document.getElementById('lang-dropdown');
+
+    if (toggleBtn && dropdown) {
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && e.target !== toggleBtn) {
+                dropdown.style.display = 'none';
+            }
+        });
+    }
+
+    // Определяем язык
+    const urlParams = new URLSearchParams(window.location.search);
+    const langFromURL = urlParams.get('lang');
+    const langFromStorage = localStorage.getItem('language');
+    const browserLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
+
+    let lang = langFromURL || langFromStorage || browserLang;
+    if (!['en', 'ru'].includes(lang)) lang = 'ru';
+
+    localStorage.setItem('language', lang);
+    updateLanguageUI(lang);
+    applyTranslations(lang);
+    updateSEOTags(lang);
+
+    // Для страницы бота
+    if (window.location.pathname.includes('bot.html')) {
+        const input = document.getElementById('user-question');
+        if (input) input.placeholder = translations[lang].bot_placeholder;
+        const btn = document.querySelector('button[onclick="askBot()"]');
+        if (btn) btn.textContent = translations[lang].bot_send;
+    }
 });
 
-// 🤖 Бот — обновлённый (работает на обоих языках)
+// 🤖 Бот-помощник
 function askBot() {
-    const lang = getLanguage();
+    const lang = localStorage.getItem('language') || 'ru';
     const t = translations[lang];
     const question = document.getElementById('user-question')?.value.trim().toLowerCase();
     const answerDiv = document.getElementById('bot-answer');
@@ -377,7 +383,7 @@ function askBot() {
     answerDiv.textContent = answer;
 }
 
-// ⚙️ Остальные функции (калькуляторы) — без изменений
+// 🏠 1. Калькулятор блоков для дома
 function calculateBlocks() {
     const l = parseFloat(document.getElementById('length').value);
     const w = parseFloat(document.getElementById('width').value);
@@ -391,13 +397,15 @@ function calculateBlocks() {
 
         const resultDiv = document.getElementById('result-blocks');
         resultDiv.style.display = 'block';
-        const lang = getLanguage();
+        const lang = localStorage.getItem('language') || 'ru';
         resultDiv.textContent = translations[lang].tool1_result(total);
     } else {
-        alert('Please enter all values.' + (getLanguage() === 'ru' ? ' Пожалуйста, введите все значения.' : ''));
+        const lang = localStorage.getItem('language') || 'ru';
+        alert(lang === 'en' ? 'Please enter all values.' : 'Пожалуйста, введите все значения.');
     }
 }
 
+// 🌍 2. Генератор координат
 function generateCoords() {
     const x = Math.floor(Math.random() * 2000 - 1000);
     const z = Math.floor(Math.random() * 2000 - 1000);
@@ -405,22 +413,25 @@ function generateCoords() {
 
     const resultDiv = document.getElementById('result-coords');
     resultDiv.style.display = 'block';
-    const lang = getLanguage();
+    const lang = localStorage.getItem('language') || 'ru';
     resultDiv.textContent = translations[lang].tool2_result(x, y, z);
 }
 
+// ⏳ 3. Конвертер игрового времени
 function convertGameTime() {
     const mins = parseFloat(document.getElementById('game-minutes').value);
     if (!isNaN(mins)) {
         const resultDiv = document.getElementById('result-time');
         resultDiv.style.display = 'block';
-        const lang = getLanguage();
+        const lang = localStorage.getItem('language') || 'ru';
         resultDiv.textContent = translations[lang].tool3_result(mins);
     } else {
-        alert('Enter minutes.' + (getLanguage() === 'ru' ? ' Введите число минут.' : ''));
+        const lang = localStorage.getItem('language') || 'ru';
+        alert(lang === 'en' ? 'Enter minutes.' : 'Введите число минут.');
     }
 }
 
+// ✨ 4. Калькулятор опыта
 function calculateXP() {
     const xp = parseInt(document.getElementById('xp-amount').value);
     if (!isNaN(xp) && xp >= 0) {
@@ -434,15 +445,17 @@ function calculateXP() {
         }
         const resultDiv = document.getElementById('result-xp');
         resultDiv.style.display = 'block';
-        const lang = getLanguage();
+        const lang = localStorage.getItem('language') || 'ru';
         resultDiv.textContent = translations[lang].tool4_result(level, remaining);
     } else {
-        alert('Enter valid XP.' + (getLanguage() === 'ru' ? ' Введите корректное количество опыта.' : ''));
+        const lang = localStorage.getItem('language') || 'ru';
+        alert(lang === 'en' ? 'Enter valid XP.' : 'Введите корректное количество опыта.');
     }
 }
 
+// 🏷️ 5. Генератор названий предметов
 function generateItemName() {
-    const lang = getLanguage();
+    const lang = localStorage.getItem('language') || 'ru';
     const prefixes = lang === 'ru' 
         ? ['Легендарный', 'Проклятый', 'Сияющий', 'Темный', 'Вечный', 'Огненный', 'Ледяной']
         : ['Legendary', 'Cursed', 'Shining', 'Dark', 'Eternal', 'Fiery', 'Frosty'];
@@ -459,27 +472,31 @@ function generateItemName() {
     resultDiv.textContent = translations[lang].tool5_result(name);
 }
 
+// 💥 6. Калькулятор фермы криперов
 function calculateCreepers() {
     const needed = parseInt(document.getElementById('gunpowder-needed').value);
     if (!isNaN(needed) && needed > 0) {
         const creepers = Math.ceil(needed / 2);
         const resultDiv = document.getElementById('result-creepers');
         resultDiv.style.display = 'block';
-        const lang = getLanguage();
+        const lang = localStorage.getItem('language') || 'ru';
         resultDiv.textContent = translations[lang].tool6_result(creepers);
     } else {
-        alert('Enter gunpowder amount.' + (getLanguage() === 'ru' ? ' Введите количество пороха.' : ''));
+        const lang = localStorage.getItem('language') || 'ru';
+        alert(lang === 'en' ? 'Enter gunpowder amount.' : 'Введите количество пороха.');
     }
 }
 
+// 🌱 7. Генератор seed
 function generateSeed() {
     const seed = Math.floor(Math.random() * 9007199254740991) - 4503599627370495;
     const resultDiv = document.getElementById('result-seed');
     resultDiv.style.display = 'block';
-    const lang = getLanguage();
+    const lang = localStorage.getItem('language') || 'ru';
     resultDiv.textContent = translations[lang].tool7_result(seed);
 }
 
+// 🛡️ 8. Калькулятор прочности брони
 function calculateArmorDurability() {
     const armorDurabilities = {
         leather: 55,
@@ -494,78 +511,10 @@ function calculateArmorDurability() {
         const hits = Math.floor(durability / damage);
         const resultDiv = document.getElementById('result-armor');
         resultDiv.style.display = 'block';
-        const lang = getLanguage();
+        const lang = localStorage.getItem('language') || 'ru';
         resultDiv.textContent = translations[lang].tool8_result(hits, damage);
     } else {
-        alert('Enter damage per hit.' + (getLanguage() === 'ru' ? ' Введите урон за удар.' : ''));
+        const lang = localStorage.getItem('language') || 'ru';
+        alert(lang === 'en' ? 'Enter damage per hit.' : 'Введите урон за удар.');
     }
 }
-
-// 🌐 Функция установки языка БЕЗ перезагрузки
-function setLanguage(lang) {
-    if (!['en', 'ru'].includes(lang)) return;
-
-    // Сохраняем в localStorage
-    localStorage.setItem('language', lang);
-
-    // Обновляем URL без перезагрузки
-    const newUrl = new URL(window.location);
-    newUrl.searchParams.set('lang', lang);
-    window.history.pushState({ lang }, '', newUrl);
-
-    // Применяем переводы
-    applyTranslations(lang);
-
-    // Скрываем дропдаун
-    document.getElementById('lang-dropdown').style.display = 'none';
-
-    // Обновляем кнопку
-    const flagSpan = document.getElementById('current-flag');
-    const langSpan = document.getElementById('current-lang');
-    if (flagSpan) flagSpan.textContent = lang === 'en' ? '🇺🇸' : '🇷🇺';
-    if (langSpan) langSpan.textContent = lang === 'en' ? 'English' : 'Русский';
-}
-
-// 🌐 Переключение видимости дропдауна
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.getElementById('lang-toggle');
-    const dropdown = document.getElementById('lang-dropdown');
-
-    if (toggleBtn && dropdown) {
-        toggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        });
-
-        // Закрыть дропдаун при клике вне его
-        document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target) && e.target !== toggleBtn) {
-                dropdown.style.display = 'none';
-            }
-        });
-    }
-
-    // Инициализация языка
-    const urlParams = new URLSearchParams(window.location.search);
-    const langFromURL = urlParams.get('lang');
-    const langFromStorage = localStorage.getItem('language');
-    const browserLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
-
-    let lang = langFromURL || langFromStorage || browserLang;
-    if (!['en', 'ru'].includes(lang)) lang = 'ru';
-
-    localStorage.setItem('language', lang);
-    setLanguage(lang); // <-- применяем язык без перезагрузки
-
-    // Для страницы бота — обновляем плейсхолдер
-    if (window.location.pathname.includes('bot.html')) {
-        const input = document.getElementById('user-question');
-        if (input) {
-            input.placeholder = translations[lang].bot_placeholder;
-        }
-        const btn = document.querySelector('button[onclick="askBot()"]');
-        if (btn) {
-            btn.textContent = translations[lang].bot_send;
-        }
-    }
-});
