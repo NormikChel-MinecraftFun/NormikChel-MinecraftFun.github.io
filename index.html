@@ -277,59 +277,7 @@
             <p>© 2025 Minecraft Tools Hub — Все инструменты для настоящих строителей и исследователей!</p>
             <p>Создано с ❤️ для игроков Minecraft</p>
         </footer>
-    </div>
-
-<!-- Секретная админ-панель -->
-<div id="simple-admin" style="display: none; position: fixed; top: 10px; right: 10px; background: #222; padding: 15px; z-index: 9999; border: 2px solid red; color: white; max-width: 300px; border-radius: 8px;">
-    <h3 style="margin-top: 0; color: #ff6b6b;">👑 Секретная консольная админка</h3>
-    <p style="font-size: 12px; margin-bottom: 15px;">Активировано через консоль</p>
-    <button onclick="adminRefreshTools()">Обновить инструменты</button>
-    <button onclick="adminShowJSON()">Показать данные JSON</button>
-    <button onclick="adminHide()">Скрыть панель</button>
-    <div id="admin-content" style="margin-top: 10px; font-size: 12px;"></div>
-</div>
-
-<!-- Секретная админ-панель -->
-<div id="simple-admin" style="display: none; position: fixed; top: 10px; right: 10px; background: #1a1a2e; padding: 15px; z-index: 9999; border: 2px solid #e94560; color: white; max-width: 320px; border-radius: 8px; font-family: Arial; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <h3 style="margin: 0; color: #e94560; font-size: 16px;">👑 Консольная админка</h3>
-        <button onclick="disableAdmin()" style="background: #ff4757; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 12px;">X</button>
-    </div>
-    
-    <div style="margin-bottom: 10px;">
-        <button onclick="adminShowTools()" style="background: #2a2a4a; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; margin-right: 5px; font-size: 12px;">Показать инструменты</button>
-        <button onclick="adminRefreshPage()" style="background: #2a2a4a; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px;">Обновить страницу</button>
-    </div>
-    
-    <div id="admin-content" style="background: #162447; padding: 10px; border-radius: 6px; max-height: 300px; overflow-y: auto; font-size: 11px; line-height: 1.4;"></div>
-    
-    <div style="margin-top: 10px; font-size: 10px; color: #6c757d;">
-        Используй в консоли: adminEditTool()
-    </div>
-</div>
-
-<script>
-// Функции для кнопок панели
-function adminShowTools() {
-    if (typeof window.adminShowTools === 'function') {
-        window.adminShowTools();
-    } else {
-        document.getElementById('admin-content').innerHTML = 
-            '<p style="color: #ff6b6b;">Функции админки не загружены. Обнови страницу.</p>';
-    }
-}
-
-function adminRefreshPage() {
-    location.reload();
-}
-
-function adminHide() {
-    if (typeof window.disableAdmin === 'function') {
-        window.disableAdmin();
-    }
-}
-</script>
-    
+    </div>    
     <script src="script.js"></script>
 </body>
 </html>
