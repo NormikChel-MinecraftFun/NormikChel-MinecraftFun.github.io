@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKS3YXBT5L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JKS3YXBT5L');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5GW8KGSH');</script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104231870', 'ym');
+        ym(104231870, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104231870" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Оптимизатор зачарований для Minecraft: выбери лучшее зачарование по уровню и типу предмета.">
+    <meta name="keywords" content="minecraft, зачарование, чары, enchant, оптимизация, стол зачарования">
+    <meta name="author" content="Minecraft Tools Hub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://normikchel-minecraftfun.github.io/enchant.html">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="./icon/icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icon/icon.png">
+    <link rel="shortcut icon" href="./icon/icon.ico">
+
+    <title>Minecraft Tools Hub — Оптимизатор зачарований</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GW8KGSH"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Бургер-меню -->
+    <div class="menu-toggle" id="menu-toggle" style="position: absolute; left: 20px; top: 20px; background: #2c3e50; color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; display: none;">
+        ☰
+    </div>
+
+    <div id="sidebar" style="display: none; position: fixed; top: 0; left: 0; width: 250px; height: 100vh; background: #34495e; padding: 20px; z-index: 200; box-shadow: 2px 0 10px rgba(0,0,0,0.5);">
+        <button onclick="closeSidebar()" style="background: #c0392b; color: white; border: none; padding: 5px 10px; border-radius: 5px; float: right;">✕</button>
+        <br><br>
+        <a href="index.html" class="sidebar-link">Главная</a>
+        <a href="redstone.html" class="sidebar-link">Редстоун-калькулятор</a>
+        <a href="enchant.html" class="sidebar-link">Оптимизатор зачарований</a>
+        <a href="biome.html" class="sidebar-link">Поиск биомов</a>
+        <a href="faq.html" class="sidebar-link">F.A.Q.</a>
+        <a href="bot.html" class="sidebar-link">Бот-помощник</a>
+        <a href="tos.html" class="sidebar-link">Условия</a>
+        <a href="privacy.html" class="sidebar-link">Конфиденциальность</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>✨ Оптимизатор зачарований</h1>
+            <p>Какое зачарование получить на уровне N?</p>
+
+            <!-- Языковое меню -->
+            <div class="language-switcher" style="position: relative; display: inline-block; margin-top: 10px;">
+                <button id="lang-toggle" style="background: #2c3e50; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 6px; transition: background 0.3s;">
+                    <span id="current-flag"></span>
+                    <span id="current-lang"></span>
+                </button>
+                <div id="lang-dropdown" style="display: none; position: absolute; top: 100%; left: 0; background: #34495e; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); z-index: 100; min-width: 160px; overflow: hidden;">
+                    <!-- Заполнится через JS -->
+                </div>
+            </div>
+        </header>
+
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>📚 Лучшее зачарование</h3>
+                <select id="item-type">
+                    <option value="sword">Меч</option>
+                    <option value="bow">Лук</option>
+                    <option value="pickaxe">Кирка</option>
+                    <option value="armor">Броня</option>
+                </select>
+                <input type="number" id="enchant-level" placeholder="Уровень (1–30)">
+                <button onclick="suggestEnchant()">Посоветовать</button>
+                <div id="result-enchant" class="result" style="display:none;"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                <a href="index.html">Главная</a> |
+                <a href="faq.html">F.A.Q.</a> |
+                <a href="bot.html">Бот-помощник</a> |
+                <a href="tos.html">Условия использования</a> |
+                <a href="privacy.html">Политика конфиденциальности</a>
+            </p>
+            <p>© 2025 Minecraft Tools Hub — Все инструменты для настоящих строителей и исследователей!</p>
+            <p>Создано с ❤️ для игроков Minecraft</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function suggestEnchant() {
+            const item = document.getElementById('item-type').value;
+            const level = parseInt(document.getElementById('enchant-level').value);
+            const lang = localStorage.getItem('language') || 'ru';
+            const resultDiv = document.getElementById('result-enchant');
+
+            if (isNaN(level) || level < 1 || level > 30) {
+                alert(lang === 'en' ? 'Enter level 1–30.' : 'Введите уровень от 1 до 30.');
+                return;
+            }
+
+            let suggestion = '';
+            if (lang === 'en') {
+                if (item === 'sword') suggestion = level >= 25 ? 'Sharpness V or Smite V' : level >= 15 ? 'Sharpness IV' : 'Bane of Arthropods III';
+                else if (item === 'bow') suggestion = level >= 25 ? 'Power V + Infinity' : level >= 15 ? 'Power IV' : 'Flame';
+                else if (item === 'pickaxe') suggestion = level >= 25 ? 'Efficiency V + Fortune III' : level >= 15 ? 'Efficiency IV' : 'Unbreaking III';
+                else if (item === 'armor') suggestion = level >= 25 ? 'Protection IV or Thorns III' : level >= 15 ? 'Protection III' : 'Blast Protection II';
+            } else {
+                if (item === 'sword') suggestion = level >= 25 ? 'Острота V или Небесная кара V' : level >= 15 ? 'Острота IV' : 'Бич членистоногих III';
+                else if (item === 'bow') suggestion = level >= 25 ? 'Мощь V + Бесконечность' : level >= 15 ? 'Мощь IV' : 'Пламя';
+                else if (item === 'pickaxe') suggestion = level >= 25 ? 'Эффективность V + Удача III' : level >= 15 ? 'Эффективность IV' : 'Прочность III';
+                else if (item === 'armor') suggestion = level >= 25 ? 'Защита IV или Шипы III' : level >= 15 ? 'Защита III' : 'Взрывоустойчивость II';
+            }
+
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = lang === 'en' ? `Best enchant: ${suggestion}` : `Лучшее зачарование: ${suggestion}`;
+        }
+    </script>
+</body>
+</html>
