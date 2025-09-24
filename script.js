@@ -486,6 +486,7 @@ function calculateArmorDurability() {
     }
 }
 
+<<<<<<< HEAD
 // === НОВЫЕ ФУНКЦИИ ===
 function calculateRepeaters() {
     const len = parseInt(document.getElementById('redstone-length')?.value);
@@ -561,3 +562,84 @@ if (window.innerWidth <= 768) {
     const toggle = document.getElementById('menu-toggle');
     if (toggle) toggle.style.display = 'block';
 }
+=======
+// 🔧 ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ АДМИН-ПАНЕЛИ (добавьте в конец script.js)
+
+// Делаем функции и данные доступными глобально
+window.toolsData = [
+    {
+        id: 1,
+        name: { ru: "Калькулятор блоков для дома", en: "House Blocks Calculator" },
+        description: { 
+            ru: "Рассчитай, сколько блоков нужно для постройки дома.", 
+            en: "Calculate how many blocks you need to build a house." 
+        },
+        url: "#",
+        icon: "🏠"
+    },
+    {
+        id: 2, 
+        name: { ru: "Генератор случайных координат", en: "Random Coordinates Generator" },
+        description: { 
+            ru: "Получи случайные координаты для телепортации.", 
+            en: "Get random coordinates for teleportation." 
+        },
+        url: "#",
+        icon: "🌍"
+    },
+    // ... остальные инструменты по аналогии
+];
+
+window.renderTools = function(lang = 'ru') {
+    // Ваша функция отрисовки инструментов (если есть)
+    console.log('Render tools function called');
+};
+
+window.currentLang = localStorage.getItem('language') || 'ru';
+
+// Функции для админ-панели
+window.enableAdmin = function() {
+    document.getElementById('simple-admin').style.display = 'block';
+    console.log('🔓 Админ-панель активирована через консоль');
+    return 'Админка включена! Используй adminShowTools()';
+};
+
+window.disableAdmin = function() {
+    document.getElementById('simple-admin').style.display = 'none';
+    console.log('🔒 Админ-панель скрыта');
+    return 'Админка выключена!';
+};
+
+window.adminShowTools = function() {
+    const content = document.getElementById('admin-content');
+    if (!content) return 'Админ-панель не найдена!';
+    
+    content.innerHTML = '<h4>Доступные инструменты:</h4>' + 
+        JSON.stringify(window.toolsData, null, 2)
+            .replace(/\n/g, '<br>')
+            .replace(/ /g, '&nbsp;');
+    return 'Данные инструментов показаны';
+};
+
+window.adminEditTool = function(toolId, lang, field, newValue) {
+    const tool = window.toolsData.find(t => t.id === toolId);
+    if (tool) {
+        tool[field][lang] = newValue;
+        console.log(`✅ Инструмент ${toolId} обновлен:`, tool);
+        return `Значение обновлено: ${newValue}`;
+    }
+    return 'Инструмент не найден';
+};
+
+// Автоматическое включение админки если в localStorage
+if (localStorage.getItem('adminConsoleMode') === 'true') {
+    setTimeout(() => {
+        if (typeof enableAdmin === 'function') enableAdmin();
+    }, 1000);
+}
+
+console.log('🔧 Админ-функции загружены. Используй в консоли:');
+console.log('enableAdmin() - показать панель');
+console.log('adminShowTools() - показать данные инструментов');
+console.log('adminEditTool(1, "ru", "name", "Новое название") - редактировать');
+>>>>>>> parent of 2161f93 (Update script.js)
