@@ -197,7 +197,7 @@ const translations = {
         flag: "🇷🇺"
     },
 
-    // === НОВЫЕ ЯЗЫКИ (минимум — базовые переводы) ===
+    // === ДРУГИЕ ЯЗЫКИ (ТОЛЬКО ТЕКСТОВЫЕ ФЛАГИ) ===
     zh: { langName: "中文", flag: "🇨🇳", title: "Minecraft 工具中心", headerSubtitle: "你冒险所需的一切工具", navHome: "主页", navFAQ: "常见问题", navBot: "助手机器人", navTOS: "使用条款", navPrivacy: "隐私政策", navRedstone: "红石计算器", navEnchant: "附魔优化器", navBiome: "生物群系查找器", bot_placeholder: "例如：如何建造下界传送门？", bot_send: "发送", redstone_btn: "计算", enchant_btn: "建议", biome_btn: "查找", tool1_btn: "计算", tool2_btn: "生成", tool3_btn: "转换", tool4_btn: "计算", tool5_btn: "生成", tool6_btn: "计算", tool7_btn: "生成", tool8_btn: "计算" },
     es: { langName: "Español", flag: "🇪🇸", title: "Minecraft Tools Hub", headerSubtitle: "Todas las herramientas para tu aventura", navHome: "Inicio", navFAQ: "Preguntas frecuentes", navBot: "Bot asistente", navTOS: "Términos", navPrivacy: "Privacidad", navRedstone: "Calculadora de Redstone", navEnchant: "Optimizador de encantamientos", navBiome: "Buscador de biomas", bot_placeholder: "Ej: ¿Cómo construir un portal al Nether?", bot_send: "Enviar", redstone_btn: "Calcular", enchant_btn: "Sugerir", biome_btn: "Buscar", tool1_btn: "Calcular", tool2_btn: "Generar", tool3_btn: "Convertir", tool4_btn: "Calcular", tool5_btn: "Generar", tool6_btn: "Calcular", tool7_btn: "Generar", tool8_btn: "Calcular" },
     hi: { langName: "हिन्दी", flag: "🇮🇳", title: "Minecraft टूल्स हब", headerSubtitle: "आपके Minecraft साहसिक कार्य के लिए सभी उपकरण", navHome: "मुख्य", navFAQ: "अक्सर पूछे जाने वाले प्रश्न", navBot: "सहायक बॉट", navTOS: "उपयोग की शर्तें", navPrivacy: "गोपनीयता नीति", navRedstone: "रेडस्टोन कैलकुलेटर", navEnchant: "एन्चांट ऑप्टिमाइज़र", navBiome: "बायोम खोजकर्ता", bot_placeholder: "उदा.: नेदर पोर्टल कैसे बनाएं?", bot_send: "भेजें", redstone_btn: "गणना करें", enchant_btn: "सुझाव दें", biome_btn: "खोजें", tool1_btn: "गणना करें", tool2_btn: "उत्पन्न करें", tool3_btn: "परिवर्तित करें", tool4_btn: "गणना करें", tool5_btn: "उत्पन्न करें", tool6_btn: "गणना करें", tool7_btn: "उत्पन्न करें", tool8_btn: "गणना करें" },
@@ -237,29 +237,36 @@ function updateSEOTags(lang) {
     metaDesc.content = t.metaDescription || t.headerSubtitle;
 }
 
-// 🌐 UI языка
+// 🌐 UI языка — ТОЛЬКО SVG ДЛЯ ru/en
 function updateLanguageUI(lang) {
     const t = translations[lang];
     const flagSpan = document.getElementById('current-flag');
     const langSpan = document.getElementById('current-lang');
     if (flagSpan) {
-        if (lang === 'en') flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="a"><rect width="20" height="15"/></clipPath></defs><g clip-path="url(#a)"><rect width="20" height="15" fill="#00247D"/><path d="M0 0h20v15H0z" fill="#00247D"/><path d="M0 0v15l8-6.5L0 2z" fill="#CF142B"/><path d="M20 0v15l-8-6.5L20 2z" fill="#CF142B"/><path d="M0 0h20v2H0z" fill="#fff"/><path d="M0 13h20v2H0z" fill="#fff"/><path d="M0 6h20v3H0z" fill="#fff"/><path d="M8 0h2v15H8z" fill="#fff"/><path d="M10 0l-8 6.5V2L10 8z" fill="#CF142B"/><path d="M10 15l8-6.5V13L10 7z" fill="#CF142B"/></g></svg>';
-        else if (lang === 'ru') flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="5" y="0" fill="#fff"/><rect width="20" height="5" y="5" fill="#0033A0"/><rect width="20" height="5" y="10" fill="#D52B1E"/></svg>';
-        else flagSpan.textContent = t.flag || '';
+        if (lang === 'en') {
+            flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="a"><rect width="20" height="15"/></clipPath></defs><g clip-path="url(#a)"><rect width="20" height="15" fill="#00247D"/><path d="M0 0h20v15H0z" fill="#00247D"/><path d="M0 0v15l8-6.5L0 2z" fill="#CF142B"/><path d="M20 0v15l-8-6.5L20 2z" fill="#CF142B"/><path d="M0 0h20v2H0z" fill="#fff"/><path d="M0 13h20v2H0z" fill="#fff"/><path d="M0 6h20v3H0z" fill="#fff"/><path d="M8 0h2v15H8z" fill="#fff"/><path d="M10 0l-8 6.5V2L10 8z" fill="#CF142B"/><path d="M10 15l8-6.5V13L10 7z" fill="#CF142B"/></g></svg>';
+        } else if (lang === 'ru') {
+            flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="5" y="0" fill="#fff"/><rect width="20" height="5" y="5" fill="#0033A0"/><rect width="20" height="5" y="10" fill="#D52B1E"/></svg>';
+        } else {
+            flagSpan.textContent = t.flag || '';
+        }
     }
     if (langSpan) langSpan.textContent = t.langName;
 }
 
-// 🌐 Применяем переводы — УНИВЕРСАЛЬНО ДЛЯ ВСЕХ СТРАНИЦ
+// 🌐 Применяем переводы — УНИВЕРСАЛЬНО
 function applyTranslations(lang) {
     const t = translations[lang];
 
     // Header
     const headerH1 = document.querySelector('header h1');
     const headerP = document.querySelector('header p');
-    if (headerH1 && headerH1.textContent.includes('Redstone')) headerH1.textContent = t.redstone_title;
-    else if (headerH1 && headerH1.textContent.includes('Enchant')) headerH1.textContent = t.enchant_title;
-    else if (headerH1 && headerH1.textContent.includes('Biome')) headerH1.textContent = t.biome_title;
+    if (headerH1) {
+        if (window.location.pathname.includes('redstone.html')) headerH1.textContent = t.redstone_title;
+        else if (window.location.pathname.includes('enchant.html')) headerH1.textContent = t.enchant_title;
+        else if (window.location.pathname.includes('biome.html')) headerH1.textContent = t.biome_title;
+        // для index.html и других — не трогаем h1
+    }
     if (headerP) {
         if (window.location.pathname.includes('redstone.html')) headerP.textContent = t.redstone_subtitle;
         else if (window.location.pathname.includes('enchant.html')) headerP.textContent = t.enchant_subtitle;
@@ -269,9 +276,9 @@ function applyTranslations(lang) {
 
     // Footer
     const footerP = document.querySelectorAll('footer p');
-    if (footerP[1]) footerP[1].innerHTML = t.footerText || footerP[1].innerHTML;
+    if (footerP[1]) footerP[1].innerHTML = t.footerText;
 
-    // Footer links
+    // Footer nav
     const navLinks = document.querySelectorAll('footer a');
     if (navLinks[0]) navLinks[0].textContent = t.navHome;
     if (navLinks[1]) navLinks[1].textContent = t.navFAQ;
@@ -279,68 +286,51 @@ function applyTranslations(lang) {
     if (navLinks[3]) navLinks[3].textContent = t.navTOS;
     if (navLinks[4]) navLinks[4].textContent = t.navPrivacy;
 
-    // Tool cards — универсально
+    // Tool cards
     const toolCards = document.querySelectorAll('.tool-card');
-    if (toolCards.length > 0) {
-        const page = window.location.pathname;
-        if (page.includes('redstone.html') && toolCards[0]) {
+    const page = window.location.pathname;
+    if (toolCards[0]) {
+        if (page.includes('redstone.html')) {
             toolCards[0].querySelector('h3').textContent = t.redstone_tool_title;
             toolCards[0].querySelector('p').textContent = t.redstone_tool_desc;
             toolCards[0].querySelector('button').textContent = t.redstone_btn;
-        } else if (page.includes('enchant.html') && toolCards[0]) {
+        } else if (page.includes('enchant.html')) {
             toolCards[0].querySelector('h3').textContent = t.enchant_tool_title;
             toolCards[0].querySelector('button').textContent = t.enchant_btn;
-        } else if (page.includes('biome.html') && toolCards[0]) {
+        } else if (page.includes('biome.html')) {
             toolCards[0].querySelector('h3').textContent = t.biome_tool_title;
             toolCards[0].querySelector('button').textContent = t.biome_btn;
         }
     }
 
-    // Бот
-    if (window.location.pathname.includes('bot.html')) {
+    // Bot page
+    if (page.includes('bot.html')) {
         const input = document.getElementById('user-question');
         const btn = document.querySelector('button[onclick="askBot()"]');
         const examplesTitle = document.querySelector('.tool-card h3');
         if (input) input.placeholder = t.bot_placeholder;
         if (btn) btn.textContent = t.bot_send;
-        if (examplesTitle && examplesTitle.textContent.includes('💡')) examplesTitle.textContent = t.bot_examples;
+        if (examplesTitle && examplesTitle.textContent.includes('💡')) {
+            examplesTitle.textContent = t.bot_examples;
+        }
     }
 }
 
 // 🌐 Инициализация
 document.addEventListener('DOMContentLoaded', () => {
-    // Языковое меню
     const toggleBtn = document.getElementById('lang-toggle');
     const dropdown = document.getElementById('lang-dropdown');
+
     if (toggleBtn && dropdown) {
         toggleBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         });
+
         document.addEventListener('click', (e) => {
             if (!dropdown.contains(e.target) && e.target !== toggleBtn) {
                 dropdown.style.display = 'none';
             }
-        });
-
-        // Заполняем дропдаун языками
-        const langs = ['ru', 'en', 'zh', 'es', 'hi', 'bn', 'pt', 'ur'];
-        langs.forEach(langCode => {
-            const langData = translations[langCode];
-            if (!langData) return;
-            const div = document.createElement('div');
-            div.style.padding = '10px';
-            div.style.cursor = 'pointer';
-            div.style.display = 'flex';
-            div.style.alignItems = 'center';
-            div.style.gap = '8px';
-            div.style.transition = 'background 0.2s';
-            div.style.borderTop = dropdown.children.length ? '1px solid #2c3e50' : 'none';
-            div.onmouseenter = () => div.style.background = '#3d566e';
-            div.onmouseleave = () => div.style.background = 'transparent';
-            div.onclick = () => setLanguage(langCode);
-            div.innerHTML = `<span>${langData.flag || ''}</span> ${langData.langName}`;
-            dropdown.appendChild(div);
         });
     }
 
@@ -351,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const browserLang = navigator.language.split('-')[0];
     let lang = langFromURL || langFromStorage || browserLang;
     if (!translations[lang]) lang = 'ru';
+
     localStorage.setItem('language', lang);
     updateLanguageUI(lang);
     applyTranslations(lang);
@@ -364,30 +355,28 @@ function askBot() {
     const question = document.getElementById('user-question')?.value.trim().toLowerCase();
     const answerDiv = document.getElementById('bot-answer');
     if (!answerDiv) return;
+
     let answer = t.bot_answers?.default || "I don't know.";
     if (question?.includes("алмаз") || question?.includes("diamond")) answer = t.bot_answers?.diamonds || answer;
     else if (question?.includes("портал") || question?.includes("portal") || question?.includes("nether")) answer = t.bot_answers?.portal || answer;
     else if (question?.includes("опыт") || question?.includes("xp") || question?.includes("ферма")) answer = t.bot_answers?.xp || answer;
     else if (question?.includes("кра") || question?.includes("world") || question?.includes("мир")) answer = t.bot_answers?.world || answer;
     else if (question?.includes("зачар") || question?.includes("enchant")) answer = t.bot_answers?.enchant || answer;
+
     answerDiv.style.display = 'block';
     answerDiv.textContent = answer;
 }
 
-// === СТАРЫЕ ФУНКЦИИ (1–8) — ОСТАВЛЕНЫ БЕЗ ИЗМЕНЕНИЙ ===
-// ... (вставь сюда твой существующий код от calculateBlocks() до calculateArmorDurability()) ...
-// 🏠 1. Калькулятор блоков для дома
+// === СТАРЫЕ ФУНКЦИИ (1–8) ===
 function calculateBlocks() {
     const l = parseFloat(document.getElementById('length').value);
     const w = parseFloat(document.getElementById('width').value);
     const h = parseFloat(document.getElementById('height').value);
-
     if (!isNaN(l) && !isNaN(w) && !isNaN(h)) {
         const walls = 2 * h * (l + w);
         const roof = l * w;
         const floor = l * w;
         const total = walls + roof + floor;
-
         const resultDiv = document.getElementById('result-blocks');
         resultDiv.style.display = 'block';
         const lang = localStorage.getItem('language') || 'ru';
@@ -398,19 +387,16 @@ function calculateBlocks() {
     }
 }
 
-// 🌍 2. Генератор координат
 function generateCoords() {
     const x = Math.floor(Math.random() * 2000 - 1000);
     const z = Math.floor(Math.random() * 2000 - 1000);
     const y = 64 + Math.floor(Math.random() * 100);
-
     const resultDiv = document.getElementById('result-coords');
     resultDiv.style.display = 'block';
     const lang = localStorage.getItem('language') || 'ru';
     resultDiv.textContent = translations[lang].tool2_result(x, y, z);
 }
 
-// ⏳ 3. Конвертер игрового времени
 function convertGameTime() {
     const mins = parseFloat(document.getElementById('game-minutes').value);
     if (!isNaN(mins)) {
@@ -424,7 +410,6 @@ function convertGameTime() {
     }
 }
 
-// ✨ 4. Калькулятор опыта
 function calculateXP() {
     const xp = parseInt(document.getElementById('xp-amount').value);
     if (!isNaN(xp) && xp >= 0) {
@@ -446,7 +431,6 @@ function calculateXP() {
     }
 }
 
-// 🏷️ 5. Генератор названий предметов
 function generateItemName() {
     const lang = localStorage.getItem('language') || 'ru';
     const prefixes = lang === 'ru' 
@@ -455,17 +439,14 @@ function generateItemName() {
     const suffixes = lang === 'ru'
         ? ['Меча', 'Посоха', 'Щита', 'Лука', 'Кирки', 'Шлема', 'Амулета']
         : ['Sword', 'Staff', 'Shield', 'Bow', 'Pickaxe', 'Helmet', 'Amulet'];
-
     const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
     const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
     const name = `${prefix} ${suffix}`;
-
     const resultDiv = document.getElementById('result-itemname');
     resultDiv.style.display = 'block';
     resultDiv.textContent = translations[lang].tool5_result(name);
 }
 
-// 💥 6. Калькулятор фермы криперов
 function calculateCreepers() {
     const needed = parseInt(document.getElementById('gunpowder-needed').value);
     if (!isNaN(needed) && needed > 0) {
@@ -480,7 +461,6 @@ function calculateCreepers() {
     }
 }
 
-// 🌱 7. Генератор seed
 function generateSeed() {
     const seed = Math.floor(Math.random() * 9007199254740991) - 4503599627370495;
     const resultDiv = document.getElementById('result-seed');
@@ -489,14 +469,8 @@ function generateSeed() {
     resultDiv.textContent = translations[lang].tool7_result(seed);
 }
 
-// 🛡️ 8. Калькулятор прочности брони
 function calculateArmorDurability() {
-    const armorDurabilities = {
-        leather: 55,
-        iron: 165,
-        diamond: 363,
-        netherite: 407
-    };
+    const armorDurabilities = { leather: 55, iron: 165, diamond: 363, netherite: 407 };
     const type = document.getElementById('armor-type').value;
     const damage = parseFloat(document.getElementById('damage-per-hit').value);
     if (!isNaN(damage) && damage > 0) {
@@ -513,7 +487,6 @@ function calculateArmorDurability() {
 }
 
 // === НОВЫЕ ФУНКЦИИ ===
-
 function calculateRepeaters() {
     const len = parseInt(document.getElementById('redstone-length')?.value);
     const lang = localStorage.getItem('language') || 'ru';
@@ -527,7 +500,7 @@ function calculateRepeaters() {
             resultDiv.textContent = t.redstone_result ? t.redstone_result(repeaters, delay) : `Repeaters: ${repeaters}`;
         }
     } else {
-        alert(t.tool1_result ? (lang === 'en' ? 'Enter valid length.' : 'Введите корректную длину.') : 'Error');
+        alert(lang === 'en' ? 'Enter valid length.' : 'Введите корректную длину.');
     }
 }
 
@@ -584,7 +557,6 @@ document.getElementById('menu-toggle')?.addEventListener('click', toggleSidebar)
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) closeSidebar();
 });
-// Показываем бургер на мобилках
 if (window.innerWidth <= 768) {
     const toggle = document.getElementById('menu-toggle');
     if (toggle) toggle.style.display = 'block';
