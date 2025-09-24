@@ -1,20 +1,21 @@
 // 🌐 Система мультиязычности с анимацией, SVG-флагами и SEO
 const translations = {
     en: {
-        // Главная страница
         title: "Minecraft Tools Hub — Tools for Builders & Explorers",
         metaDescription: "Best Minecraft tools: calculators, generators, converters. Helps with building, farming, exploring and more!",
         headerSubtitle: "All the tools you need for your Minecraft adventure",
         footerText: "© 2025 Minecraft Tools Hub — All tools for true builders and explorers! Made with ❤️ for Minecraft players",
 
-        // Навигация
         navHome: "Home",
         navFAQ: "F.A.Q.",
         navBot: "Helper Bot",
         navTOS: "Terms of Service",
         navPrivacy: "Privacy Policy",
+        navRedstone: "Redstone Calculator",
+        navEnchant: "Enchant Optimizer",
+        navBiome: "Biome Finder",
 
-        // Инструменты
+        // Existing tools (1–8)
         tool1_title: "🏠 House Blocks Calculator",
         tool1_desc: "Calculate how many blocks you need to build a house.",
         tool1_btn: "Calculate",
@@ -55,7 +56,35 @@ const translations = {
         tool8_btn: "Calculate",
         tool8_result: (hits, damage) => `Withstands ~${hits} hits of ${damage} damage`,
 
-        // Бот
+        // NEW: Redstone
+        redstone_title: "⚡ Redstone Calculator",
+        redstone_subtitle: "Calculate chain length, delay, and repeater count.",
+        redstone_tool_title: "🔁 Repeater Calculator",
+        redstone_tool_desc: "How many repeaters for a chain of N blocks?",
+        redstone_btn: "Calculate",
+        redstone_result: (repeaters, delay) => `Repeaters: ${repeaters} (delay: ${delay.toFixed(1)}s)`,
+
+        // NEW: Enchant
+        enchant_title: "✨ Enchant Optimizer",
+        enchant_subtitle: "What's the best enchant at level N?",
+        enchant_tool_title: "📚 Best Enchantment",
+        enchant_btn: "Suggest",
+        enchant_result: enchant => `Best enchant: ${enchant}`,
+
+        // NEW: Biome
+        biome_title: "🌳 Biome Finder",
+        biome_subtitle: "Where to find the biome you need?",
+        biome_tool_title: "🗺️ Find Biome",
+        biome_btn: "Find",
+        biome_result: {
+            nether: "Enter the Nether via a portal (4x5 obsidian frame).",
+            end: "Find a Stronghold, activate End Portal with 12 Eyes of Ender.",
+            jungle: "Look near rivers or oceans in warm climates. Use /locate biome minecraft:jungle",
+            desert: "Common in dry areas. Use /locate biome minecraft:desert",
+            mushroom: "Rare! Found on small islands in oceans. Use /locate biome minecraft:mushroom_fields"
+        },
+
+        // Bot
         bot_placeholder: "E.g.: How to build a Nether portal?",
         bot_send: "Send",
         bot_examples: "💡 Example questions:",
@@ -68,25 +97,24 @@ const translations = {
             default: "Hmm... I’m still learning. Try rephrasing or check F.A.Q. 😊"
         },
 
-        // Язык
         langName: "English",
         flag: "🇺🇸"
     },
     ru: {
-        // Главная страница
         title: "Minecraft Tools Hub — Инструменты для строителей и исследователей",
         metaDescription: "Лучшие инструменты для Minecraft: калькуляторы, генераторы, конвертеры. Помогут в строительстве, фарме, исследовании мира и не только!",
         headerSubtitle: "Все необходимые инструменты для твоего приключения в Minecraft",
         footerText: "© 2025 Minecraft Tools Hub — Все инструменты для настоящих строителей и исследователей! Создано с ❤️ для игроков Minecraft",
 
-        // Навигация
         navHome: "Главная",
         navFAQ: "F.A.Q.",
         navBot: "Бот-помощник",
         navTOS: "Условия использования",
         navPrivacy: "Политика конфиденциальности",
+        navRedstone: "Редстоун-калькулятор",
+        navEnchant: "Оптимизатор зачарований",
+        navBiome: "Поиск биомов",
 
-        // Инструменты
         tool1_title: "🏠 Калькулятор блоков для дома",
         tool1_desc: "Рассчитай, сколько блоков нужно для постройки дома.",
         tool1_btn: "Рассчитать",
@@ -127,7 +155,32 @@ const translations = {
         tool8_btn: "Рассчитать",
         tool8_result: (hits, damage) => `Выдержит ~${hits} ударов по ${damage} урона`,
 
-        // Бот
+        // NEW
+        redstone_title: "⚡ Калькулятор редстоуна",
+        redstone_subtitle: "Рассчитай длину цепи, задержку и количество повторителей.",
+        redstone_tool_title: "🔁 Расчёт повторителей",
+        redstone_tool_desc: "Сколько повторителей нужно для цепи длиной N блоков?",
+        redstone_btn: "Рассчитать",
+        redstone_result: (repeaters, delay) => `Повторителей: ${repeaters} (задержка: ${delay.toFixed(1)}с)`,
+
+        enchant_title: "✨ Оптимизатор зачарований",
+        enchant_subtitle: "Какое зачарование получить на уровне N?",
+        enchant_tool_title: "📚 Лучшее зачарование",
+        enchant_btn: "Посоветовать",
+        enchant_result: enchant => `Лучшее зачарование: ${enchant}`,
+
+        biome_title: "🌳 Поиск биомов",
+        biome_subtitle: "Где найти нужный биом? Советы и координаты.",
+        biome_tool_title: "🗺️ Найти биом",
+        biome_btn: "Найти",
+        biome_result: {
+            nether: "Построй портал из обсидиана (4x5) и зажги его.",
+            end: "Найди крепость, активируй портал Края 12 глазами Края.",
+            jungle: "Ищи рядом с реками в тёплых регионах. Команда: /locate biome minecraft:jungle",
+            desert: "Часто встречается в засушливых зонах. /locate biome minecraft:desert",
+            mushroom: "Очень редкий! Только на островах в океане. /locate biome minecraft:mushroom_fields"
+        },
+
         bot_placeholder: "Например: Как построить портал в Нижний мир?",
         bot_send: "Отправить вопрос",
         bot_examples: "💡 Примеры вопросов:",
@@ -140,25 +193,26 @@ const translations = {
             default: "Хм... Я ещё учусь. Попробуй переформулировать или посмотри F.A.Q. 😊"
         },
 
-        // Язык
         langName: "Русский",
         flag: "🇷🇺"
-    }
+    },
+
+    // === НОВЫЕ ЯЗЫКИ (минимум — базовые переводы) ===
+    zh: { langName: "中文", flag: "🇨🇳", title: "Minecraft 工具中心", headerSubtitle: "你冒险所需的一切工具", navHome: "主页", navFAQ: "常见问题", navBot: "助手机器人", navTOS: "使用条款", navPrivacy: "隐私政策", navRedstone: "红石计算器", navEnchant: "附魔优化器", navBiome: "生物群系查找器", bot_placeholder: "例如：如何建造下界传送门？", bot_send: "发送", redstone_btn: "计算", enchant_btn: "建议", biome_btn: "查找", tool1_btn: "计算", tool2_btn: "生成", tool3_btn: "转换", tool4_btn: "计算", tool5_btn: "生成", tool6_btn: "计算", tool7_btn: "生成", tool8_btn: "计算" },
+    es: { langName: "Español", flag: "🇪🇸", title: "Minecraft Tools Hub", headerSubtitle: "Todas las herramientas para tu aventura", navHome: "Inicio", navFAQ: "Preguntas frecuentes", navBot: "Bot asistente", navTOS: "Términos", navPrivacy: "Privacidad", navRedstone: "Calculadora de Redstone", navEnchant: "Optimizador de encantamientos", navBiome: "Buscador de biomas", bot_placeholder: "Ej: ¿Cómo construir un portal al Nether?", bot_send: "Enviar", redstone_btn: "Calcular", enchant_btn: "Sugerir", biome_btn: "Buscar", tool1_btn: "Calcular", tool2_btn: "Generar", tool3_btn: "Convertir", tool4_btn: "Calcular", tool5_btn: "Generar", tool6_btn: "Calcular", tool7_btn: "Generar", tool8_btn: "Calcular" },
+    hi: { langName: "हिन्दी", flag: "🇮🇳", title: "Minecraft टूल्स हब", headerSubtitle: "आपके Minecraft साहसिक कार्य के लिए सभी उपकरण", navHome: "मुख्य", navFAQ: "अक्सर पूछे जाने वाले प्रश्न", navBot: "सहायक बॉट", navTOS: "उपयोग की शर्तें", navPrivacy: "गोपनीयता नीति", navRedstone: "रेडस्टोन कैलकुलेटर", navEnchant: "एन्चांट ऑप्टिमाइज़र", navBiome: "बायोम खोजकर्ता", bot_placeholder: "उदा.: नेदर पोर्टल कैसे बनाएं?", bot_send: "भेजें", redstone_btn: "गणना करें", enchant_btn: "सुझाव दें", biome_btn: "खोजें", tool1_btn: "गणना करें", tool2_btn: "उत्पन्न करें", tool3_btn: "परिवर्तित करें", tool4_btn: "गणना करें", tool5_btn: "उत्पन्न करें", tool6_btn: "गणना करें", tool7_btn: "उत्पन्न करें", tool8_btn: "गणना करें" },
+    bn: { langName: "বাংলা", flag: "🇧🇩", title: "Minecraft টুলস হাব", headerSubtitle: "আপনার Minecraft অ্যাডভেঞ্চারের জন্য সমস্ত টুল", navHome: "হোম", navFAQ: "প্রায়শই জিজ্ঞাসিত প্রশ্ন", navBot: "সহায়ক বট", navTOS: "শর্তাবলী", navPrivacy: "গোপনীয়তা নীতি", navRedstone: "রেডস্টোন ক্যালকুলেটর", navEnchant: "এনচান্ট অপ্টিমাইজার", navBiome: "বায়োম ফাইন্ডার", bot_placeholder: "যেমন: নেদার পোর্টাল কীভাবে তৈরি করবেন?", bot_send: "পাঠান", redstone_btn: "গণনা করুন", enchant_btn: "পরামর্শ দিন", biome_btn: "খুঁজুন", tool1_btn: "গণনা করুন", tool2_btn: "জেনারেট করুন", tool3_btn: "রূপান্তর করুন", tool4_btn: "গণনা করুন", tool5_btn: "জেনারেট করুন", tool6_btn: "গণনা করুন", tool7_btn: "জেনারেট করুন", tool8_btn: "গণনা করুন" },
+    pt: { langName: "Português", flag: "🇵🇹", title: "Minecraft Tools Hub", headerSubtitle: "Todas as ferramentas para sua aventura", navHome: "Início", navFAQ: "Perguntas Frequentes", navBot: "Bot Assistente", navTOS: "Termos de Serviço", navPrivacy: "Política de Privacidade", navRedstone: "Calculadora de Redstone", navEnchant: "Otimizador de Encantamentos", navBiome: "Localizador de Biomas", bot_placeholder: "Ex: Como construir um portal do Nether?", bot_send: "Enviar", redstone_btn: "Calcular", enchant_btn: "Sugerir", biome_btn: "Localizar", tool1_btn: "Calcular", tool2_btn: "Gerar", tool3_btn: "Converter", tool4_btn: "Calcular", tool5_btn: "Gerar", tool6_btn: "Calcular", tool7_btn: "Gerar", tool8_btn: "Calcular" },
+    ur: { langName: "اردو", flag: "🇵🇰", title: "Minecraft ٹولز ہب", headerSubtitle: "آپ کے Minecraft سفر کے لیے تمام ٹولز", navHome: "ہوم", navFAQ: "اکثر پوچھے گئے سوالات", navBot: "معاون بوٹ", navTOS: "استعمال کی شرائط", navPrivacy: "رازداری کی پالیسی", navRedstone: "ریڈ اسٹون کیلکولیٹر", navEnchant: "جانچ کا بہترین طریقہ", navBiome: "بائیوم تلاش کرنے والا", bot_placeholder: "مثال: نیدر پورٹل کیسے بنائیں؟", bot_send: "بھیجیں", redstone_btn: "حساب کریں", enchant_btn: "تجویز کریں", biome_btn: "تلاش کریں", tool1_btn: "حساب کریں", tool2_btn: "تیار کریں", tool3_btn: "تبدیل کریں", tool4_btn: "حساب کریں", tool5_btn: "تیار کریں", tool6_btn: "حساب کریں", tool7_btn: "تیار کریں", tool8_btn: "حساب کریں" }
 };
 
-// 🌐 Функция установки языка БЕЗ перезагрузки + анимация + SEO
+// 🌐 Функция установки языка
 function setLanguage(lang) {
-    if (!['en', 'ru'].includes(lang)) return;
-
-    // Сохраняем в localStorage
+    if (!Object.keys(translations).includes(lang)) return;
     localStorage.setItem('language', lang);
-
-    // Обновляем URL без перезагрузки
     const newUrl = new URL(window.location);
     newUrl.searchParams.set('lang', lang);
     window.history.pushState({ lang }, '', newUrl);
-
-    // Анимация fade-out
     document.body.classList.add('language-fade');
     setTimeout(() => {
         applyTranslations(lang);
@@ -166,73 +220,58 @@ function setLanguage(lang) {
         updateLanguageUI(lang);
         document.body.classList.remove('language-fade');
     }, 300);
-
-    // Скрываем дропдаун
     const dropdown = document.getElementById('lang-dropdown');
     if (dropdown) dropdown.style.display = 'none';
 }
 
-// 🌐 Обновление SEO-тегов
+// 🌐 Обновление SEO
 function updateSEOTags(lang) {
     const t = translations[lang];
-
-    // Title
     document.title = t.title;
-
-    // Meta description
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
         metaDesc = document.createElement('meta');
         metaDesc.name = 'description';
         document.head.appendChild(metaDesc);
     }
-    metaDesc.content = t.metaDescription;
-
-    // Open Graph
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.content = t.title;
-
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.content = t.metaDescription;
-
-    // Twitter
-    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.content = t.title;
-
-    let twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDesc) twitterDesc.content = t.metaDescription;
+    metaDesc.content = t.metaDescription || t.headerSubtitle;
 }
 
-// 🌐 Обновление UI языка
+// 🌐 UI языка
 function updateLanguageUI(lang) {
     const t = translations[lang];
     const flagSpan = document.getElementById('current-flag');
     const langSpan = document.getElementById('current-lang');
-
     if (flagSpan) {
-        if (lang === 'en') {
-            flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="a"><rect width="20" height="15"/></clipPath></defs><g clip-path="url(#a)"><rect width="20" height="15" fill="#00247D"/><path d="M0 0h20v15H0z" fill="#00247D"/><path d="M0 0v15l8-6.5L0 2z" fill="#CF142B"/><path d="M20 0v15l-8-6.5L20 2z" fill="#CF142B"/><path d="M0 0h20v2H0z" fill="#fff"/><path d="M0 13h20v2H0z" fill="#fff"/><path d="M0 6h20v3H0z" fill="#fff"/><path d="M8 0h2v15H8z" fill="#fff"/><path d="M10 0l-8 6.5V2L10 8z" fill="#CF142B"/><path d="M10 15l8-6.5V13L10 7z" fill="#CF142B"/></g></svg>';
-        } else {
-            flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="5" y="0" fill="#fff"/><rect width="20" height="5" y="5" fill="#0033A0"/><rect width="20" height="5" y="10" fill="#D52B1E"/></svg>';
-        }
+        if (lang === 'en') flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="a"><rect width="20" height="15"/></clipPath></defs><g clip-path="url(#a)"><rect width="20" height="15" fill="#00247D"/><path d="M0 0h20v15H0z" fill="#00247D"/><path d="M0 0v15l8-6.5L0 2z" fill="#CF142B"/><path d="M20 0v15l-8-6.5L20 2z" fill="#CF142B"/><path d="M0 0h20v2H0z" fill="#fff"/><path d="M0 13h20v2H0z" fill="#fff"/><path d="M0 6h20v3H0z" fill="#fff"/><path d="M8 0h2v15H8z" fill="#fff"/><path d="M10 0l-8 6.5V2L10 8z" fill="#CF142B"/><path d="M10 15l8-6.5V13L10 7z" fill="#CF142B"/></g></svg>';
+        else if (lang === 'ru') flagSpan.innerHTML = '<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="5" y="0" fill="#fff"/><rect width="20" height="5" y="5" fill="#0033A0"/><rect width="20" height="5" y="10" fill="#D52B1E"/></svg>';
+        else flagSpan.textContent = t.flag || '';
     }
-
     if (langSpan) langSpan.textContent = t.langName;
 }
 
-// 🌐 Применяем переводы
+// 🌐 Применяем переводы — УНИВЕРСАЛЬНО ДЛЯ ВСЕХ СТРАНИЦ
 function applyTranslations(lang) {
     const t = translations[lang];
 
     // Header
+    const headerH1 = document.querySelector('header h1');
     const headerP = document.querySelector('header p');
-    if (headerP) headerP.textContent = t.headerSubtitle;
+    if (headerH1 && headerH1.textContent.includes('Redstone')) headerH1.textContent = t.redstone_title;
+    else if (headerH1 && headerH1.textContent.includes('Enchant')) headerH1.textContent = t.enchant_title;
+    else if (headerH1 && headerH1.textContent.includes('Biome')) headerH1.textContent = t.biome_title;
+    if (headerP) {
+        if (window.location.pathname.includes('redstone.html')) headerP.textContent = t.redstone_subtitle;
+        else if (window.location.pathname.includes('enchant.html')) headerP.textContent = t.enchant_subtitle;
+        else if (window.location.pathname.includes('biome.html')) headerP.textContent = t.biome_subtitle;
+        else headerP.textContent = t.headerSubtitle;
+    }
 
     // Footer
     const footerP = document.querySelectorAll('footer p');
-    if (footerP[1]) footerP[1].innerHTML = t.footerText;
+    if (footerP[1]) footerP[1].innerHTML = t.footerText || footerP[1].innerHTML;
 
-    // Navigation
+    // Footer links
     const navLinks = document.querySelectorAll('footer a');
     if (navLinks[0]) navLinks[0].textContent = t.navHome;
     if (navLinks[1]) navLinks[1].textContent = t.navFAQ;
@@ -240,97 +279,68 @@ function applyTranslations(lang) {
     if (navLinks[3]) navLinks[3].textContent = t.navTOS;
     if (navLinks[4]) navLinks[4].textContent = t.navPrivacy;
 
-    // Tools
+    // Tool cards — универсально
     const toolCards = document.querySelectorAll('.tool-card');
-    if (toolCards[0]) {
-        toolCards[0].querySelector('h3').textContent = t.tool1_title;
-        toolCards[0].querySelector('p').textContent = t.tool1_desc;
-        toolCards[0].querySelector('button').textContent = t.tool1_btn;
-    }
-    if (toolCards[1]) {
-        toolCards[1].querySelector('h3').textContent = t.tool2_title;
-        toolCards[1].querySelector('p').textContent = t.tool2_desc;
-        toolCards[1].querySelector('button').textContent = t.tool2_btn;
-    }
-    if (toolCards[2]) {
-        toolCards[2].querySelector('h3').textContent = t.tool3_title;
-        toolCards[2].querySelector('p').textContent = t.tool3_desc;
-        toolCards[2].querySelector('button').textContent = t.tool3_btn;
-    }
-    if (toolCards[3]) {
-        toolCards[3].querySelector('h3').textContent = t.tool4_title;
-        toolCards[3].querySelector('p').textContent = t.tool4_desc;
-        toolCards[3].querySelector('button').textContent = t.tool4_btn;
-    }
-    if (toolCards[4]) {
-        toolCards[4].querySelector('h3').textContent = t.tool5_title;
-        toolCards[4].querySelector('p').textContent = t.tool5_desc;
-        toolCards[4].querySelector('button').textContent = t.tool5_btn;
-    }
-    if (toolCards[5]) {
-        toolCards[5].querySelector('h3').textContent = t.tool6_title;
-        toolCards[5].querySelector('p').textContent = t.tool6_desc;
-        toolCards[5].querySelector('button').textContent = t.tool6_btn;
-    }
-    if (toolCards[6]) {
-        toolCards[6].querySelector('h3').textContent = t.tool7_title;
-        toolCards[6].querySelector('p').textContent = t.tool7_desc;
-        toolCards[6].querySelector('button').textContent = t.tool7_btn;
-    }
-    if (toolCards[7]) {
-        toolCards[7].querySelector('h3').textContent = t.tool8_title;
-        toolCards[7].querySelector('p').textContent = t.tool8_desc;
-        toolCards[7].querySelector('button').textContent = t.tool8_btn;
-    }
-
-    // Results (если уже есть)
-    const results = [
-        { id: 'result-blocks', key: 'tool1_result', args: [0] },
-        { id: 'result-coords', key: 'tool2_result', args: [0,0,0] },
-        { id: 'result-time', key: 'tool3_result', args: [0] },
-        { id: 'result-xp', key: 'tool4_result', args: [0,0] },
-        { id: 'result-itemname', key: 'tool5_result', args: [''] },
-        { id: 'result-creepers', key: 'tool6_result', args: [0] },
-        { id: 'result-seed', key: 'tool7_result', args: [0] },
-        { id: 'result-armor', key: 'tool8_result', args: [0,0] }
-    ];
-
-    results.forEach(r => {
-        const el = document.getElementById(r.id);
-        if (el && el.style.display !== 'none') {
-            el.textContent = '';
+    if (toolCards.length > 0) {
+        const page = window.location.pathname;
+        if (page.includes('redstone.html') && toolCards[0]) {
+            toolCards[0].querySelector('h3').textContent = t.redstone_tool_title;
+            toolCards[0].querySelector('p').textContent = t.redstone_tool_desc;
+            toolCards[0].querySelector('button').textContent = t.redstone_btn;
+        } else if (page.includes('enchant.html') && toolCards[0]) {
+            toolCards[0].querySelector('h3').textContent = t.enchant_tool_title;
+            toolCards[0].querySelector('button').textContent = t.enchant_btn;
+        } else if (page.includes('biome.html') && toolCards[0]) {
+            toolCards[0].querySelector('h3').textContent = t.biome_tool_title;
+            toolCards[0].querySelector('button').textContent = t.biome_btn;
         }
-    });
+    }
 
-    // Для страницы бота
+    // Бот
     if (window.location.pathname.includes('bot.html')) {
         const input = document.getElementById('user-question');
-        if (input) input.placeholder = t.bot_placeholder;
         const btn = document.querySelector('button[onclick="askBot()"]');
-        if (btn) btn.textContent = t.bot_send;
         const examplesTitle = document.querySelector('.tool-card h3');
-        if (examplesTitle && examplesTitle.textContent.includes('💡')) {
-            examplesTitle.textContent = t.bot_examples;
-        }
+        if (input) input.placeholder = t.bot_placeholder;
+        if (btn) btn.textContent = t.bot_send;
+        if (examplesTitle && examplesTitle.textContent.includes('💡')) examplesTitle.textContent = t.bot_examples;
     }
 }
 
 // 🌐 Инициализация
 document.addEventListener('DOMContentLoaded', () => {
-    // Обработчики дропдауна
+    // Языковое меню
     const toggleBtn = document.getElementById('lang-toggle');
     const dropdown = document.getElementById('lang-dropdown');
-
     if (toggleBtn && dropdown) {
         toggleBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         });
-
         document.addEventListener('click', (e) => {
             if (!dropdown.contains(e.target) && e.target !== toggleBtn) {
                 dropdown.style.display = 'none';
             }
+        });
+
+        // Заполняем дропдаун языками
+        const langs = ['ru', 'en', 'zh', 'es', 'hi', 'bn', 'pt', 'ur'];
+        langs.forEach(langCode => {
+            const langData = translations[langCode];
+            if (!langData) return;
+            const div = document.createElement('div');
+            div.style.padding = '10px';
+            div.style.cursor = 'pointer';
+            div.style.display = 'flex';
+            div.style.alignItems = 'center';
+            div.style.gap = '8px';
+            div.style.transition = 'background 0.2s';
+            div.style.borderTop = dropdown.children.length ? '1px solid #2c3e50' : 'none';
+            div.onmouseenter = () => div.style.background = '#3d566e';
+            div.onmouseleave = () => div.style.background = 'transparent';
+            div.onclick = () => setLanguage(langCode);
+            div.innerHTML = `<span>${langData.flag || ''}</span> ${langData.langName}`;
+            dropdown.appendChild(div);
         });
     }
 
@@ -338,51 +348,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const langFromURL = urlParams.get('lang');
     const langFromStorage = localStorage.getItem('language');
-    const browserLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
-
+    const browserLang = navigator.language.split('-')[0];
     let lang = langFromURL || langFromStorage || browserLang;
-    if (!['en', 'ru'].includes(lang)) lang = 'ru';
-
+    if (!translations[lang]) lang = 'ru';
     localStorage.setItem('language', lang);
     updateLanguageUI(lang);
     applyTranslations(lang);
     updateSEOTags(lang);
-
-    // Для страницы бота
-    if (window.location.pathname.includes('bot.html')) {
-        const input = document.getElementById('user-question');
-        if (input) input.placeholder = translations[lang].bot_placeholder;
-        const btn = document.querySelector('button[onclick="askBot()"]');
-        if (btn) btn.textContent = translations[lang].bot_send;
-    }
 });
 
-// 🤖 Бот-помощник
+// 🤖 Бот
 function askBot() {
     const lang = localStorage.getItem('language') || 'ru';
-    const t = translations[lang];
+    const t = translations[lang] || translations.ru;
     const question = document.getElementById('user-question')?.value.trim().toLowerCase();
     const answerDiv = document.getElementById('bot-answer');
     if (!answerDiv) return;
-
-    let answer = t.bot_answers.default;
-
-    if (question?.includes("алмаз") || question?.includes("diamond")) {
-        answer = t.bot_answers.diamonds;
-    } else if (question?.includes("портал") || question?.includes("portal") || question?.includes("нижний мир") || question?.includes("nether")) {
-        answer = t.bot_answers.portal;
-    } else if (question?.includes("опыт") || question?.includes("xp") || question?.includes("ферма") || question?.includes("farm")) {
-        answer = t.bot_answers.xp;
-    } else if (question?.includes("кра") || question?.includes("world") || question?.includes("мир") || question?.includes("edge")) {
-        answer = t.bot_answers.world;
-    } else if (question?.includes("зачар") || question?.includes("enchant") || question?.includes("чар")) {
-        answer = t.bot_answers.enchant;
-    }
-
+    let answer = t.bot_answers?.default || "I don't know.";
+    if (question?.includes("алмаз") || question?.includes("diamond")) answer = t.bot_answers?.diamonds || answer;
+    else if (question?.includes("портал") || question?.includes("portal") || question?.includes("nether")) answer = t.bot_answers?.portal || answer;
+    else if (question?.includes("опыт") || question?.includes("xp") || question?.includes("ферма")) answer = t.bot_answers?.xp || answer;
+    else if (question?.includes("кра") || question?.includes("world") || question?.includes("мир")) answer = t.bot_answers?.world || answer;
+    else if (question?.includes("зачар") || question?.includes("enchant")) answer = t.bot_answers?.enchant || answer;
     answerDiv.style.display = 'block';
     answerDiv.textContent = answer;
 }
 
+// === СТАРЫЕ ФУНКЦИИ (1–8) — ОСТАВЛЕНЫ БЕЗ ИЗМЕНЕНИЙ ===
+// ... (вставь сюда твой существующий код от calculateBlocks() до calculateArmorDurability()) ...
 // 🏠 1. Калькулятор блоков для дома
 function calculateBlocks() {
     const l = parseFloat(document.getElementById('length').value);
@@ -517,4 +510,82 @@ function calculateArmorDurability() {
         const lang = localStorage.getItem('language') || 'ru';
         alert(lang === 'en' ? 'Enter damage per hit.' : 'Введите урон за удар.');
     }
+}
+
+// === НОВЫЕ ФУНКЦИИ ===
+
+function calculateRepeaters() {
+    const len = parseInt(document.getElementById('redstone-length')?.value);
+    const lang = localStorage.getItem('language') || 'ru';
+    const t = translations[lang] || translations.ru;
+    if (!isNaN(len) && len > 0) {
+        const repeaters = Math.ceil(len / 15);
+        const delay = repeaters * 0.1;
+        const resultDiv = document.getElementById('result-repeaters');
+        if (resultDiv) {
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = t.redstone_result ? t.redstone_result(repeaters, delay) : `Repeaters: ${repeaters}`;
+        }
+    } else {
+        alert(t.tool1_result ? (lang === 'en' ? 'Enter valid length.' : 'Введите корректную длину.') : 'Error');
+    }
+}
+
+function suggestEnchant() {
+    const item = document.getElementById('item-type')?.value;
+    const level = parseInt(document.getElementById('enchant-level')?.value);
+    const lang = localStorage.getItem('language') || 'ru';
+    const t = translations[lang] || translations.ru;
+    if (isNaN(level) || level < 1 || level > 30) {
+        alert(lang === 'en' ? 'Enter level 1–30.' : 'Введите уровень от 1 до 30.');
+        return;
+    }
+    let suggestion = '';
+    if (lang === 'en') {
+        if (item === 'sword') suggestion = level >= 25 ? 'Sharpness V or Smite V' : level >= 15 ? 'Sharpness IV' : 'Bane of Arthropods III';
+        else if (item === 'bow') suggestion = level >= 25 ? 'Power V + Infinity' : level >= 15 ? 'Power IV' : 'Flame';
+        else if (item === 'pickaxe') suggestion = level >= 25 ? 'Efficiency V + Fortune III' : level >= 15 ? 'Efficiency IV' : 'Unbreaking III';
+        else if (item === 'armor') suggestion = level >= 25 ? 'Protection IV or Thorns III' : level >= 15 ? 'Protection III' : 'Blast Protection II';
+    } else {
+        if (item === 'sword') suggestion = level >= 25 ? 'Острота V или Небесная кара V' : level >= 15 ? 'Острота IV' : 'Бич членистоногих III';
+        else if (item === 'bow') suggestion = level >= 25 ? 'Мощь V + Бесконечность' : level >= 15 ? 'Мощь IV' : 'Пламя';
+        else if (item === 'pickaxe') suggestion = level >= 25 ? 'Эффективность V + Удача III' : level >= 15 ? 'Эффективность IV' : 'Прочность III';
+        else if (item === 'armor') suggestion = level >= 25 ? 'Защита IV или Шипы III' : level >= 15 ? 'Защита III' : 'Взрывоустойчивость II';
+    }
+    const resultDiv = document.getElementById('result-enchant');
+    if (resultDiv) {
+        resultDiv.style.display = 'block';
+        resultDiv.textContent = t.enchant_result ? t.enchant_result(suggestion) : suggestion;
+    }
+}
+
+function findBiome() {
+    const biome = document.getElementById('target-biome')?.value;
+    const lang = localStorage.getItem('language') || 'ru';
+    const t = translations[lang] || translations.ru;
+    let tip = t.biome_result?.[biome] || (lang === 'en' ? 'Try another biome.' : 'Попробуй другой биом.');
+    const resultDiv = document.getElementById('result-biome');
+    if (resultDiv) {
+        resultDiv.style.display = 'block';
+        resultDiv.textContent = tip;
+    }
+}
+
+// === БУРГЕР-МЕНЮ ===
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
+}
+function closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) sidebar.style.display = 'none';
+}
+document.getElementById('menu-toggle')?.addEventListener('click', toggleSidebar);
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeSidebar();
+});
+// Показываем бургер на мобилках
+if (window.innerWidth <= 768) {
+    const toggle = document.getElementById('menu-toggle');
+    if (toggle) toggle.style.display = 'block';
 }
