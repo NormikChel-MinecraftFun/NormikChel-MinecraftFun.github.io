@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru"> <!-- Шаблон для русского языка -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation — Minecraft Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background: #2c3e50;
+            color: #ecf0f1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            margin: 0;
+            position: relative; /* Для позиционирования меню */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #34495e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #1abc9c;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #1abc9c;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        a {
+            color: #1abc9c;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        code {
+            background: #2c3e50;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background: #2c3e50;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        /* Языковое меню в правом верхнем углу */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000; /* Поверх всего */
+        }
+        #lang-toggle {
+            background: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+        #lang-toggle:hover {
+            background: #16a085;
+        }
+        #lang-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0; /* Выравнивание по правому краю кнопки */
+            background: #34495e;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            z-index: 1001;
+            min-width: 180px; /* Шире для флагов и текста */
+            overflow: hidden;
+        }
+        #lang-dropdown div {
+            padding: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s;
+            user-select: none;
+        }
+        #lang-dropdown div:hover {
+            background: #3d566e;
+        }
+        #lang-dropdown div:not(:first-child) {
+            border-top: 1px solid #2c3e50;
+        }
+        .doc-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #3d566e;
+            border-radius: 8px;
+        }
+        .doc-section ul {
+            padding-left: 25px;
+        }
+        .doc-section li {
+            margin-bottom: 10px;
+        }
+        .doc-section p {
+            margin-bottom: 12px;
+        }
+        .nav-links {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #2c3e50;
+        }
+        .nav-links a {
+            margin: 0 15px;
+            padding: 8px 15px;
+            background: #1abc9c;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .nav-links a:hover {
+            background: #16a085;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Языковое меню -->
+    <div class="language-switcher">
+        <button id="lang-toggle">
+            <span id="current-flag">🇷🇺</span> <!-- Флаг для русского -->
+            <span id="current-lang">Русский</span> <!-- Название для русского -->
+        </button>
+        <div id="lang-dropdown">
+            <!-- Ссылки на другие языки. ВАЖНО: изменить href для каждого языка -->
+            <div onclick="location.href='index.html'"> <!-- Русский (главная) -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="5" y="0" fill="#fff"/>
+                    <rect width="20" height="5" y="5" fill="#0033A0"/>
+                    <rect width="20" height="5" y="10" fill="#D52B1E"/>
+                </svg>
+                Русский
+            </div>
+            <div onclick="location.href='../en/'"> <!-- Английский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <defs><clipPath id="clipUK"><rect width="20" height="15"/></clipPath></defs>
+                    <g clip-path="url(#clipUK)">
+                        <rect width="20" height="15" fill="#00247D"/>
+                        <path d="M0 0h20v15H0z" fill="#00247D"/>
+                        <path d="M0 0v15l8-6.5L0 2z" fill="#CF142B"/>
+                        <path d="M20 0v15l-8-6.5L20 2z" fill="#CF142B"/>
+                        <path d="M0 0h20v2H0z" fill="#fff"/>
+                        <path d="M0 13h20v2H0z" fill="#fff"/>
+                        <path d="M0 6h20v3H0z" fill="#fff"/>
+                        <path d="M8 0h2v15H8z" fill="#fff"/>
+                        <path d="M10 0l-8 6.5V2L10 8z" fill="#CF142B"/>
+                        <path d="M10 15l8-6.5V13L10 7z" fill="#CF142B"/>
+                    </g>
+                </svg>
+                English
+            </div>
+            <div onclick="location.href='../zh/'"> <!-- Китайский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <defs><clipPath id="clipCN"><rect width="20" height="15"/></clipPath></defs>
+                    <g clip-path="url(#clipCN)">
+                        <rect width="20" height="15" fill="#DE2910"/>
+                        <path d="M0 0h20v15H0z" fill="#DE2910"/>
+                        <path d="M4 3l-1.8 1.3 1.1 1.5-1.1 1.5L4 7l1.1 1.5-1.1 1.5L4 11.3l-1.8-1.3L1 11.3 0.8 10l1.1-1.5L0.8 7l1.1-1.5L1 4.2l1.2 1.3L4 3z" fill="#FFDE00"/>
+                        <path d="M8 2.5l-1.8 1.3 1.1 1.5-1.1 1.5L8 6.8l1.1 1.5-1.1 1.5L8 11.3l-1.8-1.3L5 11.3 4.8 10l1.1-1.5L4.8 7l1.1-1.5L5 4.2l1.2 1.3L8 2.5z" fill="#FFDE00" transform="rotate(23 8 7.5)"/>
+                        <path d="M10 5.5l-1.8 1.3 1.1 1.5-1.1 1.5L10 9.8l1.1 1.5-1.1 1.5L10 13.8l-1.8-1.3L7 13.8 6.8 12.5l1.1-1.5L6.8 9.5l1.1-1.5L7 6.8l1.2 1.3L10 5.5z" fill="#FFDE00" transform="rotate(45 10 7.5)"/>
+                        <path d="M12 3l-1.8 1.3 1.1 1.5-1.1 1.5L12 6.8l1.1 1.5-1.1 1.5L12 10.8l-1.8-1.3L9 10.8 8.8 9.5l1.1-1.5L8.8 6.5l1.1-1.5L9 3.8l1.2 1.3L12 3z" fill="#FFDE00" transform="rotate(70 12 7.5)"/>
+                        <path d="M14 6l-1.8 1.3 1.1 1.5-1.1 1.5L14 9.8l1.1 1.5-1.1 1.5L14 13.8l-1.8-1.3L11 13.8 10.8 12.5l1.1-1.5L10.8 9.5l1.1-1.5L11 6.8l1.2 1.3L14 6z" fill="#FFDE00" transform="rotate(90 14 7.5)"/>
+                    </g>
+                </svg>
+                中文
+            </div>
+            <div onclick="location.href='../hi/'"> <!-- Хинди -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="5" y="0" fill="#FF9933"/>
+                    <rect width="20" height="5" y="5" fill="#FFFFFF"/>
+                    <rect width="20" height="5" y="10" fill="#138808"/>
+                    <circle cx="10" cy="7.5" r="2" fill="#000088"/>
+                    <circle cx="10" cy="7.5" r="1.5" fill="#FFFFFF"/>
+                    <g transform="translate(10,7.5) scale(1.5)">
+                        <circle r="1" fill="#000088"/>
+                        <g id="d">
+                            <g id="c">
+                                <g id="b">
+                                    <g id="a">
+                                        <path d="M0,0 h0.7" transform="rotate(15,0,0)" id="a1"/>
+                                        <use href="#a1" transform="rotate(15)" id="a2"/>
+                                        <use href="#a2" transform="rotate(15)" id="a3"/>
+                                        <use href="#a3" transform="rotate(15)" id="a4"/>
+                                        <use href="#a4" transform="rotate(15)" id="a5"/>
+                                        <use href="#a5" transform="rotate(15)" id="a6"/>
+                                    </g>
+                                    <use href="#b" transform="scale(-1,1)" id="b1"/>
+                                </g>
+                                <use href="#c" transform="rotate(45)" id="c1"/>
+                                <use href="#c1" transform="rotate(45)" id="c2"/>
+                                <use href="#c2" transform="rotate(45)" id="c3"/>
+                                <use href="#c3" transform="rotate(45)" id="c4"/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                हिंदी
+            </div>
+            <div onclick="location.href='../de/'"> <!-- Немецкий -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="5" y="0" fill="#000000"/>
+                    <rect width="20" height="5" y="5" fill="#DD0000"/>
+                    <rect width="20" height="5" y="10" fill="#FFCE00"/>
+                </svg>
+                Deutsch
+            </div>
+            <div onclick="location.href='../es/'"> <!-- Испанский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="10" y="0" fill="#AA151B"/>
+                    <rect width="20" height="5" y="10" fill="#F1BF00"/>
+                </svg>
+                Español
+            </div>
+            <div onclick="location.href='../pt/'"> <!-- Португальский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="15" fill="#6BCC3E"/>
+                    <path d="M0 0h20v15H0z" fill="#6BCC3E"/>
+                    <path d="M0 0v15l8-6.5L0 2z" fill="#009739"/>
+                    <path d="M20 0v15l-8-6.5L20 2z" fill="#009739"/>
+                    <path d="M0 0h20v2H0z" fill="#FEDF00"/>
+                    <path d="M0 13h20v2H0z" fill="#FEDF00"/>
+                    <path d="M0 6h20v3H0z" fill="#FEDF00"/>
+                    <path d="M8 0h2v15H8z" fill="#FEDF00"/>
+                    <path d="M10 0l-8 6.5V2L10 8z" fill="#009739"/>
+                    <path d="M10 15l8-6.5V13L10 7z" fill="#009739"/>
+                    <circle cx="10" cy="7.5" r="2.5" fill="#009739"/>
+                </svg>
+                Português
+            </div>
+            <div onclick="location.href='../it/'"> <!-- Итальянский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="6.67" height="15" x="0" y="0" fill="#009246"/>
+                    <rect width="6.67" height="15" x="6.67" y="0" fill="#FFFFFF"/>
+                    <rect width="6.67" height="15" x="13.33" y="0" fill="#CE2B37"/>
+                </svg>
+                Italiano
+            </div>
+            <div onclick="location.href='../fr/'"> <!-- Французский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="6.67" height="15" x="0" y="0" fill="#002654"/>
+                    <rect width="6.67" height="15" x="6.67" y="0" fill="#FFFFFF"/>
+                    <rect width="6.67" height="15" x="13.33" y="0" fill="#CE1126"/>
+                </svg>
+                Français
+            </div>
+            <div onclick="location.href='../tr/'"> <!-- Турецкий -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="15" fill="#E30A17"/>
+                    <path d="M12 7.5a4.5 4.5 0 1 1-9 0 4.5 4.5 0 1 1 9 0z" fill="#FFFFFF"/>
+                    <path d="M13 7.5a4 4 0 1 1-8 0 4 4 0 1 1 8 0z" fill="#E30A17"/>
+                    <path d="M15 7.5l-3 2v-4l3 2z" fill="#FFFFFF"/>
+                </svg>
+                Türkçe
+            </div>
+            <div onclick="location.href='../fa/'"> <!-- Персидский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="5" y="0" fill="#DA0000"/>
+                    <rect width="20" height="5" y="5" fill="#FFFFFF"/>
+                    <rect width="20" height="5" y="10" fill="#239F40"/>
+                    <path d="M9 6.5c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z" fill="#FFFFFF"/>
+                    <path d="M9.5 7c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-1 .45-1 1z" fill="#000"/>
+                </svg>
+                فارسی
+            </div>
+            <div onclick="location.href='../ur/'"> <!-- Урду -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="15" fill="#01411C"/>
+                    <path d="M0 0h20v15H0z" fill="#01411C"/>
+                    <path d="M0 0v15l8-6.5L0 2z" fill="#009739"/>
+                    <path d="M20 0v15l-8-6.5L20 2z" fill="#009739"/>
+                    <path d="M0 0h20v2H0z" fill="#FEDF00"/>
+                    <path d="M0 13h20v2H0z" fill="#FEDF00"/>
+                    <path d="M0 6h20v3H0z" fill="#FEDF00"/>
+                    <path d="M8 0h2v15H8z" fill="#FEDF00"/>
+                    <path d="M10 0l-8 6.5V2L10 8z" fill="#009739"/>
+                    <path d="M10 15l8-6.5V13L10 7z" fill="#009739"/>
+                    <circle cx="12" cy="7.5" r="2.5" fill="#FFFFFF"/>
+                    <circle cx="12.5" cy="7.5" r="2" fill="#01411C"/>
+                    <path d="M13.5 6.5l-1.5.5.5 1.5-.5-1.5-1.5.5.5-1.5 1.5-.5-.5 1.5z" fill="#FFFFFF"/>
+                </svg>
+                اردو
+            </div>
+            <div onclick="location.href='../ar/'"> <!-- Арабский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="5" y="0" fill="#007A3D"/>
+                    <rect width="20" height="5" y="5" fill="#FFFFFF"/>
+                    <rect width="20" height="5" y="10" fill="#CE1126"/>
+                    <path d="M0 0h20v15H0z" fill="#000"/>
+                    <path d="M0 0v15l8-6.5L0 2z" fill="#007A3D"/>
+                    <path d="M20 0v15l-8-6.5L20 2z" fill="#007A3D"/>
+                    <path d="M0 0h20v2H0z" fill="#FFFFFF"/>
+                    <path d="M0 13h20v2H0z" fill="#FFFFFF"/>
+                    <path d="M0 6h20v3H0z" fill="#FFFFFF"/>
+                    <path d="M8 0h2v15H8z" fill="#FFFFFF"/>
+                    <path d="M10 0l-8 6.5V2L10 8z" fill="#007A3D"/>
+                    <path d="M10 15l8-6.5V13L10 7z" fill="#007A3D"/>
+                </svg>
+                العربية
+            </div>
+            <div onclick="location.href='../ko/'"> <!-- Корейский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="15" fill="#FFFFFF"/>
+                    <path d="M0 0h20v15H0z" fill="#FFFFFF"/>
+                    <path d="M0 0v15l8-6.5L0 2z" fill="#000"/>
+                    <path d="M20 0v15l-8-6.5L20 2z" fill="#000"/>
+                    <path d="M0 0h20v2H0z" fill="#000"/>
+                    <path d="M0 13h20v2H0z" fill="#000"/>
+                    <path d="M0 6h20v3H0z" fill="#000"/>
+                    <path d="M8 0h2v15H8z" fill="#000"/>
+                    <path d="M10 0l-8 6.5V2L10 8z" fill="#000"/>
+                    <path d="M10 15l8-6.5V13L10 7z" fill="#000"/>
+                    <circle cx="10" cy="7.5" r="3" fill="#C60C30"/>
+                    <path d="M10 4.5v6" stroke="#000" stroke-width="0.5"/>
+                    <path d="M7 7.5h6" stroke="#000" stroke-width="0.5"/>
+                    <path d="M8.5 6v3" stroke="#000" stroke-width="0.5"/>
+                    <path d="M11.5 6v3" stroke="#000" stroke-width="0.5"/>
+                </svg>
+                한국어
+            </div>
+            <div onclick="location.href='../jp/'"> <!-- Японский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="15" fill="#FFFFFF"/>
+                    <circle cx="10" cy="7.5" r="4" fill="#BC002D"/>
+                </svg>
+                日本語
+            </div>
+            <div onclick="location.href='../pl/'"> <!-- Польский -->
+                <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="7.5" y="0" fill="#FFFFFF"/>
+                    <rect width="20" height="7.5" y="7.5" fill="#DC143C"/>
+                </svg>
+                Polski
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Documentation — Minecraft Tools Hub</h1>
+        <p>Welcome to the comprehensive guide for our website. Here you will find information about all tools, features, security, and more.</p>
+
+        <div class="doc-section">
+            <h2>1. What is Minecraft Tools Hub?</h2>
+            <p>Minecraft Tools Hub is a free website created for Minecraft players. It provides a set of tools that help simplify tasks related to building, farming, exploring the world, and other aspects of the game.</p>
+            <p>All tools work directly in your browser, no need to download programs.</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>2. How to Use Tools?</h2>
+            <p>Each tool is located on the main page as a card.</p>
+            <ol>
+                <li>Select the desired tool.</li>
+                <li>Enter the required data in the input fields.</li>
+                <li>Click the "Calculate", "Generate", or other appropriate button.</li>
+                <li>View the result that appears below the tool.</li>
+            </ol>
+            <p>For example, for the "House Blocks Calculator", enter length, width, and height, then click "Calculate".</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>3. Available Tools</h2>
+            <h3>🏠 House Blocks Calculator</h3>
+            <p>Calculates the number of blocks needed to build a house of specified dimensions (walls, floor, roof).</p>
+
+            <h3>🌍 Random Coordinates Generator</h3>
+            <p>Generates random coordinates (X, Y, Z) for teleportation in Minecraft. Useful for exploring the world.</p>
+
+            <h3>⏳ Game Time Converter</h3>
+            <p>Converts real minutes to in-game days and vice versa. Takes into account that 1 in-game day = 20 minutes.</p>
+
+            <h3>✨ XP Calculator</h3>
+            <p>Determines how many levels you will get for a specified amount of experience (XP) and how much XP will remain until the next level.</p>
+
+            <h3>🏷️ Item Name Generator</h3>
+            <p>Creates random "cool" names for your items, e.g., "Legendary Sword" or "Dark Amulet".</p>
+
+            <h3>💥 Creeper Farm Calculator</h3>
+            <p>Calculates how many creepers you need to kill to get a specified amount of gunpowder.</p>
+
+            <h3>🌱 Random Seed Generator</h3>
+            <p>Generates a random number that can be used as a seed for generating a new world in Minecraft.</p>
+
+            <h3>🛡️ Armor Durability Calculator</h3>
+            <p>Determines how many hits your armor will withstand, depending on the armor type (leather, iron, etc.) and the damage dealt by the opponent.</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>4. Helper Bot</h2>
+            <p>On the "Helper Bot" page, you can ask questions about Minecraft. The bot will give answers to frequently asked questions, such as:</p>
+            <ul>
+                <li>How to get diamonds?</li>
+                <li>How to build a Nether portal?</li>
+                <li>How to build an XP farm?</li>
+            </ul>
+            <p>This is not a full AI, but a set of pre-made answers.</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>5. Frequently Asked Questions (FAQ)</h2>
+            <p>On the FAQ page, you will find answers to popular questions:</p>
+            <ul>
+                <li>Is it safe to use the site?</li>
+                <li>How to add the site to bookmarks?</li>
+                <li>Is there a mobile version?</li>
+                <li>Why are results rounded?</li>
+            </ul>
+        </div>
+
+        <div class="doc-section">
+            <h2>6. Security and Privacy</h2>
+            <p>We take your security seriously:</p>
+            <ul>
+                <li>The site does not collect, store, or transmit your personal data.</li>
+                <li>All calculations are performed in your browser (locally).</li>
+                <li>We do not use cookies or trackers.</li>
+                <li>The site does not require registration.</li>
+            </ul>
+            <p>See more details on the <a href="privacy.html">Privacy Policy</a> page.</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>7. Terms of Use</h2>
+            <p>By using the site, you agree to our <a href="tos.html">Terms of Use</a>. Please read them.</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>8. Support and Feedback</h2>
+            <p>If you have questions, suggestions, or have found a bug:</p>
+            <ul>
+                <li>Write to us via the <a href="bot.html">Helper Bot</a>.</li>
+                <li>Check the <a href="faq.html">FAQ</a>.</li>
+            </ul>
+        </div>
+
+        <div class="doc-section">
+            <h2>9. Translations</h2>
+            <p>The site is available in multiple languages. You can switch the language using the menu in the top right corner.</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>10. Technical Information</h2>
+            <p>The site is created using:</p>
+            <ul>
+                <li><strong>HTML5</strong> — page structure.</li>
+                <li><strong>CSS3</strong> — appearance and styles.</li>
+                <li><strong>JavaScript</strong> — interactivity and tool logic.</li>
+            </ul>
+            <p>This is a responsive site that correctly displays on computers, tablets, and phones.</p>
+        </div>
+
+        <div class="nav-links">
+            <a href="../">Home</a>
+            <a href="faq.html">FAQ</a>
+            <a href="bot.html">Helper Bot</a>
+        </div>
+    </div>
+
+    <script>
+        // Простой скрипт для работы выпадающего меню
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('lang-toggle');
+            const dropdown = document.getElementById('lang-dropdown');
+
+            if (toggleBtn && dropdown) {
+                toggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!dropdown.contains(e.target) && e.target !== toggleBtn) {
+                        dropdown.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
