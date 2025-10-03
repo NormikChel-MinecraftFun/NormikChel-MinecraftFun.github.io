@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dokumentation — Minecraft Tools Hub</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="language-switcher">
+    <button id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+      <span>🇩🇪 DE</span>
+    </button>
+    <div id="lang-dropdown" role="menu">
+      <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
+      <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
+      <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
+      <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
+      <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
+      <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
+    </div>
+  </div>
+
+  <header>
+    <h1>Dokumentation</h1>
+    <p>Ausführliche Beschreibungen aller Tools auf der Website.</p>
+  </header>
+  <main>
+    <section><h2>🧱 Blockrechner für Häuser</h2><p>Berechnet benötigte Blöcke für ein Haus mit vorgegebenen Abmessungen (Wände, Boden, Dach).</p></section>
+    <section><h2>🧭 Zufällige Koordinaten-Generator</h2><p>Erzeugt zufällige X/Y/Z-Koordinaten innerhalb der Minecraft-Weltgrenzen für <code>/tp</code>.</p></section>
+    <section><h2>⏳ Ingame-Zeitumrechner</h2><p>Rechnet echte Minuten in Ingame-Tage um und umgekehrt. 1 Tag = 20 echte Minuten.</p></section>
+    <section><h2>✨ Erfahrungspunkte-Rechner</h2><p>Zeigt an, wie viele Erfahrungsstufen du mit einer bestimmten XP-Menge erhältst.</p></section>
+    <section><h2>🏷️ Gegenstandsname-Generator</h2><p>Erstellt kreative Namen für Gegenstände – ideal für Mods oder Rollenspiel-Server.</p></section>
+    <section><h2>💥 Creeper-Farm-Rechner</h2><p>Berechnet, wie viele Creeper getötet werden müssen, um eine gewünschte Menge Schießpulver zu erhalten (100 % Drop).</p></section>
+    <section><h2>🌱 Zufälliger Seed-Generator</h2><p>Generiert einen zufälligen Seed für eine neue Minecraft-Welt (Java & Bedrock).</p></section>
+    <section><h2>🛡️ Rüstungshaltbarkeits-Rechner</h2><p>Bestimmt, wie viele Treffer Rüstungen aus verschiedenen Materialien aushalten.</p></section>
+  </main>
+
+  <script>
+    function switchLang(lang) {
+      const paths = {
+        ru: '/documentation/',
+        en: '/documentation/en/',
+        de: '/documentation/de/',
+        zh: '/documentation/zh/',
+        nl: '/documentation/nl/',
+        pl: '/documentation/pl/'
+      };
+      if (paths[lang]) window.location.href = paths[lang];
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const t = document.getElementById('lang-toggle');
+      const d = document.getElementById('lang-dropdown');
+      t?.addEventListener('click', e => { e.stopPropagation(); t.setAttribute('aria-expanded', t.getAttribute('aria-expanded') !== 'true'); d.style.display = t.getAttribute('aria-expanded') === 'true' ? 'block' : 'none'; });
+      document.addEventListener('click', e => { if (!e.target.closest('.language-switcher')) { d.style.display = 'none'; t?.setAttribute('aria-expanded', 'false'); } });
+    });
+  </script>
+</body>
+</html>

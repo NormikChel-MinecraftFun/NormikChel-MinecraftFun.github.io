@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dokumentacja — Minecraft Tools Hub</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="language-switcher">
+    <button id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+      <span>🇵🇱 PL</span>
+    </button>
+    <div id="lang-dropdown" role="menu">
+      <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
+      <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
+      <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
+      <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
+      <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
+      <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
+    </div>
+  </div>
+
+  <header>
+    <h1>Dokumentacja</h1>
+    <p>Szczegółowy opis wszystkich narzędzi dostępnych na stronie.</p>
+  </header>
+  <main>
+    <section><h2>🧱 Kalkulator bloków na dom</h2><p>Oblicza liczbę bloków potrzebnych do zbudowania domu o podanych wymiarach (ściany, podłoga, dach).</p></section>
+    <section><h2>🧭 Generator losowych współrzędnych</h2><p>Generuje losowe współrzędne X, Y, Z w granicach świata Minecraft do teleportacji <code>/tp</code>.</p></section>
+    <section><h2>⏳ Konwerter czasu gry</h2><p>Przelicza minuty rzeczywiste na dni w grze i odwrotnie. 1 dzień = 20 minut.</p></section>
+    <section><h2>✨ Kalkulator doświadczenia</h2><p>Pokazuje, ile poziomów doświadczenia otrzymasz za określoną ilość punktów XP.</p></section>
+    <section><h2>🏷️ Generator nazw przedmiotów</h2><p>Tworzy unikalne i kreatywne nazwy przedmiotów, idealne do modów lub serwerów RPG.</p></section>
+    <section><h2>💥 Kalkulator farmy creeperów</h2><p>Oblicza, ile creeperów trzeba zabić, aby uzyskać pożądaną ilość prochu strzelniczego (100% szansa).</p></section>
+    <section><h2>🌱 Generator losowego seeda</h2><p>Generuje losowy numeryczny seed do nowego świata Minecraft (Java i Bedrock).</p></section>
+    <section><h2>🛡️ Kalkulator wytrzymałości zbroi</h2><p>Określa, ile trafień wytrzyma zbroja z różnych materiałów przed zniszczeniem.</p></section>
+  </main>
+
+  <script>
+    function switchLang(lang) {
+      const paths = {
+        ru: '/documentation/',
+        en: '/documentation/en/',
+        de: '/documentation/de/',
+        zh: '/documentation/zh/',
+        nl: '/documentation/nl/',
+        pl: '/documentation/pl/'
+      };
+      if (paths[lang]) window.location.href = paths[lang];
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const t = document.getElementById('lang-toggle');
+      const d = document.getElementById('lang-dropdown');
+      t?.addEventListener('click', e => { e.stopPropagation(); t.setAttribute('aria-expanded', t.getAttribute('aria-expanded') !== 'true'); d.style.display = t.getAttribute('aria-expanded') === 'true' ? 'block' : 'none'; });
+      document.addEventListener('click', e => { if (!e.target.closest('.language-switcher')) { d.style.display = 'none'; t?.setAttribute('aria-expanded', 'false'); } });
+    });
+  </script>
+</body>
+</html>

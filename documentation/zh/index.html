@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>文档 — Minecraft 工具中心</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="language-switcher">
+    <button id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+      <span>🇨🇳 中文</span>
+    </button>
+    <div id="lang-dropdown" role="menu">
+      <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
+      <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
+      <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
+      <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
+      <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
+      <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
+    </div>
+  </div>
+
+  <header>
+    <h1>文档</h1>
+    <p>本网站所有工具的详细说明。</p>
+  </header>
+  <main>
+    <section><h2>🧱 房屋方块计算器</h2><p>计算建造指定尺寸房屋所需的方块数量，包括墙壁、地板和屋顶。</p></section>
+    <section><h2>🧭 随机坐标生成器</h2><p>在 Minecraft 世界范围内生成随机 X、Y、Z 坐标，用于 <code>/tp</code> 命令。</p></section>
+    <section><h2>⏳ 游戏时间转换器</h2><p>将现实分钟与游戏内天数相互转换。1 游戏日 = 20 现实分钟。</p></section>
+    <section><h2>✨ 经验值计算器</h2><p>根据 Minecraft 经验公式，显示指定经验值可获得多少等级。</p></section>
+    <section><h2>🏷️ 物品名称生成器</h2><p>为物品生成独特且富有创意的名称，适用于模组、自定义地图或角色扮演服务器。</p></section>
+    <section><h2>💥 苦力怕农场计算器</h2><p>计算需要击杀多少只苦力怕才能获得指定数量的火药（假设 100% 掉落率）。</p></section>
+    <section><h2>🌱 随机种子生成器</h2><p>生成用于创建新 Minecraft 世界的随机数字种子，适用于 Java 版和基岩版。</p></section>
+    <section><h2>🛡️ 护甲耐久计算器</h2><p>计算不同材质（皮革、金、铁、钻石等）的护甲在完全损坏前可承受多少次攻击。</p></section>
+  </main>
+
+  <script>
+    function switchLang(lang) {
+      const paths = {
+        ru: '/documentation/',
+        en: '/documentation/en/',
+        de: '/documentation/de/',
+        zh: '/documentation/zh/',
+        nl: '/documentation/nl/',
+        pl: '/documentation/pl/'
+      };
+      if (paths[lang]) window.location.href = paths[lang];
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const t = document.getElementById('lang-toggle');
+      const d = document.getElementById('lang-dropdown');
+      t?.addEventListener('click', e => { e.stopPropagation(); t.setAttribute('aria-expanded', t.getAttribute('aria-expanded') !== 'true'); d.style.display = t.getAttribute('aria-expanded') === 'true' ? 'block' : 'none'; });
+      document.addEventListener('click', e => { if (!e.target.closest('.language-switcher')) { d.style.display = 'none'; t?.setAttribute('aria-expanded', 'false'); } });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Documentatie — Minecraft Tools Hub</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="language-switcher">
+    <button id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+      <span>🇳🇱 NL</span>
+    </button>
+    <div id="lang-dropdown" role="menu">
+      <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
+      <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
+      <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
+      <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
+      <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
+      <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
+    </div>
+  </div>
+
+  <header>
+    <h1>Documentatie</h1>
+    <p>Gedetailleerde beschrijvingen van alle tools op de website.</p>
+  </header>
+  <main>
+    <section><h2>🧱 Blokkenrekenmachine voor huis</h2><p>Berekent het aantal blokken nodig voor een huis van bepaalde afmetingen, inclusief muren, vloer en dak.</p></section>
+    <section><h2>🧭 Willekeurige coördinaten generator</h2><p>Genereert willekeurige X, Y, Z coördinaten binnen Minecraft-wereldgrenzen voor <code>/tp</code>.</p></section>
+    <section><h2>⏳ In-game tijd omzetter</h2><p>Zet echte minuten om naar in-game dagen en vice versa. 1 dag = 20 echte minuten.</p></section>
+    <section><h2>✨ Ervaringspunten rekenmachine</h2><p>Toont hoeveel ervaringsniveaus je krijgt voor een bepaald aantal XP-punten.</p></section>
+    <section><h2>🏷️ Itemnaam generator</h2><p>Maakt unieke en creatieve namen voor items, ideaal voor mods of roleplay-servers.</p></section>
+    <section><h2>💥 Creeperboerderij rekenmachine</h2><p>Berekent hoeveel creepers je moet doden voor een gewenste hoeveelheid buskruit (100% dropkans).</p></section>
+    <section><h2>🌱 Willekeurige seed generator</h2><p>Genereert een willekeurige numerieke seed voor een nieuwe Minecraft-wereld (Java & Bedrock).</p></section>
+    <section><h2>🛡️ Harnashouder rekenmachine</h2><p>Bepaalt hoeveel treffers harnassen van verschillende materialen kunnen weerstaan.</p></section>
+  </main>
+
+  <script>
+    function switchLang(lang) {
+      const paths = {
+        ru: '/documentation/',
+        en: '/documentation/en/',
+        de: '/documentation/de/',
+        zh: '/documentation/zh/',
+        nl: '/documentation/nl/',
+        pl: '/documentation/pl/'
+      };
+      if (paths[lang]) window.location.href = paths[lang];
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const t = document.getElementById('lang-toggle');
+      const d = document.getElementById('lang-dropdown');
+      t?.addEventListener('click', e => { e.stopPropagation(); t.setAttribute('aria-expanded', t.getAttribute('aria-expanded') !== 'true'); d.style.display = t.getAttribute('aria-expanded') === 'true' ? 'block' : 'none'; });
+      document.addEventListener('click', e => { if (!e.target.closest('.language-switcher')) { d.style.display = 'none'; t?.setAttribute('aria-expanded', 'false'); } });
+    });
+  </script>
+</body>
+</html>
