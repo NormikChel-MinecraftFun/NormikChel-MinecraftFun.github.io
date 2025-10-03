@@ -1,75 +1,95 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dokumentation — Minecraft Tools Hub</title>
-  <link rel="stylesheet" href="/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dokumentation — Minecraft Tools Hub</title>
+    <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button id="lang-toggle" aria-haspopup="true" aria-expanded="false"><span>🇩🇪 DE</span></button>
+        <div id="lang-dropdown" role="menu">
+            <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
+            <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
+            <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
+            <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
+            <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
+            <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
+        </div>
+    </div>
 
-<div class="language-switcher">
-  <button id="lang-toggle" aria-haspopup="true" aria-expanded="false">
-    <span>🇩🇪 DE</span>
-  </button>
-  <div id="lang-dropdown" role="menu">
-    <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
-    <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
-    <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
-    <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
-    <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
-    <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
-  </div>
-</div>
+    <header>
+        <h1>⛏️ Minecraft Tools Hub</h1>
+        <p>Alle notwendigen Tools für dein Minecraft-Abenteuer</p>
+    </header>
 
-<header>
-  <h1>Dokumentation</h1>
-  <p>Ausführliche Beschreibungen aller auf der Website verfügbaren Tools.</p>
-</header>
-<main>
-  <section><h2>🧱 Blockrechner für Häuser</h2><p>Berechnet die benötigte Anzahl an Blöcken für den Bau eines Hauses mit vorgegebenen Abmessungen, einschließlich Wänden, Boden und Dach.</p></section>
-  <section><h2>🧭 Zufällige Koordinaten-Generator</h2><p>Erzeugt zufällige X-, Y- und Z-Koordinaten innerhalb der Minecraft-Weltgrenzen für die Teleportation per <code>/tp</code>-Befehl.</p></section>
-  <section><h2>⏳ Ingame-Zeitumrechner</h2><p>Rechnet reale Minuten in Ingame-Tage um und umgekehrt. 1 Ingame-Tag = 20 echte Minuten.</p></section>
-  <section><h2>✨ Erfahrungspunkte-Rechner</h2><p>Zeigt an, wie viele Erfahrungsstufen du mit einer bestimmten Menge an Erfahrungspunkten (XP) erhältst, basierend auf der Minecraft-Formel.</p></section>
-  <section><h2>🏷️ Gegenstandsname-Generator</h2><p>Erstellt einzigartige und kreative Namen für Gegenstände – ideal für Mods, benutzerdefinierte Karten oder Rollenspiel-Server.</p></section>
-  <section><h2>💥 Creeper-Farm-Rechner</h2><p>Berechnet, wie viele Creeper getötet werden müssen, um eine gewünschte Menge Schießpulver zu erhalten (bei 100 % Drop-Chance unter normalen Bedingungen).</p></section>
-  <section><h2>🌱 Zufälliger Seed-Generator</h2><p>Generiert einen zufälligen numerischen Seed zur Erstellung einer neuen Minecraft-Welt. Funktioniert sowohl für Java- als auch für Bedrock-Edition.</p></section>
-  <section><h2>🛡️ Rüstungshaltbarkeits-Rechner</h2><p>Bestimmt, wie viele Treffer Rüstungen aus verschiedenen Materialien (Leder, Gold, Eisen, Diamant usw.) aushalten, bevor sie kaputtgehen.</p></section>
-</main>
+    <main>
+        <section>
+            <h2>🧱 Haus-Block-Rechner</h2>
+            <p>Berechne, wie viele Blöcke du zum Bau eines Hauses benötigst.</p>
+        </section>
+        <section>
+            <h2>🧭 Generator für zufällige Koordinaten</h2>
+            <p>Generiert zufällige X, Y, Z-Koordinaten für die Teleportation (<code>/tp</code>) innerhalb der Minecraft-Welt.</p>
+        </section>
+        <section>
+            <h2>⏳ In-Game-Zeitumrechner</h2>
+            <p>Rechnet echte Minuten in In-Game-Tage um und umgekehrt. 1 Tag = 20 Minuten.</p>
+        </section>
+        <section>
+            <h2>✨ Erfahrungsrechner</h2>
+            <p>Zeigt, wie viele Erfahrungsstufen du für eine bestimmte Anzahl an XP-Punkten erhalten wirst.</p>
+        </section>
+        <section>
+            <h2>🏷️ Gegenstandsnamengenerator</h2>
+            <p>Erstellt einzigartige und kreative Gegenstandsnamen, ideal für benutzerdefinierte Mods oder RPG-Server.</p>
+        </section>
+        <section>
+            <h2>💥 Creeper-Farm-Rechner</h2>
+            <p>Berechnet, wie viele Creeper du töten musst, um eine gewünschte Menge Schießpulver zu erhalten (bei 100 % Drop-Chance unter normalen Bedingungen).</p>
+        </section>
+        <section>
+            <h2>🌱 Zufälliger Seed-Generator</h2>
+            <p>Generiert einen zufälligen numerischen Seed zur Erstellung einer neuen Minecraft-Welt. Funktioniert für Java- und Bedrock-Edition.</p>
+        </section>
+        <section>
+            <h2>🛡️ Rüstungshaltbarkeits-Rechner</h2>
+            <p>Bestimmt, wie viele Treffer Rüstungen aus verschiedenen Materialien (Leder, Gold, Eisen, Diamant usw.) aushalten, bevor sie kaputtgehen.</p>
+        </section>
+    </main>
 
-<script>
-  function switchLang(lang) {
-    const paths = {
-      ru: '/documentation/',
-      en: '/documentation/en/',
-      de: '/documentation/de/',
-      zh: '/documentation/zh/',
-      nl: '/documentation/nl/',
-      pl: '/documentation/pl/'
-    };
-    if (paths[lang]) window.location.href = paths[lang];
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('lang-toggle');
-    const dropdown = document.getElementById('lang-dropdown');
-
-    toggle?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', !isExpanded);
-      dropdown.style.display = isExpanded ? 'none' : 'block';
-      dropdown.classList.remove('language-fade');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.language-switcher')) {
-        dropdown.classList.add('language-fade');
-        setTimeout(() => { dropdown.style.display = 'none'; }, 300);
-        toggle?.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-</script>
+    <script>
+        function switchLang(lang) {
+            const paths = {
+                ru: '/documentation/',
+                en: '/documentation/en/',
+                de: '/documentation/de/',
+                zh: '/documentation/zh/',
+                nl: '/documentation/nl/',
+                pl: '/documentation/pl/'
+            };
+            if (paths[lang]) window.location.href = paths[lang];
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('lang-toggle');
+            const dropdown = document.getElementById('lang-dropdown');
+            toggle?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', !isExpanded);
+                dropdown.style.display = isExpanded ? 'none' : 'block';
+                if (!isExpanded) dropdown.classList.remove('language-fade');
+            });
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.language-switcher')) {
+                    dropdown.classList.add('language-fade');
+                    setTimeout(() => { dropdown.style.display = 'none'; }, 300);
+                    toggle?.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

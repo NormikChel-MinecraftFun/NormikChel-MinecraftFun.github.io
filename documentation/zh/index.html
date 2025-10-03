@@ -1,75 +1,95 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>文档 — Minecraft 工具中心</title>
-  <link rel="stylesheet" href="/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>文档 — Minecraft 工具中心</title>
+    <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+    <!-- 语言切换器 -->
+    <div class="language-switcher">
+        <button id="lang-toggle" aria-haspopup="true" aria-expanded="false"><span>🇨🇳 中文</span></button>
+        <div id="lang-dropdown" role="menu">
+            <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
+            <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
+            <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
+            <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
+            <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
+            <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
+        </div>
+    </div>
 
-<div class="language-switcher">
-  <button id="lang-toggle" aria-haspopup="true" aria-expanded="false">
-    <span>🇨🇳 中文</span>
-  </button>
-  <div id="lang-dropdown" role="menu">
-    <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
-    <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
-    <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
-    <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
-    <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
-    <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
-  </div>
-</div>
+    <header>
+        <h1>⛏️ Minecraft 工具中心</h1>
+        <p>你 Minecraft 冒险所需的所有工具</p>
+    </header>
 
-<header>
-  <h1>文档</h1>
-  <p>本网站所有工具的详细说明。</p>
-</header>
-<main>
-  <section><h2>🧱 房屋方块计算器</h2><p>计算建造指定尺寸房屋所需的方块数量，包括墙壁、地板和屋顶。</p></section>
-  <section><h2>🧭 随机坐标生成器</h2><p>在 Minecraft 世界范围内生成随机的 X、Y、Z 坐标，可用于 <code>/tp</code> 命令传送。</p></section>
-  <section><h2>⏳ 游戏时间转换器</h2><p>将现实时间（分钟）与游戏内天数相互转换。1 游戏日 = 20 现实分钟。</p></section>
-  <section><h2>✨ 经验值计算器</h2><p>根据 Minecraft 的经验公式，显示指定经验值可获得多少等级。</p></section>
-  <section><h2>🏷️ 物品名称生成器</h2><p>为物品生成独特且富有创意的名称，适用于模组、自定义地图或角色扮演服务器。</p></section>
-  <section><h2>💥 苦力怕农场计算器</h2><p>计算需要击杀多少只苦力怕才能获得指定数量的火药（假设在常规条件下掉落率为 100%）。</p></section>
-  <section><h2>🌱 随机种子生成器</h2><p>生成用于创建新 Minecraft 世界的随机数字种子，适用于 Java 版和基岩版。</p></section>
-  <section><h2>🛡️ 护甲耐久计算器</h2><p>计算不同材质（皮革、金、铁、钻石等）的护甲在完全损坏前可承受多少次攻击。</p></section>
-</main>
+    <main>
+        <section>
+            <h2>🧱 房屋方块计算器</h2>
+            <p>计算建造房屋所需的方块数量。</p>
+        </section>
+        <section>
+            <h2>🧭 随机坐标生成器</h2>
+            <p>在 Minecraft 世界范围内生成用于传送 (<code>/tp</code>) 的随机 X, Y, Z 坐标。</p>
+        </section>
+        <section>
+            <h2>⏳ 游戏时间转换器</h2>
+            <p>将现实分钟转换为游戏天数，反之亦然。1 天 = 20 分钟。</p>
+        </section>
+        <section>
+            <h2>✨ 经验计算器</h2>
+            <p>显示根据给定的 XP 点数你能获得多少经验等级。</p>
+        </section>
+        <section>
+            <h2>🏷️ 物品名称生成器</h2>
+            <p>生成独特且富有创意的物品名称，非常适合自定义模组或 RPG 服务器。</p>
+        </section>
+        <section>
+            <h2>💥 苦力怕农场计算器</h2>
+            <p>计算在正常条件下（100% 掉落率）获得所需火药数量需要杀死多少只苦力怕。</p>
+        </section>
+        <section>
+            <h2>🌱 随机种子生成器</h2>
+            <p>生成用于创建新 Minecraft 世界的随机数字种子。适用于 Java 版和基岩版。</p>
+        </section>
+        <section>
+            <h2>🛡️ 护甲耐久计算器</h2>
+            <p>确定由不同材料（皮革、金、铁、钻石等）制成的护甲在损坏前能承受多少次攻击。</p>
+        </section>
+    </main>
 
-<script>
-  function switchLang(lang) {
-    const paths = {
-      ru: '/documentation/',
-      en: '/documentation/en/',
-      de: '/documentation/de/',
-      zh: '/documentation/zh/',
-      nl: '/documentation/nl/',
-      pl: '/documentation/pl/'
-    };
-    if (paths[lang]) window.location.href = paths[lang];
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('lang-toggle');
-    const dropdown = document.getElementById('lang-dropdown');
-
-    toggle?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', !isExpanded);
-      dropdown.style.display = isExpanded ? 'none' : 'block';
-      dropdown.classList.remove('language-fade');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.language-switcher')) {
-        dropdown.classList.add('language-fade');
-        setTimeout(() => { dropdown.style.display = 'none'; }, 300);
-        toggle?.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-</script>
+    <script>
+        function switchLang(lang) {
+            const paths = {
+                ru: '/documentation/',
+                en: '/documentation/en/',
+                de: '/documentation/de/',
+                zh: '/documentation/zh/',
+                nl: '/documentation/nl/',
+                pl: '/documentation/pl/'
+            };
+            if (paths[lang]) window.location.href = paths[lang];
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('lang-toggle');
+            const dropdown = document.getElementById('lang-dropdown');
+            toggle?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', !isExpanded);
+                dropdown.style.display = isExpanded ? 'none' : 'block';
+                if (!isExpanded) dropdown.classList.remove('language-fade');
+            });
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.language-switcher')) {
+                    dropdown.classList.add('language-fade');
+                    setTimeout(() => { dropdown.style.display = 'none'; }, 300);
+                    toggle?.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
