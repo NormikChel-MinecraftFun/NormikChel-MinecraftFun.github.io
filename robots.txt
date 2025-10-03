@@ -3,11 +3,8 @@
 
 User-agent: *
 Allow: /
-Disallow: /private/
-Disallow: /tmp/
-Disallow: /a5fG7kL2-panel.html
+Disallow: /documentation/
 
 Sitemap: https://normikchel-minecraftfun.github.io/sitemap.xml
-
 
 # Crawl-delay: 10 (если хочешь замедлить ботов — раскомментируй)
