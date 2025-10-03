@@ -7,125 +7,60 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-<!-- Языковое меню (вставляется в <body> в начале) -->
+
 <div class="language-switcher">
   <button id="lang-toggle" aria-haspopup="true" aria-expanded="false">
-    <span class="flag">🇷🇺</span>
-    <span class="lang-code">RU</span>
+    <span>🇷🇺 RU</span>
   </button>
   <div id="lang-dropdown" role="menu">
-    <div data-lang="ru" onclick="switchLang('ru')">
-      <span class="flag">🇷🇺</span>
-      <span class="lang-name">Русский</span>
-    </div>
-    <div data-lang="en" onclick="switchLang('en')">
-      <span class="flag">🇬🇧</span>
-      <span class="lang-name">English</span>
-    </div>
-    <div data-lang="de" onclick="switchLang('de')">
-      <span class="flag">🇩🇪</span>
-      <span class="lang-name">Deutsch</span>
-    </div>
-    <div data-lang="zh" onclick="switchLang('zh')">
-      <span class="flag">🇨🇳</span>
-      <span class="lang-name">中文</span>
-    </div>
-    <div data-lang="nl" onclick="switchLang('nl')">
-      <span class="flag">🇳🇱</span>
-      <span class="lang-name">Nederlands</span>
-    </div>
-    <div data-lang="pl" onclick="switchLang('pl')">
-      <span class="flag">🇵🇱</span>
-      <span class="lang-name">Polski</span>
-    </div>
+    <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
+    <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
+    <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
+    <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
+    <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
+    <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
   </div>
 </div>
 
-<style>
-  .language-switcher {
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 1000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+<header>
+  <h1>⛏️ Minecraft Tools Hub</h1>
+  <p>Все необходимые инструменты для твоего приключения в Minecraft</p>
+</header>
 
-  #lang-toggle {
-    background: #2c3e50;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-
-  #lang-toggle:hover {
-    background: #3d566e;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-  }
-
-  #lang-toggle:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #3498db, 0 0 0 4px rgba(52, 152, 219, 0.3);
-  }
-
-  #lang-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #34495e;
-    border-radius: 8px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    z-index: 100;
-    min-width: 200px;
-    overflow: hidden;
-    animation: fadeIn 0.2s ease-out;
-  }
-
-  #lang-dropdown div {
-    padding: 12px 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    transition: all 0.2s ease;
-    user-select: none;
-    color: #ecf0f1;
-  }
-
-  #lang-dropdown div:hover {
-    background: #3d566e;
-    color: white;
-    padding-left: 24px;
-  }
-
-  #lang-dropdown div:not(:first-child) {
-    border-top: 1px solid #2c3e50;
-  }
-
-  .flag {
-    font-size: 1.2em;
-    margin-right: 6px;
-  }
-
-  .lang-code {
-    font-size: 0.9em;
-    opacity: 0.8;
-  }
-
-  .lang-name {
-    font-size: 0.95em;
-    font-weight: 500;
-  }
-</style>
+<main>
+  <section>
+    <h2>🧱 Калькулятор блоков для дома</h2>
+    <p>Рассчитай, сколько блоков нужно для постройки дома.</p>
+  </section>
+  <section>
+    <h2>🧭 Генератор случайных координат</h2>
+    <p>Получи случайные координаты для телепортации.</p>
+  </section>
+  <section>
+    <h2>⏳ Конвертер игрового времени</h2>
+    <p>Конвертируй минуты в игровые дни и обратно.</p>
+  </section>
+  <section>
+    <h2>✨ Калькулятор опыта</h2>
+    <p>Сколько уровней даст тебе N опыта?</p>
+  </section>
+  <section>
+    <h2>🏷️ Генератор названий предметов</h2>
+    <p>Создай крутые названия для своих предметов!</p>
+  </section>
+  <section>
+    <h2>💥 Калькулятор фермы криперов</h2>
+    <p>Сколько криперов нужно убить для N пороха?</p>
+  </section>
+  <section>
+    <h2>🌱 Генератор случайного seed</h2>
+    <p>Получи случайный seed для нового мира.</p>
+  </section>
+  <section>
+    <h2>🛡️ Калькулятор прочности брони</h2>
+    <p>Сколько ударов выдержит броня?</p>
+  </section>
+</main>
 
 <script>
   function switchLang(lang) {
@@ -149,93 +84,17 @@
       const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', !isExpanded);
       dropdown.style.display = isExpanded ? 'none' : 'block';
-      if (!isExpanded) {
-        dropdown.style.animation = 'fadeIn 0.2s ease-out';
-      }
+      dropdown.classList.remove('language-fade');
     });
 
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.language-switcher')) {
-        dropdown.style.display = 'none';
+        dropdown.classList.add('language-fade');
+        setTimeout(() => { dropdown.style.display = 'none'; }, 300);
         toggle?.setAttribute('aria-expanded', 'false');
       }
     });
   });
 </script>
-
-  <header>
-    <h1>⛏️ Minecraft Tools Hub</h1>
-    <p>Все необходимые инструменты для твоего приключения в Minecraft</p>
-  </header>
-
-  <main>
-    <section>
-      <h2>🧱 Калькулятор блоков для дома</h2>
-      <p>Рассчитай, сколько блоков нужно для постройки дома.</p>
-    </section>
-    <section>
-      <h2>🧭 Генератор случайных координат</h2>
-      <p>Получи случайные координаты для телепортации.</p>
-    </section>
-    <section>
-      <h2>⏳ Конвертер игрового времени</h2>
-      <p>Конвертируй минуты в игровые дни и обратно.</p>
-    </section>
-    <section>
-      <h2>✨ Калькулятор опыта</h2>
-      <p>Сколько уровней даст тебе N опыта?</p>
-    </section>
-    <section>
-      <h2>🏷️ Генератор названий предметов</h2>
-      <p>Создай крутые названия для своих предметов!</p>
-    </section>
-    <section>
-      <h2>💥 Калькулятор фермы криперов</h2>
-      <p>Сколько криперов нужно убить для N пороха?</p>
-    </section>
-    <section>
-      <h2>🌱 Генератор случайного seed</h2>
-      <p>Получи случайный seed для нового мира.</p>
-    </section>
-    <section>
-      <h2>🛡️ Калькулятор прочности брони</h2>
-      <p>Сколько ударов выдержит броня?</p>
-    </section>
-  </main>
-
-  <script>
-    function switchLang(lang) {
-      const paths = {
-        ru: '/',
-        en: '/documentation/en/',
-        de: '/documentation/de/',
-        zh: '/documentation/zh/',
-        nl: '/documentation/nl/',
-        pl: '/documentation/pl/'
-      };
-      if (paths[lang]) {
-        window.location.href = paths[lang];
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('lang-toggle');
-      const dropdown = document.getElementById('lang-dropdown');
-
-      toggle?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', !isExpanded);
-        dropdown.style.display = isExpanded ? 'none' : 'block';
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.language-switcher')) {
-          dropdown.style.display = 'none';
-          toggle?.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-  </script>
 </body>
 </html>

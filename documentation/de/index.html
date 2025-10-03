@@ -7,130 +7,40 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-<!-- Языковое меню (вставляется в <body> в начале) -->
+
 <div class="language-switcher">
   <button id="lang-toggle" aria-haspopup="true" aria-expanded="false">
-    <span class="flag">🇷🇺</span>
-    <span class="lang-code">RU</span>
+    <span>🇩🇪 DE</span>
   </button>
   <div id="lang-dropdown" role="menu">
-    <div data-lang="ru" onclick="switchLang('ru')">
-      <span class="flag">🇷🇺</span>
-      <span class="lang-name">Русский</span>
-    </div>
-    <div data-lang="en" onclick="switchLang('en')">
-      <span class="flag">🇬🇧</span>
-      <span class="lang-name">English</span>
-    </div>
-    <div data-lang="de" onclick="switchLang('de')">
-      <span class="flag">🇩🇪</span>
-      <span class="lang-name">Deutsch</span>
-    </div>
-    <div data-lang="zh" onclick="switchLang('zh')">
-      <span class="flag">🇨🇳</span>
-      <span class="lang-name">中文</span>
-    </div>
-    <div data-lang="nl" onclick="switchLang('nl')">
-      <span class="flag">🇳🇱</span>
-      <span class="lang-name">Nederlands</span>
-    </div>
-    <div data-lang="pl" onclick="switchLang('pl')">
-      <span class="flag">🇵🇱</span>
-      <span class="lang-name">Polski</span>
-    </div>
+    <div data-lang="ru" onclick="switchLang('ru')">🇷🇺 Русский</div>
+    <div data-lang="en" onclick="switchLang('en')">🇬🇧 English</div>
+    <div data-lang="de" onclick="switchLang('de')">🇩🇪 Deutsch</div>
+    <div data-lang="zh" onclick="switchLang('zh')">🇨🇳 中文</div>
+    <div data-lang="nl" onclick="switchLang('nl')">🇳🇱 Nederlands</div>
+    <div data-lang="pl" onclick="switchLang('pl')">🇵🇱 Polski</div>
   </div>
 </div>
 
-<style>
-  .language-switcher {
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 1000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  #lang-toggle {
-    background: #2c3e50;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-
-  #lang-toggle:hover {
-    background: #3d566e;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-  }
-
-  #lang-toggle:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #3498db, 0 0 0 4px rgba(52, 152, 219, 0.3);
-  }
-
-  #lang-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #34495e;
-    border-radius: 8px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    z-index: 100;
-    min-width: 200px;
-    overflow: hidden;
-    animation: fadeIn 0.2s ease-out;
-  }
-
-  #lang-dropdown div {
-    padding: 12px 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    transition: all 0.2s ease;
-    user-select: none;
-    color: #ecf0f1;
-  }
-
-  #lang-dropdown div:hover {
-    background: #3d566e;
-    color: white;
-    padding-left: 24px;
-  }
-
-  #lang-dropdown div:not(:first-child) {
-    border-top: 1px solid #2c3e50;
-  }
-
-  .flag {
-    font-size: 1.2em;
-    margin-right: 6px;
-  }
-
-  .lang-code {
-    font-size: 0.9em;
-    opacity: 0.8;
-  }
-
-  .lang-name {
-    font-size: 0.95em;
-    font-weight: 500;
-  }
-</style>
+<header>
+  <h1>Dokumentation</h1>
+  <p>Ausführliche Beschreibungen aller auf der Website verfügbaren Tools.</p>
+</header>
+<main>
+  <section><h2>🧱 Blockrechner für Häuser</h2><p>Berechnet die benötigte Anzahl an Blöcken für den Bau eines Hauses mit vorgegebenen Abmessungen, einschließlich Wänden, Boden und Dach.</p></section>
+  <section><h2>🧭 Zufällige Koordinaten-Generator</h2><p>Erzeugt zufällige X-, Y- und Z-Koordinaten innerhalb der Minecraft-Weltgrenzen für die Teleportation per <code>/tp</code>-Befehl.</p></section>
+  <section><h2>⏳ Ingame-Zeitumrechner</h2><p>Rechnet reale Minuten in Ingame-Tage um und umgekehrt. 1 Ingame-Tag = 20 echte Minuten.</p></section>
+  <section><h2>✨ Erfahrungspunkte-Rechner</h2><p>Zeigt an, wie viele Erfahrungsstufen du mit einer bestimmten Menge an Erfahrungspunkten (XP) erhältst, basierend auf der Minecraft-Formel.</p></section>
+  <section><h2>🏷️ Gegenstandsname-Generator</h2><p>Erstellt einzigartige und kreative Namen für Gegenstände – ideal für Mods, benutzerdefinierte Karten oder Rollenspiel-Server.</p></section>
+  <section><h2>💥 Creeper-Farm-Rechner</h2><p>Berechnet, wie viele Creeper getötet werden müssen, um eine gewünschte Menge Schießpulver zu erhalten (bei 100 % Drop-Chance unter normalen Bedingungen).</p></section>
+  <section><h2>🌱 Zufälliger Seed-Generator</h2><p>Generiert einen zufälligen numerischen Seed zur Erstellung einer neuen Minecraft-Welt. Funktioniert sowohl für Java- als auch für Bedrock-Edition.</p></section>
+  <section><h2>🛡️ Rüstungshaltbarkeits-Rechner</h2><p>Bestimmt, wie viele Treffer Rüstungen aus verschiedenen Materialien (Leder, Gold, Eisen, Diamant usw.) aushalten, bevor sie kaputtgehen.</p></section>
+</main>
 
 <script>
   function switchLang(lang) {
     const paths = {
-      ru: '/',
+      ru: '/documentation/',
       en: '/documentation/en/',
       de: '/documentation/de/',
       zh: '/documentation/zh/',
@@ -149,53 +59,17 @@
       const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', !isExpanded);
       dropdown.style.display = isExpanded ? 'none' : 'block';
-      if (!isExpanded) {
-        dropdown.style.animation = 'fadeIn 0.2s ease-out';
-      }
+      dropdown.classList.remove('language-fade');
     });
 
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.language-switcher')) {
-        dropdown.style.display = 'none';
+        dropdown.classList.add('language-fade');
+        setTimeout(() => { dropdown.style.display = 'none'; }, 300);
         toggle?.setAttribute('aria-expanded', 'false');
       }
     });
   });
 </script>
-
-  <header>
-    <h1>Dokumentation</h1>
-    <p>Ausführliche Beschreibungen aller Tools auf der Website.</p>
-  </header>
-  <main>
-    <section><h2>🧱 Blockrechner für Häuser</h2><p>Berechnet benötigte Blöcke für ein Haus mit vorgegebenen Abmessungen (Wände, Boden, Dach).</p></section>
-    <section><h2>🧭 Zufällige Koordinaten-Generator</h2><p>Erzeugt zufällige X/Y/Z-Koordinaten innerhalb der Minecraft-Weltgrenzen für <code>/tp</code>.</p></section>
-    <section><h2>⏳ Ingame-Zeitumrechner</h2><p>Rechnet echte Minuten in Ingame-Tage um und umgekehrt. 1 Tag = 20 echte Minuten.</p></section>
-    <section><h2>✨ Erfahrungspunkte-Rechner</h2><p>Zeigt an, wie viele Erfahrungsstufen du mit einer bestimmten XP-Menge erhältst.</p></section>
-    <section><h2>🏷️ Gegenstandsname-Generator</h2><p>Erstellt kreative Namen für Gegenstände – ideal für Mods oder Rollenspiel-Server.</p></section>
-    <section><h2>💥 Creeper-Farm-Rechner</h2><p>Berechnet, wie viele Creeper getötet werden müssen, um eine gewünschte Menge Schießpulver zu erhalten (100 % Drop).</p></section>
-    <section><h2>🌱 Zufälliger Seed-Generator</h2><p>Generiert einen zufälligen Seed für eine neue Minecraft-Welt (Java & Bedrock).</p></section>
-    <section><h2>🛡️ Rüstungshaltbarkeits-Rechner</h2><p>Bestimmt, wie viele Treffer Rüstungen aus verschiedenen Materialien aushalten.</p></section>
-  </main>
-
-  <script>
-    function switchLang(lang) {
-      const paths = {
-        ru: '/documentation/',
-        en: '/documentation/en/',
-        de: '/documentation/de/',
-        zh: '/documentation/zh/',
-        nl: '/documentation/nl/',
-        pl: '/documentation/pl/'
-      };
-      if (paths[lang]) window.location.href = paths[lang];
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      const t = document.getElementById('lang-toggle');
-      const d = document.getElementById('lang-dropdown');
-      t?.addEventListener('click', e => { e.stopPropagation(); t.setAttribute('aria-expanded', t.getAttribute('aria-expanded') !== 'true'); d.style.display = t.getAttribute('aria-expanded') === 'true' ? 'block' : 'none'; });
-      document.addEventListener('click', e => { if (!e.target.closest('.language-switcher')) { d.style.display = 'none'; t?.setAttribute('aria-expanded', 'false'); } });
-    });
-  </script>
 </body>
 </html>
