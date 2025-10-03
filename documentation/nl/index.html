@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <!-- Taalkeuze -->
     <div class="language-switcher">
         <button id="lang-toggle" aria-haspopup="true" aria-expanded="false"><span>🇳🇱 NL</span></button>
         <div id="lang-dropdown" role="menu">
@@ -21,14 +20,14 @@
     </div>
 
     <header>
-        <h1>⛏️ Minecraft Tools Hub</h1>
-        <p>Alle essentiële tools voor jouw Minecraft-avontuur</p>
+        <h1>Documentatie — Minecraft Tools Hub</h1>
+        <p>Gedetailleerde beschrijving van alle tools</p>
     </header>
 
     <main>
         <section>
             <h2>🧱 Huisblokcalculator</h2>
-            <p>Bereken hoeveel blokken je nodig hebt om een huis te bouwen.</p>
+            <p>Bereken hoeveel blokken je nodig hebt om een huis te bouwen, inclusief muren, vloer en dak.</p>
         </section>
         <section>
             <h2>🧭 Generator van willekeurige coördinaten</h2>
@@ -72,6 +71,7 @@
             };
             if (paths[lang]) window.location.href = paths[lang];
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             const toggle = document.getElementById('lang-toggle');
             const dropdown = document.getElementById('lang-dropdown');

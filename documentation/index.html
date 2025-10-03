@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <!-- Language Switcher -->
     <div class="language-switcher">
         <button id="lang-toggle" aria-haspopup="true" aria-expanded="false"><span>🇷🇺 RU</span></button>
         <div id="lang-dropdown" role="menu">
@@ -21,8 +20,8 @@
     </div>
 
     <header>
-        <h1>⛏️ Minecraft Tools Hub</h1>
-        <p>Все необходимые инструменты для вашего приключения в Minecraft</p>
+        <h1>Документация — Minecraft Tools Hub</h1>
+        <p>Подробное описание всех инструментов</p>
     </header>
 
     <main>
@@ -72,6 +71,7 @@
             };
             if (paths[lang]) window.location.href = paths[lang];
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             const toggle = document.getElementById('lang-toggle');
             const dropdown = document.getElementById('lang-dropdown');

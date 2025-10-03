@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <!-- Sprachumschalter -->
     <div class="language-switcher">
         <button id="lang-toggle" aria-haspopup="true" aria-expanded="false"><span>🇩🇪 DE</span></button>
         <div id="lang-dropdown" role="menu">
@@ -21,38 +20,38 @@
     </div>
 
     <header>
-        <h1>⛏️ Minecraft Tools Hub</h1>
-        <p>Alle notwendigen Tools für dein Minecraft-Abenteuer</p>
+        <h1>Dokumentation — Minecraft Tools Hub</h1>
+        <p>Ausführliche Beschreibungen aller auf der Website verfügbaren Tools.</p>
     </header>
 
     <main>
         <section>
-            <h2>🧱 Haus-Block-Rechner</h2>
-            <p>Berechne, wie viele Blöcke du zum Bau eines Hauses benötigst.</p>
+            <h2>🧱 Blockrechner für Häuser</h2>
+            <p>Berechnet die benötigte Anzahl an Blöcken für den Bau eines Hauses mit vorgegebenen Abmessungen, einschließlich Wänden, Boden und Dach.</p>
         </section>
         <section>
-            <h2>🧭 Generator für zufällige Koordinaten</h2>
-            <p>Generiert zufällige X, Y, Z-Koordinaten für die Teleportation (<code>/tp</code>) innerhalb der Minecraft-Welt.</p>
+            <h2>🧭 Generator von zufälligen Koordinaten</h2>
+            <p>Erzeugt zufällige X-, Y- und Z-Koordinaten für Teleportation (<code>/tp</code>) innerhalb der Minecraft-Welt.</p>
         </section>
         <section>
-            <h2>⏳ In-Game-Zeitumrechner</h2>
-            <p>Rechnet echte Minuten in In-Game-Tage um und umgekehrt. 1 Tag = 20 Minuten.</p>
+            <h2>⏳ Umrechner für Spielzeit</h2>
+            <p>Konvertiert reale Minuten in Spieltage und umgekehrt. 1 Tag = 20 Minuten.</p>
         </section>
         <section>
             <h2>✨ Erfahrungsrechner</h2>
-            <p>Zeigt, wie viele Erfahrungsstufen du für eine bestimmte Anzahl an XP-Punkten erhalten wirst.</p>
+            <p>Zeigt an, wie viele Erfahrungsstufen Sie für eine bestimmte Anzahl von XP-Punkten erhalten.</p>
         </section>
         <section>
             <h2>🏷️ Gegenstandsnamengenerator</h2>
-            <p>Erstellt einzigartige und kreative Gegenstandsnamen, ideal für benutzerdefinierte Mods oder RPG-Server.</p>
+            <p>Erstellt einzigartige und kreative Namen für Gegenstände, ideal für benutzerdefinierte Mods oder RPG-Server.</p>
         </section>
         <section>
             <h2>💥 Creeper-Farm-Rechner</h2>
-            <p>Berechnet, wie viele Creeper du töten musst, um eine gewünschte Menge Schießpulver zu erhalten (bei 100 % Drop-Chance unter normalen Bedingungen).</p>
+            <p>Berechnet, wie viele Creepers Sie töten müssen, um eine gewünschte Menge Schießpulver zu erhalten (bei 100 % Drop-Chance unter normalen Bedingungen).</p>
         </section>
         <section>
             <h2>🌱 Zufälliger Seed-Generator</h2>
-            <p>Generiert einen zufälligen numerischen Seed zur Erstellung einer neuen Minecraft-Welt. Funktioniert für Java- und Bedrock-Edition.</p>
+            <p>Generiert einen zufälligen numerischen Seed zur Erstellung einer neuen Minecraft-Welt. Funktioniert für Java und Bedrock Edition.</p>
         </section>
         <section>
             <h2>🛡️ Rüstungshaltbarkeits-Rechner</h2>
@@ -72,6 +71,7 @@
             };
             if (paths[lang]) window.location.href = paths[lang];
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             const toggle = document.getElementById('lang-toggle');
             const dropdown = document.getElementById('lang-dropdown');

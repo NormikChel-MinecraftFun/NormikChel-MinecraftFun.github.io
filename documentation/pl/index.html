@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <!-- Przełącznik języka -->
     <div class="language-switcher">
         <button id="lang-toggle" aria-haspopup="true" aria-expanded="false"><span>🇵🇱 PL</span></button>
         <div id="lang-dropdown" role="menu">
@@ -21,14 +20,14 @@
     </div>
 
     <header>
-        <h1>⛏️ Minecraft Tools Hub</h1>
+        <h1>Dokumentacja — Minecraft Tools Hub</h1>
         <p>Wszystkie niezbędne narzędzia na twoją przygodę w Minecraft</p>
     </header>
 
     <main>
         <section>
             <h2>🧱 Kalkulator bloków do budowy domu</h2>
-            <p>Oblicz, ile bloków potrzebujesz do zbudowania domu.</p>
+            <p>Oblicz, ile bloków potrzebujesz do zbudowania domu, w tym ściany, podłogi i dachu.</p>
         </section>
         <section>
             <h2>🧭 Generator losowych współrzędnych</h2>
@@ -72,6 +71,7 @@
             };
             if (paths[lang]) window.location.href = paths[lang];
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             const toggle = document.getElementById('lang-toggle');
             const dropdown = document.getElementById('lang-dropdown');

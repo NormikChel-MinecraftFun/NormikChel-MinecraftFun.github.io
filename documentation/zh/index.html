@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <!-- 语言切换器 -->
     <div class="language-switcher">
         <button id="lang-toggle" aria-haspopup="true" aria-expanded="false"><span>🇨🇳 中文</span></button>
         <div id="lang-dropdown" role="menu">
@@ -21,14 +20,14 @@
     </div>
 
     <header>
-        <h1>⛏️ Minecraft 工具中心</h1>
-        <p>你 Minecraft 冒险所需的所有工具</p>
+        <h1>文档 — Minecraft 工具中心</h1>
+        <p>所有工具的详细说明</p>
     </header>
 
     <main>
         <section>
             <h2>🧱 房屋方块计算器</h2>
-            <p>计算建造房屋所需的方块数量。</p>
+            <p>计算建造房屋所需的方块数量，包括墙壁、地板和屋顶。</p>
         </section>
         <section>
             <h2>🧭 随机坐标生成器</h2>
@@ -72,6 +71,7 @@
             };
             if (paths[lang]) window.location.href = paths[lang];
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             const toggle = document.getElementById('lang-toggle');
             const dropdown = document.getElementById('lang-dropdown');

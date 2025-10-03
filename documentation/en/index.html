@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <!-- Language Switcher -->
     <div class="language-switcher">
         <button id="lang-toggle" aria-haspopup="true" aria-expanded="false"><span>🇬🇧 EN</span></button>
         <div id="lang-dropdown" role="menu">
@@ -21,18 +20,18 @@
     </div>
 
     <header>
-        <h1>⛏️ Minecraft Tools Hub</h1>
-        <p>All the essential tools for your Minecraft adventure</p>
+        <h1>Documentation — Minecraft Tools Hub</h1>
+        <p>Detailed description of all tools</p>
     </header>
 
     <main>
         <section>
             <h2>🧱 House Block Calculator</h2>
-            <p>Calculate how many blocks you need to build a house.</p>
+            <p>Calculates the number of blocks needed to build a house, including walls, floor, and roof.</p>
         </section>
         <section>
             <h2>🧭 Random Coordinates Generator</h2>
-            <p>Generate random X, Y, Z coordinates for teleportation (<code>/tp</code>) within the Minecraft world.</p>
+            <p>Generates random X, Y, Z coordinates for teleportation (<code>/tp</code>) within the Minecraft world.</p>
         </section>
         <section>
             <h2>⏳ In-Game Time Converter</h2>
@@ -72,6 +71,7 @@
             };
             if (paths[lang]) window.location.href = paths[lang];
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             const toggle = document.getElementById('lang-toggle');
             const dropdown = document.getElementById('lang-dropdown');

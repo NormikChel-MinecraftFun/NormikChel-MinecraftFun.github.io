@@ -100,3 +100,67 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* === ЯЗЫКОВОЕ МЕНЮ === */
+
+.language-switcher {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 9999;
+}
+
+#lang-toggle {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    transition: background 0.2s ease;
+}
+
+#lang-toggle:hover {
+    background: #e0e0e0;
+}
+
+#lang-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: none;
+    min-width: 160px;
+    margin-top: 0.25rem;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-5px); }
+}
+
+.language-fade {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+#lang-dropdown div {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#lang-dropdown div:hover {
+    background-color: #f0f0f0;
+}
