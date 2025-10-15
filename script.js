@@ -63,6 +63,10 @@ const translations = {
         tool8_input: "Damage Per Hit (e.g., 2)",
         tool8_btn: "Calculate",
         tool8_result: (hits, damage) => `Withstands ~${hits} hits of ${damage} damage`,
+        // Documentation Card
+        documentationTitle: "📚 Documentation",
+        documentationDesc: "Detailed description of all tools and how to use them.",
+        documentationBtn: "Go to Documentation",
         // Bot Page Specific
         botHeaderH1: "🤖 Helper Bot",
         botHeaderP: "Ask me any Minecraft question — I'll try to help!",
@@ -132,9 +136,16 @@ const translations = {
         navBot: "Бот-помощник",
         navTOS: "Условия использования",
         navPrivacy: "Политика конфиденциальности",
-        navRedstone: "Редстоун-калькулятор",
-        navEnchant: "Оптимизатор зачарований",
-        navBiome: "Поиск биомов",
+        // Index Page Specific
+        indexHeaderH1: "🛠️ Minecraft Tools Hub",
+        indexHeaderP: "Все необходимые инструменты для твоего приключения в Minecraft",
+        indexFAQText: "F.A.Q.",
+        indexBotText: "Бот-помощник",
+        indexTOSText: "Условия использования",
+        indexPrivacyText: "Политика конфиденциальности",
+        indexFooterSubtitle: "Все инструменты для настоящих строителей и исследователей!",
+        indexFooterCreator: "Создано с ❤️ для игроков Minecraft",
+        // Tool Cards (1-8)
         tool1_title: "🏠 Калькулятор блоков для дома",
         tool1_desc: "Рассчитай, сколько блоков нужно для постройки дома.",
         tool1_input1: "Длина (блоков)",
@@ -178,40 +189,66 @@ const translations = {
         tool8_input: "Урон за удар (например, 2)",
         tool8_btn: "Рассчитать",
         tool8_result: (hits, damage) => `Выдержит ~${hits} ударов по ${damage} урона`,
-        // NEW
-        redstone_title: "⚡ Калькулятор редстоуна",
-        redstone_subtitle: "Рассчитай длину цепи, задержку и количество повторителей.",
-        redstone_tool_title: "🔁 Расчёт повторителей",
-        redstone_tool_desc: "Сколько повторителей нужно для цепи длиной N блоков?",
-        redstone_btn: "Рассчитать",
-        redstone_result: (repeaters, delay) => `Повторителей: ${repeaters} (задержка: ${delay.toFixed(1)}с)`,
-        enchant_title: "✨ Оптимизатор зачарований",
-        enchant_subtitle: "Какое зачарование получить на уровне N?",
-        enchant_tool_title: "📚 Лучшее зачарование",
-        enchant_btn: "Посоветовать",
-        enchant_result: enchant => `Лучшее зачарование: ${enchant}`,
-        biome_title: "🌳 Поиск биомов",
-        biome_subtitle: "Где найти нужный биом? Советы и координаты.",
-        biome_tool_title: "🗺️ Найти биом",
-        biome_btn: "Найти",
-        biome_result: {
-            nether: "Построй портал из обсидиана (4x5) и зажги его.",
-            end: "Найди крепость, активируй портал Края 12 глазами Края.",
-            jungle: "Ищи рядом с реками в тёплых регионах. Команда: /locate biome minecraft:jungle",
-            desert: "Часто встречается в засушливых зонах. /locate biome minecraft:desert",
-            mushroom: "Очень редкий! Только на островах в океане. /locate biome minecraft:mushroom_fields"
-        },
-        bot_placeholder: "Например: Как построить портал в Нижний мир?",
-        bot_send: "Отправить вопрос",
-        bot_examples: "💡 Примеры вопросов:",
-        bot_answers: {
-            diamonds: "⚡ Алмазы находятся на уровнях 1-15. Лучше всего копать на Y=-58 с удачей III. Используй железную кирку или лучше!",
-            portal: "🔥 Портал в Нижний мир строится из 10-14 блоков обсидиана в форме двери 4x5 (без углов). Зажги середину зажигалкой!",
-            xp: "🌟 Лучшая ферма опыта — с зоглинами в Нижнем мире или с криперами/скелетами в обычном мире. Не забудь магию 'Точность' на луке!",
-            world: "🌍 Карта генерируется до X/Z ±30,000,000, но стабильно работает до ±2,999,984. Дальше — баги и лаги.",
-            enchant: "✨ Используй стол зачарования с 15 книжными шкафами вокруг. Уровень 30 даёт лучшие чары. Или комбинируй предметы на наковальне!",
-            default: "Хм... Я ещё учусь. Попробуй переформулировать или посмотри F.A.Q. 😊"
-        },
+        // Documentation Card
+        documentationTitle: "📚 Документация",
+        documentationDesc: "Подробное описание всех инструментов и как их использовать.",
+        documentationBtn: "Перейти к документации",
+        // Bot Page Specific
+        botHeaderH1: "🤖 Бот-помощник",
+        botHeaderP: "Задай мне любой вопрос по Minecraft — я постараюсь помочь!",
+        botInputPlaceholder: "Например: Как построить портал в Нижний мир?",
+        botBtn: "Отправить вопрос",
+        botExampleTitle: "💡 Примеры вопросов:",
+        botExample1: "Как получить алмазы быстрее?",
+        botExample2: "Сколько блоков до края мира?",
+        botExample3: "Как зачаровать предмет?",
+        botExample4: "Как построить ферму опыта?",
+        botAnswerDefault: "Хм... Я ещё учусь. Попробуй переформулировать или посмотри F.A.Q. 😊",
+        botAnswerDiamonds: "⚡ Алмазы находятся на уровнях 1-15. Лучше всего копать на Y=-58 с удачей III. Используй железную кирку или лучше!",
+        botAnswerPortal: "🔥 Портал в Нижний мир строится из 10-14 блоков обсидиана в форме двери 4x5 (без углов). Зажги середину зажигалкой!",
+        botAnswerXP: "🌟 Лучшая ферма опыта — с зоглинами в Нижнем мире или с криперами/скелетами в обычном мире. Не забудь магию 'Точность' на луке!",
+        botAnswerWorld: "🌍 Карта генерируется до X/Z ±30,000,000, но стабильно работает до ±2,999,984. Дальше — баги и лаги.",
+        botAnswerEnchant: "✨ Используй стол зачарования с 15 книжными шкафами вокруг. Уровень 30 даёт лучшие чары. Или комбинируй предметы на наковальне!",
+        // FAQ Page Specific
+        faqHeaderH1: "❓ Часто задаваемые вопросы",
+        faqHeaderP: "Здесь ты найдёшь ответы на самые популярные вопросы",
+        faqCard1H3: "🔹 Что это за сайт?",
+        faqCard1P: "Это набор бесплатных инструментов для игроков Minecraft: калькуляторы, генераторы, конвертеры — всё, что упростит игру.",
+        faqCard2H3: "🔹 Безопасно ли пользоваться?",
+        faqCard2P: "Абсолютно! Все расчёты происходят в твоём браузере. Мы не собираем и не храним твои данные.",
+        faqCard3H3: "🔹 Как добавить сайт в закладки?",
+        faqCard3P: "Нажми Ctrl+D (Cmd+D на Mac) или используй меню браузера → «Добавить в закладки».",
+        faqCard4H3: "🔹 Есть ли мобильная версия?",
+        faqCard4P: "Да! Сайт полностью адаптивный — открой его на телефоне или планшете.",
+        faqCard5H3: "🔹 Можно ли предложить новый инструмент?",
+        faqCard5P: "Конечно! Напиши нам через <a href='bot.html' style='color:#1abc9c;'>бота-помощника</a> или на почту (если добавим позже).",
+        faqCard6H3: "🔹 Почему результаты иногда округляются?",
+        faqCard6P: "Чтобы избежать дробных блоков или криперов 😉 Все значения округляются в большую сторону для запаса.",
+        // TOS Page Specific
+        tosHeaderH1: "📜 Условия использования",
+        tosHeaderP: "Пожалуйста, внимательно ознакомься с правилами",
+        tosCard1H3: "1. Общие положения",
+        tosCard1P: "Используя этот сайт, ты соглашаешься с данными условиями. Сервис предоставляется «как есть».",
+        tosCard2H3: "2. Ответственность",
+        tosCard2P: "Мы не несём ответственности за ущерб, вызванный использованием или неправильным применением инструментов.",
+        tosCard3H3: "3. Конфиденциальность",
+        tosCard3P: "Мы не собираем личные данные. Все вычисления происходят локально в твоём браузере.",
+        tosCard4H3: "4. Авторские права",
+        tosCard4P: "Minecraft — торговая марка Mojang Studios. Мы не связаны с Mojang или Microsoft. Это фан-сайт.",
+        tosCard5H3: "5. Изменения",
+        tosCard5P: "Мы можем обновлять эти условия в любое время. Рекомендуем периодически перечитывать.",
+        // Privacy Page Specific
+        privacyHeaderH1: "🔒 Политика конфиденциальности",
+        privacyHeaderP: "Твои данные — только твои. Мы их не трогаем.",
+        privacyCard1H3: "🔸 Никаких данных",
+        privacyCard1P: "Мы не используем cookies, аналитику, трекеры. Ничего не отправляется на сервер — всё работает в твоём браузере.",
+        privacyCard2H3: "🔸 Локальные вычисления",
+        privacyCard2P: "Все калькуляторы и генераторы работают локально. Твои цифры, координаты, seeds — никто не видит, кроме тебя.",
+        privacyCard3H3: "🔸 Безопасность",
+        privacyCard3P: "Сайт не требует регистрации, не хранит историю, не запрашивает доступ к твоему аккаунту или миру Minecraft.",
+        privacyCard4H3: "🔸 Обновления",
+        privacyCard4P: "Мы можем добавлять новые функции, но никогда не будем собирать твои данные без явного согласия (а его и не будет запрашивать 😉).",
+        // Language Switcher
         langName: "Русский",
         flag: "🇷🇺"
     },
@@ -278,6 +315,10 @@ const translations = {
         tool8_input: "每次攻击伤害 (例如, 2)",
         tool8_btn: "计算",
         tool8_result: (hits, damage) => `可承受约 ${hits} 次 ${damage} 点伤害`,
+        // Documentation Card
+        documentationTitle: "📚 文档",
+        documentationDesc: "所有工具的详细说明和使用方法。",
+        documentationBtn: "前往文档",
         // Bot Page Specific
         botHeaderH1: "🤖 助手机器人",
         botHeaderP: "问我任何 Minecraft 问题 — 我会尽力帮助！",
@@ -313,7 +354,7 @@ const translations = {
         tosHeaderH1: "📜 服务条款",
         tosHeaderP: "请仔细阅读规则",
         tosCard1H3: "1. 一般条款",
-        tosCard1P: "使用本网站即表示您同意这些条款。服务按“原样”提供。",
+        tosCard1P: "使用本网站即表示您同意这些条款。服务按\"原样\"提供。",
         tosCard2H3: "2. 责任",
         tosCard2P: "我们对使用或误用工具造成的损害不承担责任。",
         tosCard3H3: "3. 隐私",
@@ -332,7 +373,7 @@ const translations = {
         privacyCard3H3: "🔸 安全",
         privacyCard3P: "网站不需要注册，不存储历史记录，不要求访问你的 Minecraft 账户或世界。",
         privacyCard4H3: "🔸 更新",
-        privacyCard4P: "我们可能会添加新功能，但除非明确同意，否则永远不会收集你的数据（而且我们不会要求 😉）。", // Note: Slight adjustment for natural flow in zh
+        privacyCard4P: "我们可能会添加新功能，但除非明确同意，否则永远不会收集你的数据（而且我们不会要求 😉）。",
         // Language Switcher
         langName: "中文",
         flag: "🇨🇳"
@@ -340,7 +381,7 @@ const translations = {
     // === ДРУГИЕ ЯЗЫКИ (ТОЛЬКО ТЕКСТОВЫЕ ФЛАГИ) ===
     es: { langName: "Español", flag: "🇪🇸", title: "Minecraft Tools Hub", headerSubtitle: "Todas las herramientas para tu aventura", navHome: "Inicio", navFAQ: "Preguntas frecuentes", navBot: "Bot asistente", navTOS: "Términos", navPrivacy: "Privacidad", navRedstone: "Calculadora de Redstone", navEnchant: "Optimizador de encantamientos", navBiome: "Buscador de biomas", bot_placeholder: "Ej: ¿Cómo construir un portal al Nether?", bot_send: "Enviar", redstone_btn: "Calcular", enchant_btn: "Sugerir", biome_btn: "Buscar", tool1_btn: "Calcular", tool2_btn: "Generar", tool3_btn: "Convertir", tool4_btn: "Calcular", tool5_btn: "Generar", tool6_btn: "Calcular", tool7_btn: "Generar", tool8_btn: "Calcular" },
     hi: { langName: "हिन्दी", flag: "🇮🇳", title: "Minecraft टूल्स हब", headerSubtitle: "आपके Minecraft साहसिक कार्य के लिए सभी उपकरण", navHome: "मुख्य", navFAQ: "अक्सर पूछे जाने वाले प्रश्न", navBot: "सहायक बॉट", navTOS: "उपयोग की शर्तें", navPrivacy: "गोपनीयता नीति", navRedstone: "रेडस्टोन कैलकुलेटर", navEnchant: "एन्चांट ऑप्टिमाइज़र", navBiome: "बायोम खोजकर्ता", bot_placeholder: "उदा.: नेदर पोर्टल कैसे बनाएं?", bot_send: "भेजें", redstone_btn: "गणना करें", enchant_btn: "सुझाव दें", biome_btn: "खोजें", tool1_btn: "गणना करें", tool2_btn: "उत्पन्न करें", tool3_btn: "परिवर्तित करें", tool4_btn: "गणना करें", tool5_btn: "उत्पन्न करें", tool6_btn: "गणना करें", tool7_btn: "उत्पन्न करें", tool8_btn: "गणना करें" },
-    bn: { langName: "বাংলা", flag: "🇧🇩", title: "Minecraft টুলস হাব", headerSubtitle: "আপনার Minecraft অ্যাডভেঞ্চারের জন্য সমস্ত টুল", navHome: "হোম", navFAQ: "প্রায়শই জিজ্ঞাসিত প্রশ্ন", navBot: "সহায়ক বট", navTOS: "শর্তাবলী", navPrivacy: "গোপনীয়তা নীতি", navRedstone: "রেডস্টোন ক্যালকুলেটর", navEnchant: "এনচান্ট অপ্টিমাইজার", navBiome: "বায়োম ফাইন্ডার", bot_placeholder: "যেমন: নেদার পোর্টাল কীভাবে তৈরি করবেন?", bot_send: "পাঠান", redstone_btn: "গণনা করুন", enchant_btn: "পরামর্শ দিন", biome_btn: "খুঁজুন", tool1_btn: "গণনা করুন", tool2_btn: "জেনারেট করুন", tool3_btn: "রূপান্তর করুন", tool4_btn: "গণনা করুন", tool5_btn: "জেনারেট করুন", tool6_btn: "গণনা করুন", tool7_btn: "জেনারেট করুন", tool8_btn: "গণনা করুন" },
+    bn: { langName: "বাংলা", flag: "🇧🇩", title: "Minecraft টoolস হাব", headerSubtitle: "আপনার Minecraft অ্যাডভেঞ্চারের জন্য সমস্ত টুল", navHome: "হোম", navFAQ: "প্রায়শই জিজ্ঞাসিত প্রশ্ন", navBot: "সহায়ক বট", navTOS: "শর্তাবলী", navPrivacy: "গোপনীয়তা নীতি", navRedstone: "রেডস্টোন ক্যালকুলেটর", navEnchant: "এনচান্ট অপ্টিমাইজার", navBiome: "বায়োম ফাইন্ডার", bot_placeholder: "যেমন: নেদার পোর্টাল কীভাবে তৈরি করবেন?", bot_send: "পাঠান", redstone_btn: "গণনা করুন", enchant_btn: "পরামর্শ দিন", biome_btn: "খুঁজুন", tool1_btn: "গণনা করুন", tool2_btn: "জেনারেট করুন", tool3_btn: "রূপান্তর করুন", tool4_btn: "গণনা করুন", tool5_btn: "জেনারেট করুন", tool6_btn: "গণনা করুন", tool7_btn: "জেনারেট করুন", tool8_btn: "গণনা করুন" },
     pt: { langName: "Português", flag: "🇵🇹", title: "Minecraft Tools Hub", headerSubtitle: "Todas as ferramentas para sua aventura", navHome: "Início", navFAQ: "Perguntas Frequentes", navBot: "Bot Assistente", navTOS: "Termos de Serviço", navPrivacy: "Política de Privacidade", navRedstone: "Calculadora de Redstone", navEnchant: "Otimizador de Encantamentos", navBiome: "Localizador de Biomas", bot_placeholder: "Ex: Como construir um portal do Nether?", bot_send: "Enviar", redstone_btn: "Calcular", enchant_btn: "Sugerir", biome_btn: "Localizar", tool1_btn: "Calcular", tool2_btn: "Gerar", tool3_btn: "Converter", tool4_btn: "Calcular", tool5_btn: "Gerar", tool6_btn: "Calcular", tool7_btn: "Gerar", tool8_btn: "Calcular" },
     ur: { langName: "اردو", flag: "🇵🇰", title: "Minecraft ٹولز ہب", headerSubtitle: "آپ کے Minecraft سفر کے لیے تمام ٹولز", navHome: "ہوم", navFAQ: "اکثر پوچھے گئے سوالات", navBot: "معاون بوٹ", navTOS: "استعمال کی شرائط", navPrivacy: "رازداری کی پالیسی", navRedstone: "ریڈ اسٹون کیلکولیٹر", navEnchant: "جانچ کا بہترین طریقہ", navBiome: "بائیوم تلاش کرنے والا", bot_placeholder: "مثال: نیدر پورٹل کیسے بنائیں؟", bot_send: "بھیجیں", redstone_btn: "حساب کریں", enchant_btn: "تجویز کریں", biome_btn: "تلاش کریں", tool1_btn: "حساب کریں", tool2_btn: "تیار کریں", tool3_btn: "تبدیل کریں", tool4_btn: "حساب کریں", tool5_btn: "تیار کریں", tool6_btn: "حساب کریں", tool7_btn: "تیار کریں", tool8_btn: "حساب کریں" }
 };
@@ -396,46 +437,39 @@ function updateLanguageUI(lang) {
 // 🌐 Применяем переводы — УНИВЕРСАЛЬНО и ПОЛНОСТЬЮ
 function applyTranslations(lang) {
     const t = translations[lang];
-    if (!t) return; // Если перевод не найден, выходим
+    if (!t) return;
 
-    // --- Обновление основных элементов ---
+    // Получаем имя текущей страницы
+    const path = window.location.pathname;
+    const currentPage = path.split('/').pop() || 'index.html';
+
+    // --- Обновление заголовка и описания в зависимости от страницы ---
     const headerH1 = document.querySelector('header h1');
     const headerP = document.querySelector('header p');
-    if (headerH1) {
-        // Обновляем заголовки в зависимости от страницы
-        const path = window.location.pathname;
-        if (path.includes('index.html') || path === '/') {
-            headerH1.textContent = t.indexHeaderH1 || t.title.split(' — ')[0]; // Fallback
-        } else if (path.includes('bot.html')) {
-            headerH1.textContent = t.botHeaderH1 || headerH1.textContent;
-        } else if (path.includes('faq.html')) {
-            headerH1.textContent = t.faqHeaderH1 || headerH1.textContent;
-        } else if (path.includes('tos.html')) {
-            headerH1.textContent = t.tosHeaderH1 || headerH1.textContent;
-        } else if (path.includes('privacy.html')) {
-            headerH1.textContent = t.privacyHeaderH1 || headerH1.textContent;
-        }
-    }
-    if (headerP) {
-        const path = window.location.pathname;
-        if (path.includes('index.html') || path === '/') {
-            headerP.textContent = t.indexHeaderP || t.headerSubtitle; // Fallback
-        } else if (path.includes('bot.html')) {
-            headerP.textContent = t.botHeaderP || headerP.textContent;
-        } else if (path.includes('faq.html')) {
-            headerP.textContent = t.faqHeaderP || headerP.textContent;
-        } else if (path.includes('tos.html')) {
-            headerP.textContent = t.tosHeaderP || headerP.textContent;
-        } else if (path.includes('privacy.html')) {
-            headerP.textContent = t.privacyHeaderP || headerP.textContent;
+    
+    if (headerH1 && headerP) {
+        if (currentPage === 'index.html' || currentPage === '' || currentPage === '/') {
+            headerH1.textContent = t.indexHeaderH1 || t.title.split(' — ')[0];
+            headerP.textContent = t.indexHeaderP || t.headerSubtitle;
+        } else if (currentPage === 'bot.html') {
+            headerH1.textContent = t.botHeaderH1 || "🤖 Helper Bot";
+            headerP.textContent = t.botHeaderP || "Ask me any Minecraft question";
+        } else if (currentPage === 'faq.html') {
+            headerH1.textContent = t.faqHeaderH1 || "❓ Frequently Asked Questions";
+            headerP.textContent = t.faqHeaderP || "Here you'll find answers to the most popular questions";
+        } else if (currentPage === 'tos.html') {
+            headerH1.textContent = t.tosHeaderH1 || "📜 Terms of Service";
+            headerP.textContent = t.tosHeaderP || "Please read the rules carefully";
+        } else if (currentPage === 'privacy.html') {
+            headerH1.textContent = t.privacyHeaderH1 || "🔒 Privacy Policy";
+            headerP.textContent = t.privacyHeaderP || "Your data is yours. We don't touch it.";
         }
     }
 
     // --- Обновление футера ---
     const footerPs = document.querySelectorAll('footer p');
     if (footerPs.length >= 2) {
-        // Обновляем только текст с копирайтом и создателем
-        footerPs[1].innerHTML = t.footerText || footerPs[1].innerHTML; // Используем innerHTML для ссылки в FAQ
+        footerPs[1].innerHTML = t.footerText || footerPs[1].innerHTML;
     }
 
     // --- Обновление навигации в футере ---
@@ -443,128 +477,142 @@ function applyTranslations(lang) {
     const navKeys = ['navHome', 'navFAQ', 'navBot', 'navTOS', 'navPrivacy'];
     navLinks.forEach((link, index) => {
         if (t[navKeys[index]]) {
-            // Обновляем текст ссылки, но оставляем href
             link.textContent = t[navKeys[index]];
         }
     });
 
-    // --- Обновление карточек инструментов ---
+    // --- Обновление контента страниц ---
+    updatePageContent(currentPage, t);
+}
+
+// 🌐 Обновление контента конкретной страницы
+function updatePageContent(page, t) {
     const toolCards = document.querySelectorAll('.tool-card');
-    toolCards.forEach((card, index) => {
-        const h3 = card.querySelector('h3');
-        const p = card.querySelector('p');
-        const inputs = card.querySelectorAll('input');
-        const selects = card.querySelectorAll('select');
-        const button = card.querySelector('button');
-        const ul = card.querySelector('ul'); // Для примеров в bot.html
-
-        // Обновляем заголовки и описания инструментов
-        if (h3 && t[`tool${index + 1}_title`]) {
-            h3.textContent = t[`tool${index + 1}_title`];
-        }
-        if (p && t[`tool${index + 1}_desc`]) {
-            p.textContent = t[`tool${index + 1}_desc`];
-        }
-
-        // Обновляем кнопки инструментов
-        if (button && t[`tool${index + 1}_btn`]) {
-            button.textContent = t[`tool${index + 1}_btn`];
-        }
-
-        // Обновляем инпуты инструментов (если есть placeholder или label-like text)
-        inputs.forEach(input => {
-            if (input.placeholder && t[`tool${index + 1}_input${inputs.length > 1 ? Array.from(inputs).indexOf(input) + 1 : ''}`]) {
-                const inputKey = `tool${index + 1}_input${inputs.length > 1 ? Array.from(inputs).indexOf(input) + 1 : ''}`;
-                if (t[inputKey]) {
-                    input.placeholder = t[inputKey];
+    
+    switch(page) {
+        case 'index.html':
+        case '':
+        case '/':
+            // Обновление инструментов на главной странице
+            toolCards.forEach((card, index) => {
+                const toolIndex = index + 1;
+                if (toolIndex <= 8) { // Только первые 8 инструментов
+                    updateToolCard(card, toolIndex, t);
+                } else if (toolIndex === 9) {
+                    // Документация карточка
+                    const h3 = card.querySelector('h3');
+                    const p = card.querySelector('p');
+                    const a = card.querySelector('a');
+                    if (h3) h3.textContent = t.documentationTitle || "📚 Documentation";
+                    if (p) p.textContent = t.documentationDesc || "Detailed description of all tools and how to use them.";
+                    if (a) a.textContent = t.documentationBtn || "Go to Documentation";
                 }
-            }
-        });
+            });
+            break;
 
-        // Обновляем селекты инструментов (например, тип брони)
-        if (selects.length > 0) {
-            const select = selects[0]; // Предполагаем один select на карточку
-            const options = select.querySelectorAll('option');
-            if (options.length > 0) {
-                options[0].textContent = t['tool8_select1'] || options[0].textContent;
-                if (options.length > 1) options[1].textContent = t['tool8_select2'] || options[1].textContent;
-                if (options.length > 2) options[2].textContent = t['tool8_select3'] || options[2].textContent;
-                if (options.length > 3) options[3].textContent = t['tool8_select4'] || options[3].textContent;
-            }
-        }
-
-        // Обновляем специфичные элементы для bot.html
-        if (window.location.pathname.includes('bot.html')) {
-            if (index === 0) { // Первая карточка - форма вопроса
-                const input = card.querySelector('input[type="text"]');
-                const sendBtn = card.querySelector('button');
-                if (input && t.botInputPlaceholder) {
-                    input.placeholder = t.botInputPlaceholder;
-                }
-                if (sendBtn && t.botBtn) {
-                    sendBtn.textContent = t.botBtn;
-                }
-            }
-            if (index === 1) { // Вторая карточка - примеры вопросов
+        case 'faq.html':
+            // Обновление FAQ
+            toolCards.forEach((card, index) => {
                 const h3 = card.querySelector('h3');
-                if (h3 && t.botExampleTitle) {
-                    h3.textContent = t.botExampleTitle;
+                const p = card.querySelector('p');
+                if (h3 && t[`faqCard${index + 1}H3`]) {
+                    h3.textContent = t[`faqCard${index + 1}H3`];
                 }
-                const lis = card.querySelectorAll('li');
-                if (lis.length >= 4) {
-                    if (t.botExample1) lis[0].textContent = t.botExample1;
-                    if (t.botExample2) lis[1].textContent = t.botExample2;
-                    if (t.botExample3) lis[2].textContent = t.botExample3;
-                    if (t.botExample4) lis[3].textContent = t.botExample4;
+                if (p && t[`faqCard${index + 1}P`]) {
+                    p.innerHTML = t[`faqCard${index + 1}P`];
                 }
-            }
-        }
+            });
+            break;
 
-        // Обновляем специфичные элементы для faq.html
-        if (window.location.pathname.includes('faq.html')) {
-            const h3 = card.querySelector('h3');
-            const p = card.querySelector('p');
-            if (h3 && t[`faqCard${index + 1}H3`]) {
-                h3.textContent = t[`faqCard${index + 1}H3`];
-            }
-            if (p && t[`faqCard${index + 1}P`]) {
-                p.innerHTML = t[`faqCard${index + 1}P`]; // Используем innerHTML для ссылки
-            }
-        }
+        case 'tos.html':
+            // Обновление Terms of Service
+            toolCards.forEach((card, index) => {
+                const h3 = card.querySelector('h3');
+                const p = card.querySelector('p');
+                if (h3 && t[`tosCard${index + 1}H3`]) {
+                    h3.textContent = t[`tosCard${index + 1}H3`];
+                }
+                if (p && t[`tosCard${index + 1}P`]) {
+                    p.textContent = t[`tosCard${index + 1}P`];
+                }
+            });
+            break;
 
-        // Обновляем специфичные элементы для tos.html
-        if (window.location.pathname.includes('tos.html')) {
-            const h3 = card.querySelector('h3');
-            const p = card.querySelector('p');
-            if (h3 && t[`tosCard${index + 1}H3`]) {
-                h3.textContent = t[`tosCard${index + 1}H3`];
-            }
-            if (p && t[`tosCard${index + 1}P`]) {
-                p.textContent = t[`tosCard${index + 1}P`];
-            }
-        }
+        case 'privacy.html':
+            // Обновление Privacy Policy
+            toolCards.forEach((card, index) => {
+                const h3 = card.querySelector('h3');
+                const p = card.querySelector('p');
+                if (h3 && t[`privacyCard${index + 1}H3`]) {
+                    h3.textContent = t[`privacyCard${index + 1}H3`];
+                }
+                if (p && t[`privacyCard${index + 1}P`]) {
+                    p.textContent = t[`privacyCard${index + 1}P`];
+                }
+            });
+            break;
 
-        // Обновляем специфичные элементы для privacy.html
-        if (window.location.pathname.includes('privacy.html')) {
-            const h3 = card.querySelector('h3');
-            const p = card.querySelector('p');
-            if (h3 && t[`privacyCard${index + 1}H3`]) {
-                h3.textContent = t[`privacyCard${index + 1}H3`];
-            }
-            if (p && t[`privacyCard${index + 1}P`]) {
-                p.textContent = t[`privacyCard${index + 1}P`];
-            }
+        case 'bot.html':
+            // Обновление бота
+            toolCards.forEach((card, index) => {
+                if (index === 0) {
+                    // Форма вопроса
+                    const input = card.querySelector('input[type="text"]');
+                    const button = card.querySelector('button');
+                    const result = card.querySelector('.result');
+                    if (input) input.placeholder = t.botInputPlaceholder || "E.g.: How to build a Nether portal?";
+                    if (button) button.textContent = t.botBtn || "Send Question";
+                } else if (index === 1) {
+                    // Примеры вопросов
+                    const h3 = card.querySelector('h3');
+                    const lis = card.querySelectorAll('li');
+                    if (h3) h3.textContent = t.botExampleTitle || "💡 Example questions:";
+                    if (lis.length >= 4) {
+                        if (t.botExample1) lis[0].textContent = t.botExample1;
+                        if (t.botExample2) lis[1].textContent = t.botExample2;
+                        if (t.botExample3) lis[2].textContent = t.botExample3;
+                        if (t.botExample4) lis[3].textContent = t.botExample4;
+                    }
+                }
+            });
+            break;
+    }
+}
+
+// 🌐 Обновление карточки инструмента
+function updateToolCard(card, toolIndex, t) {
+    const h3 = card.querySelector('h3');
+    const p = card.querySelector('p');
+    const inputs = card.querySelectorAll('input');
+    const selects = card.querySelectorAll('select');
+    const button = card.querySelector('button');
+
+    if (h3 && t[`tool${toolIndex}_title`]) {
+        h3.textContent = t[`tool${toolIndex}_title`];
+    }
+    if (p && t[`tool${toolIndex}_desc`]) {
+        p.textContent = t[`tool${toolIndex}_desc`];
+    }
+    if (button && t[`tool${toolIndex}_btn`]) {
+        button.textContent = t[`tool${toolIndex}_btn`];
+    }
+
+    // Обновление инпутов
+    inputs.forEach((input, inputIndex) => {
+        const inputKey = `tool${toolIndex}_input${inputs.length > 1 ? inputIndex + 1 : ''}`;
+        if (input.placeholder && t[inputKey]) {
+            input.placeholder = t[inputKey];
         }
     });
 
-    // --- Обновление других элементов, если они есть ---
-    // Например, placeholder в других местах, текст в div'ах с результатами (после использования инструментов)
-    // Обычно результаты обновляются при вызове функций инструментов, но если нужно обновить статический текст:
-    // const resultDivs = document.querySelectorAll('.result');
-    // resultDivs.forEach(div => {
-    //     // Логика обновления статического текста в результатах, если есть
-    //     // Это редко нужно, так как результаты динамические
-    // });
+    // Обновление селектов (для инструмента 8)
+    if (toolIndex === 8 && selects.length > 0) {
+        const options = selects[0].querySelectorAll('option');
+        if (options.length > 0) options[0].textContent = t.tool8_select1 || options[0].textContent;
+        if (options.length > 1) options[1].textContent = t.tool8_select2 || options[1].textContent;
+        if (options.length > 2) options[2].textContent = t.tool8_select3 || options[2].textContent;
+        if (options.length > 3) options[3].textContent = t.tool8_select4 || options[3].textContent;
+    }
 }
 
 // 🌐 Инициализация
@@ -737,8 +785,7 @@ function calculateArmorDurability() {
     }
 }
 
-// 🔧 ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ АДМИН-ПАНЕЛИ (добавьте в конец script.js)
-// Делаем функции и данные доступными глобально
+// 🔧 ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ АДМИН-ПАНЕЛИ
 window.toolsData = [
     {
         id: 1,
@@ -761,11 +808,9 @@ window.toolsData = [
         },
         url: "#",
         icon: "🌍"
-    },
-    // ... остальные инструменты по аналогии
+    }
 ];
 window.renderTools = function(lang = 'ru') {
-    // Ваша функция отрисовки инструментов (если есть)
     console.log('Render tools function called');
 };
 window.currentLang = localStorage.getItem('language') || 'ru';
