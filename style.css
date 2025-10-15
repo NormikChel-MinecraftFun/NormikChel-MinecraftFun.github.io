@@ -171,3 +171,17 @@ footer {
     background-color: rgba(0, 123, 255, 0.1);
     color: #007bff;
 }
+
+/* Блок с иконками */
+.social-icons {
+  -webkit-user-select: none;  /* Chrome, Safari, Opera */
+  -moz-user-select: none;     /* Firefox */
+  -ms-user-select: none;      /* IE/Edge */
+  user-select: none;          /* Стандартный синтаксис */
+}
+
+/* Дополнительно для изображений внутри */
+.social-icons img {
+  pointer-events: none; /* Отключает события мыши (опционально) */
+  -webkit-user-drag: none; /* Блокирует перетаскивание в Safari */
+}
